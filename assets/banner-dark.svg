@@ -1,0 +1,87 @@
+<svg width="880" height="200" viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t">
+  <title id="t">Cole Munz — small, sharp tools</title>
+  <style>
+    :root { --fg:#e6edf3; --dim:#8b949e; --acc:#3fb950; --acc2:#58a6ff; }
+    text { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+    .mono { font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:20px; }
+    .name { font-size:46px; font-weight:700; fill:var(--fg); letter-spacing:-0.5px; }
+    .sub  { font-size:16px; fill:var(--dim); }
+    .prompt { fill:var(--acc); }
+    .typed  { fill:var(--fg); }
+
+    .slot { opacity:0; animation:gate 20s linear infinite; }
+    .type { clip-path:inset(-15% 100% -15% 0); animation-name:rev; animation-duration:20s; animation-iteration-count:infinite; }
+    .cw   { opacity:0; animation:cw 20s linear infinite; }
+    .blink { animation:blink 1.1s steps(1,end) infinite; }
+    .t24 { animation-timing-function:steps(24,end); }
+    .t20 { animation-timing-function:steps(20,end); }
+    .t25 { animation-timing-function:steps(25,end); }
+    .t29 { animation-timing-function:steps(29,end); }
+    .t19 { animation-timing-function:steps(19,end); }
+    .s0 { animation-delay:0s; }
+    .s1 { animation-delay:4s; }
+    .s2 { animation-delay:8s; }
+    .s3 { animation-delay:12s; }
+    .s4 { animation-delay:16s; }
+
+    .ring { transform-box:fill-box; transform-origin:center; animation:ping 4.2s cubic-bezier(0,0,.2,1) infinite; }
+    .r1 { animation-delay:-1.4s; }
+    .r2 { animation-delay:-2.8s; }
+
+    @keyframes gate { 0%{opacity:1} 19.4%{opacity:1} 19.8%{opacity:0} 100%{opacity:0} }
+    @keyframes rev  { 0%{clip-path:inset(-15% 100% -15% 0)} 8%{clip-path:inset(-15% 0% -15% 0)} 100%{clip-path:inset(-15% 0% -15% 0)} }
+    @keyframes cw   { 0%{opacity:0} 7.9%{opacity:0} 8%{opacity:1} 100%{opacity:1} }
+    @keyframes blink{ 0%{opacity:1} 55%{opacity:0} 100%{opacity:0} }
+    @keyframes ping { 0%{transform:scale(.35);opacity:.6} 80%{opacity:0} 100%{transform:scale(1);opacity:0} }
+
+    @media (prefers-reduced-motion:reduce) {
+      .slot,.type,.cw,.blink,.ring { animation:none; }
+      .slot { opacity:0; }
+      .slot.first { opacity:1; }
+      .slot.first .type { clip-path:inset(-15% 0% -15% 0); }
+      .slot.first .cw { opacity:1; }
+      .ring { opacity:.15; }
+    }
+  </style>
+
+  <text class="name" x="40" y="78">Cole Munz</text>
+  <rect x="42" y="90" width="205" height="4" rx="2" fill="url(#g)"/>
+  <text class="sub" x="40" y="120">@munzzyy · Flight Unreached</text>
+
+  <text class="mono prompt" x="40" y="152" textLength="240">~/flight-unreached $</text>
+
+  <g class="slot first s0">
+    <text class="mono typed type t24 s0" x="290" y="152" textLength="288">build small, sharp tools</text>
+    <g class="cw s0"><rect class="blink" x="583" y="134" width="11" height="23" fill="var(--acc)"/></g>
+  </g>
+  <g class="slot s1">
+    <text class="mono typed type t20 s1" x="290" y="152" textLength="240">decode the ISM bands</text>
+    <g class="cw s1"><rect class="blink" x="535" y="134" width="11" height="23" fill="var(--acc)"/></g>
+  </g>
+  <g class="slot s2">
+    <text class="mono typed type t25 s2" x="290" y="152" textLength="300">fly cheap, train the rest</text>
+    <g class="cw s2"><rect class="blink" x="595" y="134" width="11" height="23" fill="var(--acc)"/></g>
+  </g>
+  <g class="slot s3">
+    <text class="mono typed type t29 s3" x="290" y="152" textLength="348">flag the slop before it ships</text>
+    <g class="cw s3"><rect class="blink" x="643" y="134" width="11" height="23" fill="var(--acc)"/></g>
+  </g>
+  <g class="slot s4">
+    <text class="mono typed type t19 s4" x="290" y="152" textLength="228">do the barbell math</text>
+    <g class="cw s4"><rect class="blink" x="523" y="134" width="11" height="23" fill="var(--acc)"/></g>
+  </g>
+
+  <g>
+    <circle cx="792" cy="64" r="4" fill="var(--acc2)"/>
+    <circle class="ring"    cx="792" cy="64" r="34" fill="none" stroke="var(--acc2)" stroke-width="1.5"/>
+    <circle class="ring r1" cx="792" cy="64" r="34" fill="none" stroke="var(--acc2)" stroke-width="1.5"/>
+    <circle class="ring r2" cx="792" cy="64" r="34" fill="none" stroke="var(--acc2)" stroke-width="1.5"/>
+  </g>
+
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fb950"/>
+      <stop offset="1" stop-color="#58a6ff"/>
+    </linearGradient>
+  </defs>
+</svg>
