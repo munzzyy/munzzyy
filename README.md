@@ -10,7 +10,7 @@ I build small, sharp tools under **Flight Unreached** and contribute to open sou
 | Project | What it does |
 |---------|--------------|
 | [unslop](https://github.com/munzzyy/unslop) | Flags the AI tells in your writing before you send it. One Python file, no dependencies. Ships a pre-commit hook, a GitHub Action, and reviewdog output. |
-| [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train beats flying direct. Click-the-map planner, 4,175-airport database, CO2e comparison. |
+| [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train beats flying direct. Click-the-map planner, 4,175-airport database, CO2e comparison, UI in 46 languages. |
 | [liftmath](https://github.com/munzzyy/liftmath) | Strength-training math with sources: six-formula 1RM consensus, volume landmarks, load charts, plate math. |
 
 All three are MIT, pure standard-library Python, and open to contributors — each has good-first-issues waiting.
