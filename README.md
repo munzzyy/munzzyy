@@ -1,4 +1,7 @@
-# Cole Munz
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <img alt="Cole Munz — small, sharp tools" src="assets/banner-light.svg" width="100%">
+</picture>
 
 I build small, sharp tools under **Flight Unreached** and contribute to open source where correctness matters: security, RF/SDR, accessibility, health tech.
 
@@ -12,8 +15,13 @@ I build small, sharp tools under **Flight Unreached** and contribute to open sou
 
 All three are MIT, pure standard-library Python, and open to contributors — each has good-first-issues waiting.
 
-## Around open source
+## Upstream
 
-Recent fixes merged or in review at Symfony, NVDA, YARA, rtl_433, proxmark3, HackRF, OpenEMR, OSARA, Orbot, OONI, and others. Mostly correctness, security, and accessibility work: byte-order corruption in RFID dump files, an OAuth open-redirect in a medical records system, screen-reader translatability, a flipped GPS hemisphere in a photo-evidence app.
+Merged so far: two fixes in rtl_433, screen-reader strings in OSARA, a Finnish validator message in Symfony. Around thirty more PRs open across NVDA, YARA, HackRF, OpenEMR, Orbot, OONI, Splunk, Elastic, MDN, and friends. Mostly correctness, security, and accessibility work: byte-order corruption in RFID dump files, an OAuth open-redirect in a medical records system, a flipped GPS hemisphere in a photo-evidence app.
 
-GitLab mirrors: [gitlab.com/flight-unreached](https://gitlab.com/flight-unreached)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/route-dark.svg">
+  <img alt="" src="assets/route-light.svg" width="100%">
+</picture>
+
+<p align="center"><sub><a href="https://gitlab.com/flight-unreached">GitLab mirrors</a> · Munzzyy5@proton.me</sub></p>
