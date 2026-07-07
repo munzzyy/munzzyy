@@ -3,18 +3,20 @@
   <img alt="Cole Munz — small, sharp tools" src="assets/banner-light.svg" width="100%">
 </picture>
 
-I build small, sharp tools under **Flight Unreached** and contribute to open source where correctness matters: security, RF/SDR, accessibility, health tech.
+I'm Cole. I build small, sharp tools under **Flight Unreached** and contribute to open source where correctness matters — security, RF/SDR, accessibility, health tech.
+
+Everything below is free for noncommercial use and runs with zero dependencies. Most have a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
 
 ## Tools
 
 | Project | What it does |
 |---------|--------------|
-| [unslop](https://github.com/munzzyy/unslop) | Catches the AI tells in your writing — buzzwords, filler, contrast-frame clichés, flat rhythm — scores them, and points you at what to fix. Four ways to run it: a [browser app](https://munzzyy.github.io/unslop/), a CLI, a CI gate (pre-commit, GitHub Action, reviewdog), and an agent skill that installs into Claude Code, Codex, or Cursor so your coding agent cleans up its own prose before it hands you a PR. Deterministic and dependency-free; nothing you paste leaves your machine. |
-| [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train beats flying direct. Click-the-map planner, 4,175-airport database, CO2e comparison, UI in 46 languages. |
-| [liftmath](https://github.com/munzzyy/liftmath) | Strength-training math done properly instead of eyeballed: a six-formula consensus 1RM (barbell or weighted pull-up/dip), %1RM/RIR load charts, volume landmarks, plate loading against the plates you actually own, 5/3/1 / GZCLP / nSuns program templates, and Wilks/DOTS/IPF GL scores. A CLI and a [web app](https://munzzyy.github.io/liftmath/) that reads in 32 languages. Every number traces back to a named source, not a black box. |
-| [translint](https://github.com/munzzyy/translint) | A linter for your translation files. Catches the i18n bugs that ship silently: keys a locale is missing, placeholder mismatches that crash formatting (`{name}` vs `{{name}}` vs `%s`), and empty or untranslated values — across JSON, gettext `.po`, and `.properties`. One stdlib Python file that runs as a CLI, a pre-commit hook, a GitHub Action, or an agent skill your editor's AI can install. |
+| [unslop](https://github.com/munzzyy/unslop) | Catches the AI tells in your writing — buzzwords, filler, flat rhythm — and points you at what to fix before you hit send. Runs in your [browser](https://munzzyy.github.io/unslop/), your terminal, CI, or as an agent skill. |
+| [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner, 4,175 airports, UI in 46 languages. |
+| [liftmath](https://github.com/munzzyy/liftmath) | Strength-training math with receipts — consensus 1RM, load charts, volume landmarks, macros, plate loading, program templates. A [web app](https://munzzyy.github.io/liftmath/) plus a CLI, 32 languages. |
+| [translint](https://github.com/munzzyy/translint) | A linter for your translation files — catches missing keys, placeholder mismatches, and untranslated values before they ship. CLI, CI gate, pre-commit, or agent skill. |
 
-All four are free for noncommercial use, pure standard-library Python with no dependencies, and open to contributors, with good-first-issues waiting.
+All four are open to contributors — each has issues tagged **good first issue** if you want a place to start.
 
 ## Upstream
 
