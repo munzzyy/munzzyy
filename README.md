@@ -11,8 +11,9 @@ I build small, sharp tools under **Flight Unreached** and contribute to open sou
 |---------|--------------|
 | [unslop](https://github.com/munzzyy/unslop) | Catches the AI tells in your writing — buzzwords, filler, contrast-frame clichés, flat rhythm — scores them, and points you at what to fix. Four ways to run it: a [browser app](https://munzzyy.github.io/unslop/), a CLI, a CI gate (pre-commit, GitHub Action, reviewdog), and an agent skill that installs into Claude Code, Codex, or Cursor so your coding agent cleans up its own prose before it hands you a PR. Deterministic and dependency-free; nothing you paste leaves your machine. |
 | [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train beats flying direct. Click-the-map planner, 4,175-airport database, CO2e comparison, UI in 46 languages. |
+| [liftmath](https://github.com/munzzyy/liftmath) | Strength-training math done properly instead of eyeballed: a six-formula consensus 1RM (barbell or weighted pull-up/dip), %1RM/RIR load charts, volume landmarks, plate loading against the plates you actually own, 5/3/1 / GZCLP / nSuns program templates, and Wilks/DOTS/IPF GL scores. A CLI and a [web app](https://munzzyy.github.io/liftmath/) that reads in 32 languages. Every number traces back to a named source, not a black box. |
 
-Both are free for noncommercial use, pure standard-library Python with a static web app and no build step, and open to contributors, with good-first-issues waiting.
+All three are free for noncommercial use, pure standard-library Python with a static web app and no build step, and open to contributors, with good-first-issues waiting.
 
 ## Upstream
 
