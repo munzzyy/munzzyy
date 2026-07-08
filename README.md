@@ -55,8 +55,6 @@ Fifteen merged now, with another forty-odd open across roughly thirty more repos
 - [PentHertz/urh-ng #3](https://github.com/PentHertz/urh-ng/pull/3): wrong int8 magnitude/demod on ARM (signed `char`)
 
 **Accessibility**
-- [nvaccess/nvda #20456](https://github.com/nvaccess/nvda/pull/20456): guard `getChildren` against a COMError in the UIA quicknav iterator
-- [nvaccess/nvda #20452](https://github.com/nvaccess/nvda/pull/20452): handle a ValueError in the UIA quicknav iterator (previous branch)
 - [nvaccess/nvda #20444](https://github.com/nvaccess/nvda/pull/20444): clearer error for bare drive letters in Create Portable
 - [patternfly/patternfly #8481](https://github.com/patternfly/patternfly/pull/8481): document listbox/option/aria-selected for select menus
 
