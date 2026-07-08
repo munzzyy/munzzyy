@@ -11,10 +11,10 @@ Everything below is free for noncommercial use and runs with zero dependencies. 
 
 | Project | What it does |
 |---------|--------------|
-| [unslop](https://github.com/munzzyy/unslop) | Catches the AI tells in your writing — buzzwords, filler, flat rhythm — and points you at what to fix before you hit send. Runs in your [browser](https://munzzyy.github.io/unslop/), your terminal, CI, or as an agent skill. |
+| [unslop](https://github.com/munzzyy/unslop) | Catches the AI tells in your writing — buzzwords, filler, flat rhythm — and points you at what to fix before you hit send. Reads sixteen languages, each with its own researched tell lists. Runs in your [browser](https://munzzyy.github.io/unslop/) (UI in 32 languages), your terminal, CI, or as an agent skill. |
 | [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner, 4,175 airports, UI in 46 languages. |
 | [liftmath](https://github.com/munzzyy/liftmath) | Strength-training math with receipts — consensus 1RM, load charts, volume landmarks, macros, plate loading, program templates. A [web app](https://munzzyy.github.io/liftmath/) plus a CLI, 32 languages. |
-| [translint](https://github.com/munzzyy/translint) | A linter for your translation files — catches missing keys, placeholder mismatches, and untranslated values before they ship. CLI, CI gate, pre-commit, or agent skill. |
+| [translint](https://github.com/munzzyy/translint) | A linter for your translation files — catches missing keys, placeholder mismatches, and untranslated values before they ship. CLI, CI gate, pre-commit, or agent skill. Its [site](https://munzzyy.github.io/translint/) practices what it lints: 32 languages, RTL included. |
 
 All four are open to contributors — each has issues tagged **good first issue** if you want a place to start.
 
