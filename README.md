@@ -20,7 +20,7 @@ All four are open to contributors — each has issues tagged **good first issue*
 
 ## Upstream
 
-Thirteen merged now, with another forty-odd open across roughly thirty more repos: correctness, security, accessibility, and translation. A few that were fun to track down: byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
+Fifteen merged now, with another forty-odd open across roughly thirty more repos: correctness, security, accessibility, and translation. A few that were fun to track down: byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
 
 ### Merged
 
@@ -39,6 +39,8 @@ Thirteen merged now, with another forty-odd open across roughly thirty more repo
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1748) | Request `ACCESS_LOCAL_NETWORK` before opening the proxy on all interfaces |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64796) | Fix the Finnish BIC/IBAN mismatch translation |
 | [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7261) | Improve the French localization |
+| [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7260) | Improve the Dutch localization |
+| [openfoodfacts/robotoff](https://github.com/openfoodfacts/robotoff/pull/1909) | Replace obsolete facet URLs with the `/facets/` prefix |
 
 <details>
 <summary><b>Open / in review</b> — 40+ PRs across ~30 more repos</summary>
@@ -53,6 +55,8 @@ Thirteen merged now, with another forty-odd open across roughly thirty more repo
 - [PentHertz/urh-ng #3](https://github.com/PentHertz/urh-ng/pull/3): wrong int8 magnitude/demod on ARM (signed `char`)
 
 **Accessibility**
+- [nvaccess/nvda #20456](https://github.com/nvaccess/nvda/pull/20456): guard `getChildren` against a COMError in the UIA quicknav iterator
+- [nvaccess/nvda #20452](https://github.com/nvaccess/nvda/pull/20452): handle a ValueError in the UIA quicknav iterator (previous branch)
 - [nvaccess/nvda #20444](https://github.com/nvaccess/nvda/pull/20444): clearer error for bare drive letters in Create Portable
 - [patternfly/patternfly #8481](https://github.com/patternfly/patternfly/pull/8481): document listbox/option/aria-selected for select menus
 
@@ -72,7 +76,6 @@ Thirteen merged now, with another forty-odd open across roughly thirty more repo
 - [symfony/symfony #64815](https://github.com/symfony/symfony/pull/64815): drop an always-true `method_exists` check
 
 **Health / food**
-- [openfoodfacts/robotoff #1909](https://github.com/openfoodfacts/robotoff/pull/1909): fix obsolete facet URLs
 - [openfoodfacts/open-prices #1376](https://github.com/openfoodfacts/open-prices/pull/1376): remove an unreachable branch in the barcode fixups
 - [davidhealey/waistline #961](https://github.com/davidhealey/waistline/pull/961): guard `Meals.init` against overlapping calls
 - [davidhealey/waistline #960](https://github.com/davidhealey/waistline/pull/960): distinguish rate-limit/network errors from bad USDA keys
@@ -80,7 +83,6 @@ Thirteen merged now, with another forty-odd open across roughly thirty more repo
 
 **Localization** (Symfony validator placeholder fixes plus a wider i18n wave)
 - [symfony/symfony](https://github.com/symfony/symfony/pull/64811): placeholder fixes across [Armenian](https://github.com/symfony/symfony/pull/64811), [Arabic](https://github.com/symfony/symfony/pull/64810), [Basque](https://github.com/symfony/symfony/pull/64809), [Turkish](https://github.com/symfony/symfony/pull/64808), [Galician](https://github.com/symfony/symfony/pull/64807), [Azerbaijani](https://github.com/symfony/symfony/pull/64806), [Traditional Chinese](https://github.com/symfony/symfony/pull/64805), [Finnish](https://github.com/symfony/symfony/pull/64804), and [Welsh](https://github.com/symfony/symfony/pull/64803)
-- [ghostfolio/ghostfolio #7260](https://github.com/ghostfolio/ghostfolio/pull/7260): Dutch localization
 - [mdn/translated-content #36835](https://github.com/mdn/translated-content/pull/36835): correct the Japanese `Reflect.deleteProperty()` docs
 - [TheIllusiveC4/Curios #622](https://github.com/TheIllusiveC4/Curios/pull/622) and [#621](https://github.com/TheIllusiveC4/Curios/pull/621): Turkish placeholder and locale-casing bugs
 - [chubin/wttr.in #1279](https://github.com/chubin/wttr.in/pull/1279) and [#1278](https://github.com/chubin/wttr.in/pull/1278): RTL mark and corrupted Persian/Hebrew/Arabic captions
