@@ -20,7 +20,7 @@ All four are open to contributors — each has issues tagged **good first issue*
 
 ## Upstream
 
-Twenty merged now, with another thirty-odd open across two dozen more repos: correctness, security, accessibility, and translation. A few that were fun to track down: byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
+Thirty merged now, with another twenty-odd open across sixteen more repos: correctness, security, accessibility, and translation. A few that were fun to track down: byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
 
 ### Merged
 
@@ -37,27 +37,26 @@ Twenty merged now, with another thirty-odd open across two dozen more repos: cor
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3409) | Fix byte-swapped, corrupted EM 4x05 dump files |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3572) | Restore a missing `bitbuffer_clear` in `pulse_slicer_dmc` |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3574) | Fix swapped order/inversion nibbles in the secplus_v2 docs |
+| [PentHertz/urh-ng](https://github.com/PentHertz/urh-ng/pull/3) | Fix wrong int8 magnitude/demodulation on ARM (signed `char`) |
 | [jcsteh/osara](https://github.com/jcsteh/osara/pull/1416) | Make paste/duplicate screen-reader messages translatable |
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1748) | Request `ACCESS_LOCAL_NETWORK` before opening the proxy on all interfaces |
 | [ooni/probe-cli](https://github.com/ooni/probe-cli/pull/1786) | Remove a stray debug print in the feature-flag cache |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64796) | Fix the Finnish BIC/IBAN mismatch translation |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64815) | Drop an always-true `method_exists` check |
+| [symfony/symfony](https://github.com/symfony/symfony/pull/64811) | Fix broken placeholder translations across [Armenian](https://github.com/symfony/symfony/pull/64811), [Arabic](https://github.com/symfony/symfony/pull/64810), [Basque](https://github.com/symfony/symfony/pull/64809), [Turkish](https://github.com/symfony/symfony/pull/64808), [Galician](https://github.com/symfony/symfony/pull/64807), [Azerbaijani](https://github.com/symfony/symfony/pull/64806), [Traditional Chinese](https://github.com/symfony/symfony/pull/64805), [Finnish](https://github.com/symfony/symfony/pull/64804), and [Welsh](https://github.com/symfony/symfony/pull/64803) |
 | [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7261) | Improve the French localization |
 | [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7260) | Improve the Dutch localization |
 | [mdn/translated-content](https://github.com/mdn/translated-content/pull/36835) | Correct the Japanese `Reflect.deleteProperty()` docs |
 | [openfoodfacts/robotoff](https://github.com/openfoodfacts/robotoff/pull/1909) | Replace obsolete facet URLs with the `/facets/` prefix |
 
 <details>
-<summary><b>Open / in review</b> — 30+ PRs across ~25 more repos</summary>
+<summary><b>Open / in review</b> — 20+ PRs across ~15 more repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
 - [splunk/security_content #4147](https://github.com/splunk/security_content/pull/4147): computer-account filter in the service-ticket detection
 - [openemr/openemr #12768](https://github.com/openemr/openemr/pull/12768): validate `post_logout_redirect_uri` before redirecting (open-redirect)
 - [chimera-nas/libevpl #114](https://github.com/chimera-nas/libevpl/pull/114): fixed-size HTTP header buffer overflow on emit
-
-**RF / SDR**
-- [PentHertz/urh-ng #3](https://github.com/PentHertz/urh-ng/pull/3): wrong int8 magnitude/demod on ARM (signed `char`)
 
 **Accessibility**
 - [patternfly/patternfly #8481](https://github.com/patternfly/patternfly/pull/8481): document listbox/option/aria-selected for select menus
@@ -79,8 +78,7 @@ Twenty merged now, with another thirty-odd open across two dozen more repos: cor
 - [davidhealey/waistline #960](https://github.com/davidhealey/waistline/pull/960): distinguish rate-limit/network errors from bad USDA keys
 - [simonoppowa/OpenNutriTracker #513](https://github.com/simonoppowa/OpenNutriTracker/pull/513): catch silent 0-byte exports
 
-**Localization** (Symfony validator placeholder fixes plus a wider i18n wave)
-- [symfony/symfony](https://github.com/symfony/symfony/pull/64811): placeholder fixes across [Armenian](https://github.com/symfony/symfony/pull/64811), [Arabic](https://github.com/symfony/symfony/pull/64810), [Basque](https://github.com/symfony/symfony/pull/64809), [Turkish](https://github.com/symfony/symfony/pull/64808), [Galician](https://github.com/symfony/symfony/pull/64807), [Azerbaijani](https://github.com/symfony/symfony/pull/64806), [Traditional Chinese](https://github.com/symfony/symfony/pull/64805), [Finnish](https://github.com/symfony/symfony/pull/64804), and [Welsh](https://github.com/symfony/symfony/pull/64803)
+**Localization**
 - [TheIllusiveC4/Curios #622](https://github.com/TheIllusiveC4/Curios/pull/622) and [#621](https://github.com/TheIllusiveC4/Curios/pull/621): Turkish placeholder and locale-casing bugs
 - [chubin/wttr.in #1279](https://github.com/chubin/wttr.in/pull/1279) and [#1278](https://github.com/chubin/wttr.in/pull/1278): RTL mark and corrupted Persian/Hebrew/Arabic captions
 - [tolgee/tolgee-platform #3789](https://github.com/tolgee/tolgee-platform/pull/3789): keep the zero plural form in Apple XLIFF export
