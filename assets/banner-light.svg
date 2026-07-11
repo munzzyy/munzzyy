@@ -1,5 +1,5 @@
 <svg width="880" height="200" viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t">
-  <title id="t">Cole Munz — small, sharp tools</title>
+  <title id="t">Cole Munz</title>
   <style>
     :root { --fg:#1f2328; --dim:#59636e; --acc:#1a7f37; --acc2:#0969da; }
     text { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
@@ -46,12 +46,12 @@
 
   <text class="name" x="40" y="78">Cole Munz</text>
   <rect x="42" y="90" width="205" height="4" rx="2" fill="url(#g)"/>
-  <text class="sub" x="40" y="120">@munzzyy · Flight Unreached</text>
+  <text class="sub" x="40" y="120">@munzzyy</text>
 
-  <text class="mono prompt" x="40" y="152" textLength="240">~/flight-unreached $</text>
+  <text class="mono prompt" x="40" y="152" textLength="240">~/munzzyy/projects $</text>
 
   <g class="slot first s0">
-    <text class="mono typed type t24 s0" x="290" y="152" textLength="288">build small, sharp tools</text>
+    <text class="mono typed type t24 s0" x="290" y="152" textLength="288">build open-source tools</text>
     <g class="cw s0"><rect class="blink" x="583" y="134" width="11" height="23" fill="var(--acc)"/></g>
   </g>
   <g class="slot s1">
