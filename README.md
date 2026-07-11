@@ -1,9 +1,9 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img alt="Cole Munz — small, sharp tools" src="assets/banner-light.svg" width="100%">
+  <img alt="Cole Munz" src="assets/banner-light.svg" width="100%">
 </picture>
 
-I'm Cole. I build small, sharp tools under **Flight Unreached** and contribute to open source where correctness matters — security, RF/SDR, accessibility, health tech.
+I'm Cole. I build open-source tools and contribute upstream where correctness matters — security, RF/SDR, accessibility, health tech.
 
 Everything below is free for noncommercial use and runs with zero dependencies. Each has a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
 
@@ -92,4 +92,4 @@ Thirty merged now, with another twenty-odd open across sixteen more repos: corre
   <img alt="" src="assets/route-light.svg" width="100%">
 </picture>
 
-<p align="center"><sub><a href="https://gitlab.com/flight-unreached">GitLab mirrors</a> · Munzzyy5@proton.me</sub></p>
+<p align="center"><sub>Munzzyy5@proton.me</sub></p>
