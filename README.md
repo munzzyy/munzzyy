@@ -5,7 +5,7 @@
 
 I'm Cole. I build open-source tools and contribute upstream where correctness matters — security, RF/SDR, accessibility, health tech.
 
-Everything below is free for noncommercial use and runs with zero dependencies. Each has a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
+Everything below is free for noncommercial use and runs with zero dependencies. Most come with a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
 
 ## Tools
 
@@ -15,8 +15,11 @@ Everything below is free for noncommercial use and runs with zero dependencies. 
 | [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner that runs in your [browser](https://munzzyy.github.io/hopandhaul/) with no install, 4,175 airports, UI in 46 languages. |
 | [liftmath](https://github.com/munzzyy/liftmath) | Strength-training math with receipts — consensus 1RM, load charts, volume landmarks, macros, plate loading, program templates. A [web app](https://munzzyy.github.io/liftmath/) plus a CLI, 32 languages. |
 | [translint](https://github.com/munzzyy/translint) | A linter for your translation files — catches missing keys, placeholder mismatches, and untranslated values before they ship. CLI, CI gate, pre-commit, or agent skill. Its [site](https://munzzyy.github.io/translint/) practices what it lints: 32 languages, RTL included. |
+| [skillxray](https://github.com/munzzyy/skillxray) | Reads an AI agent skill before you install it and flags what's hiding — prompt injection, invisible Unicode, curl-pipe-sh and reverse shells, credential theft, leaked keys — then grades it A–F. SARIF for the GitHub Security tab, exit codes for CI. Python, zero dependencies. |
+| [actbreak](https://github.com/munzzyy/actbreak) | A breakpoint debugger for GitHub Actions. Wraps `act` to pause a workflow mid-step, drop you into a live shell inside the job container, and resume when you're done. Python, zero dependencies. |
+| [webmcp-devtools](https://github.com/munzzyy/webmcp-devtools) | A Chrome DevTools panel that inspects and security-lints the WebMCP tools a web page hands to AI agents — a live tool table, a call-history timeline, and per-tool tool-poisoning checks. Plain JavaScript, no build step. |
 
-All four are open to contributors — each has issues tagged **good first issue** if you want a place to start.
+They're all open to contributors, several with issues tagged **good first issue** if you want a place to start.
 
 ## Upstream
 
