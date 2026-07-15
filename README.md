@@ -31,7 +31,7 @@ They're all open to contributors, several with issues tagged **good first issue*
 
 ## Upstream
 
-Thirty-seven landed upstream now, with another thirty-odd open across sixteen more repos: correctness, security, RF/SDR, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
+Forty-six have landed upstream, with another thirty open across dozens more repos: correctness, security, RF/SDR, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
 
 ### Merged
 
@@ -63,12 +63,14 @@ Thirty-seven landed upstream now, with another thirty-odd open across sixteen mo
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64811) | Fix broken placeholder translations across [Armenian](https://github.com/symfony/symfony/pull/64811), [Arabic](https://github.com/symfony/symfony/pull/64810), [Basque](https://github.com/symfony/symfony/pull/64809), [Turkish](https://github.com/symfony/symfony/pull/64808), [Galician](https://github.com/symfony/symfony/pull/64807), [Azerbaijani](https://github.com/symfony/symfony/pull/64806), [Traditional Chinese](https://github.com/symfony/symfony/pull/64805), [Finnish](https://github.com/symfony/symfony/pull/64804), and [Welsh](https://github.com/symfony/symfony/pull/64803) |
 | [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7261) | Improve the French localization |
 | [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7260) | Improve the Dutch localization |
+| [osquery/osquery](https://github.com/osquery/osquery/pull/8990) | Fix a one-past-end iterator deref in `vscode_extensions` |
+| [monero-project/monero-gui](https://github.com/monero-project/monero-gui/pull/4652) | Fix a stale subaddress selection on the Receive page after switching accounts |
 | [mdn/translated-content](https://github.com/mdn/translated-content/pull/36835) | Correct the Japanese `Reflect.deleteProperty()` docs |
 | [openfoodfacts/open-prices](https://github.com/openfoodfacts/open-prices/pull/1376) | Remove an unreachable branch in the barcode short-code fixups |
 | [openfoodfacts/robotoff](https://github.com/openfoodfacts/robotoff/pull/1909) | Replace obsolete facet URLs with the `/facets/` prefix |
 
 <details>
-<summary><b>Open / in review</b> — 30+ PRs across ~16 more repos</summary>
+<summary><b>Open / in review</b> — 30 PRs across 22 more repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -76,13 +78,16 @@ Thirty-seven landed upstream now, with another thirty-odd open across sixteen mo
 - [openemr/openemr #12768](https://github.com/openemr/openemr/pull/12768): validate `post_logout_redirect_uri` before redirecting (open-redirect)
 - [chimera-nas/libevpl #114](https://github.com/chimera-nas/libevpl/pull/114): fixed-size HTTP header buffer overflow on emit
 - [VirusTotal/yara #2224](https://github.com/VirusTotal/yara/pull/2224): bound the tilde-stream row count in `dotnet_parse_tilde_2`
-- [VirusTotal/yara #2223](https://github.com/VirusTotal/yara/pull/2223): document the `YR_RE_SCAN_LIMIT` regex scan limit
 - [YARAHQ/yara-forge #89](https://github.com/YARAHQ/yara-forge/pull/89): match author/reference/description meta keys case-insensitively
 - [semgrep/semgrep-rules #3999](https://github.com/semgrep/semgrep-rules/pull/3999): stop flagging Renovate `packageRules` already covered by `minimumReleaseAge`
 - [semgrep/semgrep-rules #3998](https://github.com/semgrep/semgrep-rules/pull/3998): remove the obsolete `no-replaceall` rule
-- [osquery/osquery #8990](https://github.com/osquery/osquery/pull/8990): fix a one-past-end iterator deref in `vscode_extensions`
 - [osquery/osquery #8989](https://github.com/osquery/osquery/pull/8989): fix the wrong `key_strength` for Windows certificates
-- [osquery/osquery #8991](https://github.com/osquery/osquery/pull/8991): add Edge and Flatpak paths to `chrome_extensions` on Linux
+- [ffuf/ffuf #905](https://github.com/ffuf/ffuf/pull/905): stop terminal control characters leaking into redirected output
+- [evilsocket/opensnitch #1634](https://github.com/evilsocket/opensnitch/pull/1634): fix a duplicated `a-z` class in auto-generated rule names
+
+**OSINT**
+- [mxrch/GHunt #601](https://github.com/mxrch/GHunt/pull/601): read `isDefault` from the API for profile photos instead of hashing the image
+- [mxrch/GHunt #602](https://github.com/mxrch/GHunt/pull/602): key profile photos by their own container, not the outer loop's
 
 **RF / SDR**
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
@@ -104,16 +109,12 @@ Thirty-seven landed upstream now, with another thirty-odd open across sixteen mo
 **Health / food**
 - [davidhealey/waistline #961](https://github.com/davidhealey/waistline/pull/961): guard `Meals.init` against overlapping calls
 - [davidhealey/waistline #960](https://github.com/davidhealey/waistline/pull/960): distinguish rate-limit/network errors from bad USDA keys
-- [simonoppowa/OpenNutriTracker #513](https://github.com/simonoppowa/OpenNutriTracker/pull/513): catch silent 0-byte exports
 
 **Localization**
 - [TheIllusiveC4/Curios #622](https://github.com/TheIllusiveC4/Curios/pull/622) and [#621](https://github.com/TheIllusiveC4/Curios/pull/621): Turkish placeholder and locale-casing bugs
 - [chubin/wttr.in #1279](https://github.com/chubin/wttr.in/pull/1279) and [#1278](https://github.com/chubin/wttr.in/pull/1278): RTL mark and corrupted Persian/Hebrew/Arabic captions
-- [ghostfolio/ghostfolio #7297](https://github.com/ghostfolio/ghostfolio/pull/7297): fix corrupted state attributes in the ca and tr locales
-- [ghostfolio/ghostfolio #7296](https://github.com/ghostfolio/ghostfolio/pull/7296): improve the Dutch localization
 - [tolgee/tolgee-platform #3789](https://github.com/tolgee/tolgee-platform/pull/3789): keep the zero plural form in Apple XLIFF export
 - [jsverse/transloco #940](https://github.com/jsverse/transloco/pull/940): respect currency in `numberFormatOptions`
-- [simonoppowa/OpenNutriTracker #515](https://github.com/simonoppowa/OpenNutriTracker/pull/515) and [#514](https://github.com/simonoppowa/OpenNutriTracker/pull/514): Slovak and English i18n keys
 
 </details>
 
