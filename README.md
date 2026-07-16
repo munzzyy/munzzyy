@@ -3,9 +3,11 @@
   <img alt="Cole Munz" src="assets/banner-light.svg" width="100%">
 </picture>
 
+[![Sponsor](https://img.shields.io/badge/GitHub%20Sponsors-support%20this%20work-db61a2?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/munzzyy)
+
 I'm Cole. I build open-source tools and contribute upstream where correctness matters — security, RF/SDR, accessibility, health tech.
 
-Most of these are MIT; the three big apps are free for noncommercial use. Everything runs with zero dependencies, and most come with a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
+Most of these are MIT; the three big apps are free for noncommercial use. Almost everything runs with zero dependencies, and most come with a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
 
 ## Tools
 
@@ -27,7 +29,7 @@ Most of these are MIT; the three big apps are free for noncommercial use. Everyt
 | [ci-safety-gate](https://github.com/munzzyy/ci-safety-gate) | One GitHub Action that runs the checks an AI-era repo wants — noslop for slop, zizmor for workflow security, skillxray for agent skills, and a secrets scan — as a single pass-or-fail gate with one combined report. |
 | [coacheck](https://github.com/munzzyy/coacheck) | Reads a research-peptide Certificate of Analysis and does the math — real deliverable purity from the labeled amount, a red-flag checklist for thin or faked COAs, and reconstitution down to syringe units. A calculator, not advice. Python, zero dependencies. |
 
-They're all open to contributors, several with issues tagged **good first issue** if you want a place to start.
+They're all open to contributors, several with issues tagged **good first issue** if you want a place to start. Stars genuinely help other people find them.
 
 ## Upstream
 
@@ -51,6 +53,12 @@ Forty-six have landed upstream, with another thirty-odd open across dozens more 
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3597) | Fix a `uint8_t` offset wraparound in the m-bus payload parser |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3572) | Restore a missing `bitbuffer_clear` in `pulse_slicer_dmc` |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3574) | Fix swapped order/inversion nibbles in the secplus_v2 docs |
+
+<details>
+<summary><b>The rest of the merged list</b> — RF/SDR, privacy, accessibility, localization, health</summary>
+
+| Repo | Change |
+|------|--------|
 | [f4exb/sdrangel](https://github.com/f4exb/sdrangel/pull/2795) | Bump bundled faad2 to 2.10.1 to fix a heap overflow |
 | [f4exb/sdrangel](https://github.com/f4exb/sdrangel/pull/2797) | Fix a crash adding a LocalSink channel with no Local Input device |
 | [UberGuidoZ/Flipper](https://github.com/UberGuidoZ/Flipper/pull/684) | Fix dead links in the Sub-GHz docs |
@@ -68,6 +76,8 @@ Forty-six have landed upstream, with another thirty-odd open across dozens more 
 | [mdn/translated-content](https://github.com/mdn/translated-content/pull/36835) | Correct the Japanese `Reflect.deleteProperty()` docs |
 | [openfoodfacts/open-prices](https://github.com/openfoodfacts/open-prices/pull/1376) | Remove an unreachable branch in the barcode short-code fixups |
 | [openfoodfacts/robotoff](https://github.com/openfoodfacts/robotoff/pull/1909) | Replace obsolete facet URLs with the `/facets/` prefix |
+
+</details>
 
 <details>
 <summary><b>Open / in review</b> — 31 PRs across 23 more repos</summary>
