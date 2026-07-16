@@ -9,6 +9,19 @@ I'm Cole. I build open-source tools and contribute upstream where correctness ma
 
 Most of these are MIT; the three big apps are free for noncommercial use. Almost everything runs with zero dependencies, and most come with a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
 
+## Which one do I need?
+
+- Vetting an AI agent skill before you install it → [skillxray](https://github.com/munzzyy/skillxray)
+- Writing an MCP server → [toolsmell](https://github.com/munzzyy/toolsmell) for the tool descriptions, [webmcp-lint](https://github.com/munzzyy/webmcp-lint) if it's WebMCP in a page
+- Seeing what your agent actually touched on a run → [sessionxray](https://github.com/munzzyy/sessionxray)
+- Screenshots feeding a vision agent → [framewall](https://github.com/munzzyy/framewall) to scan them, [injection-fixtures](https://github.com/munzzyy/injection-fixtures) to test your defense
+- Shipping a translated app → [translint](https://github.com/munzzyy/translint)
+- GitHub Actions → [wouldrun](https://github.com/munzzyy/wouldrun) for what fires, [actbreak](https://github.com/munzzyy/actbreak) to break into a step, [ci-safety-gate](https://github.com/munzzyy/ci-safety-gate) to gate the repo
+- Checking a research-peptide COA → [coacheck](https://github.com/munzzyy/coacheck)
+- Writing that shouldn't read like AI → [noslop](https://github.com/munzzyy/noslop)
+- Cheapest way to travel → [hopandhaul](https://github.com/munzzyy/hopandhaul)
+- Strength-training math → [liftmath](https://github.com/munzzyy/liftmath)
+
 ## Tools
 
 | Project | What it does |
