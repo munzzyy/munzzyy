@@ -1,0 +1,19 @@
+name: gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: {}
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          persist-credentials: false
+      - uses: munzzyy/ci-safety-gate@ed43ff6c6576b57a2fe8737f2d0eb9066867499f # v0.1.0
