@@ -5,7 +5,7 @@
 
 I'm Cole. I build open-source tools and contribute upstream where correctness matters — security, RF/SDR, accessibility, health tech.
 
-Everything below is free for noncommercial use and runs with zero dependencies. Most come with a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
+Most of these are MIT; the three big apps are free for noncommercial use. Everything runs with zero dependencies, and most come with a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
 
 ## Tools
 
@@ -31,7 +31,7 @@ They're all open to contributors, several with issues tagged **good first issue*
 
 ## Upstream
 
-Forty-six have landed upstream, with another thirty open across dozens more repos: correctness, security, RF/SDR, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
+Forty-six have landed upstream, with another thirty-odd open across dozens more repos: correctness, security, RF/SDR, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
 
 ### Merged
 
@@ -70,9 +70,10 @@ Forty-six have landed upstream, with another thirty open across dozens more repo
 | [openfoodfacts/robotoff](https://github.com/openfoodfacts/robotoff/pull/1909) | Replace obsolete facet URLs with the `/facets/` prefix |
 
 <details>
-<summary><b>Open / in review</b> — 30 PRs across 22 more repos</summary>
+<summary><b>Open / in review</b> — 31 PRs across 23 more repos</summary>
 
 **Security and detection**
+- [projectdiscovery/nuclei-templates #16579](https://github.com/projectdiscovery/nuclei-templates/pull/16579): detect exposed ZooKeeper even when 4lw commands are blocked, the default since 3.5.3
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
 - [splunk/security_content #4147](https://github.com/splunk/security_content/pull/4147): computer-account filter in the service-ticket detection
 - [openemr/openemr #12768](https://github.com/openemr/openemr/pull/12768): validate `post_logout_redirect_uri` before redirecting (open-redirect)
@@ -117,6 +118,10 @@ Forty-six have landed upstream, with another thirty open across dozens more repo
 - [jsverse/transloco #940](https://github.com/jsverse/transloco/pull/940): respect currency in `numberFormatOptions`
 
 </details>
+
+## Support
+
+All of this is free and maintained on my own time. If one of these tools saves you a trip, a bad batch, or an afternoon of debugging, [sponsoring](https://github.com/sponsors/munzzyy) is what keeps it that way — every sponsor gets a permanent line in [SUPPORTERS.md](SUPPORTERS.md).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/route-dark.svg">
