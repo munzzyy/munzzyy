@@ -46,7 +46,7 @@ They're all open to contributors, several with issues tagged **good first issue*
 
 ## Upstream
 
-Forty-six have landed upstream, with another thirty-odd open across dozens more repos: correctness, security, RF/SDR, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
+Forty-six have landed upstream and another thirty-seven are open, forty projects in all: correctness, security, RF/SDR, hardware docs, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
 
 ### Merged
 
@@ -55,11 +55,14 @@ Forty-six have landed upstream, with another thirty-odd open across dozens more 
 | [VirusTotal/yara](https://github.com/VirusTotal/yara/pull/2221) | Null-terminate authenticode digest/thumbprint hex buffers |
 | [VirusTotal/yara](https://github.com/VirusTotal/yara/pull/2220) | Fix a string leak in CLI `args_free` |
 | [VirusTotal/yara](https://github.com/VirusTotal/yara/pull/2219) | Honor `-w`/`--no-warnings` for the file-too-large skip message |
+| [VirusTotal/yara](https://github.com/VirusTotal/yara/pull/2223) | Document the `YR_RE_SCAN_LIMIT` regular-expression scan limit |
+| [ffuf/ffuf](https://github.com/ffuf/ffuf/pull/905) | Stop terminal control characters leaking into redirected output |
 | [YARAHQ/yara-forge](https://github.com/YARAHQ/yara-forge/pull/88) | Align indexed and patterned hash meta fields |
 | [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma/pull/6114) | Add a vmmemWSL exception to the non-existing-file rule |
 | [splunk/security_content](https://github.com/splunk/security_content/pull/4146) | Add a PreAuthType filter to the PetitPotam Kerberos detection |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8986) | Scan XDG-base-directory Firefox profiles |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8987) | Add the Windsurf `.devin` path to `vscode_extensions` |
+| [osquery/osquery](https://github.com/osquery/osquery/pull/8991) | Add the Microsoft Edge and Flatpak paths to `chrome_extensions` on Linux |
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3412) | Fix a heap out-of-bounds read in `hf iclass view` on short dumps |
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3411) | Stop the IR56 wiegand decode leaking the header sentinel bit into the facility code |
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3409) | Fix byte-swapped, corrupted EM 4x05 dump files |
@@ -83,7 +86,10 @@ Forty-six have landed upstream, with another thirty-odd open across dozens more 
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64815) | Drop an always-true `method_exists` check |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64811) | Fix broken placeholder translations across [Armenian](https://github.com/symfony/symfony/pull/64811), [Arabic](https://github.com/symfony/symfony/pull/64810), [Basque](https://github.com/symfony/symfony/pull/64809), [Turkish](https://github.com/symfony/symfony/pull/64808), [Galician](https://github.com/symfony/symfony/pull/64807), [Azerbaijani](https://github.com/symfony/symfony/pull/64806), [Traditional Chinese](https://github.com/symfony/symfony/pull/64805), [Finnish](https://github.com/symfony/symfony/pull/64804), and [Welsh](https://github.com/symfony/symfony/pull/64803) |
 | [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7261) | Improve the French localization |
-| [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7260) | Improve the Dutch localization |
+| [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7260) | Improve the Dutch localization, [again later](https://github.com/ghostfolio/ghostfolio/pull/7296) |
+| [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio/pull/7297) | Fix corrupted state attributes in the Catalan and Turkish locales |
+| [jsverse/transloco](https://github.com/jsverse/transloco/pull/940) | Respect currency in `numberFormatOptions` |
+| [simonoppowa/OpenNutriTracker](https://github.com/simonoppowa/OpenNutriTracker/pull/513) | Catch silent zero-byte export writes |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8990) | Fix a one-past-end iterator deref in `vscode_extensions` |
 | [monero-project/monero-gui](https://github.com/monero-project/monero-gui/pull/4652) | Fix a stale subaddress selection on the Receive page after switching accounts |
 | [mdn/translated-content](https://github.com/mdn/translated-content/pull/36835) | Correct the Japanese `Reflect.deleteProperty()` docs |
@@ -93,7 +99,7 @@ Forty-six have landed upstream, with another thirty-odd open across dozens more 
 </details>
 
 <details>
-<summary><b>Open / in review</b> — 31 PRs across 23 more repos</summary>
+<summary><b>Open / in review</b> — 37 PRs across 24 repos</summary>
 
 **Security and detection**
 - [projectdiscovery/nuclei-templates #16579](https://github.com/projectdiscovery/nuclei-templates/pull/16579): detect exposed ZooKeeper even when 4lw commands are blocked, the default since 3.5.3
@@ -106,7 +112,6 @@ Forty-six have landed upstream, with another thirty-odd open across dozens more 
 - [semgrep/semgrep-rules #3999](https://github.com/semgrep/semgrep-rules/pull/3999): stop flagging Renovate `packageRules` already covered by `minimumReleaseAge`
 - [semgrep/semgrep-rules #3998](https://github.com/semgrep/semgrep-rules/pull/3998): remove the obsolete `no-replaceall` rule
 - [osquery/osquery #8989](https://github.com/osquery/osquery/pull/8989): fix the wrong `key_strength` for Windows certificates
-- [ffuf/ffuf #905](https://github.com/ffuf/ffuf/pull/905): stop terminal control characters leaking into redirected output
 - [evilsocket/opensnitch #1634](https://github.com/evilsocket/opensnitch/pull/1634): fix a duplicated `a-z` class in auto-generated rule names
 
 **OSINT**
@@ -115,17 +120,25 @@ Forty-six have landed upstream, with another thirty-odd open across dozens more 
 
 **RF / SDR**
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
+- [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
+
+**Hardware docs**
+- [flipperdevices/flipperone-docs #423](https://github.com/flipperdevices/flipperone-docs/pull/423): a docs validator for fragment anchors, broken paths, and part-number consistency
+- [flipperdevices/flipperone-docs #422](https://github.com/flipperdevices/flipperone-docs/pull/422): charger and fuel-gauge part numbers that didn't match the shipped hardware
+- [flipperdevices/flipperone-docs #421](https://github.com/flipperdevices/flipperone-docs/pull/421): ESP32-E22 review and sSDR compatibility notes on the M.2 modules page
+- [flipperdevices/flipperone-docs #419](https://github.com/flipperdevices/flipperone-docs/pull/419): broken section anchors, an image path, and a missing eSIM mention
+- [flipperdevices/flipperone-docs #417](https://github.com/flipperdevices/flipperone-docs/pull/417): mismatched M.2 thickness spec on the M.2 port page
 
 **Accessibility**
-- [patternfly/patternfly #8481](https://github.com/patternfly/patternfly/pull/8481): document listbox/option/aria-selected for select menus
+- [ClickHouse/click-ui #1140](https://github.com/ClickHouse/click-ui/pull/1140): respect a consumer-supplied `aria-label` instead of overwriting it with the icon name
 
-**Privacy / anti-censorship**
+**Privacy / anti-surveillance**
+- [FoggedLens/deflock #133](https://github.com/FoggedLens/deflock/pull/133): tell people they need an OpenStreetMap account before they pick a way to report a camera
 - [guardianproject/proofmode-android #136](https://github.com/guardianproject/proofmode-android/pull/136): correct the QR bitmap stride
 - [guardianproject/proofmode-android #135](https://github.com/guardianproject/proofmode-android/pull/135): correct the C2PA GPS hemisphere
 
 **Systems / web**
 - [ClickHouse/click-ui #1141](https://github.com/ClickHouse/click-ui/pull/1141): default Button `htmlType` to button
-- [ClickHouse/click-ui #1140](https://github.com/ClickHouse/click-ui/pull/1140): respect a consumer-supplied `aria-label`
 - [openclimatefix/graph_weather #231](https://github.com/openclimatefix/graph_weather/pull/231): division-by-zero on single-axis grids
 - [openclimatefix/graph_weather #230](https://github.com/openclimatefix/graph_weather/pull/230): guard optional data-module imports
 - [hotosm/tasking-manager #7287](https://github.com/hotosm/tasking-manager/pull/7287): replace Nominatim reverse geocoding with pg-nearest-city
@@ -138,7 +151,9 @@ Forty-six have landed upstream, with another thirty-odd open across dozens more 
 - [TheIllusiveC4/Curios #622](https://github.com/TheIllusiveC4/Curios/pull/622) and [#621](https://github.com/TheIllusiveC4/Curios/pull/621): Turkish placeholder and locale-casing bugs
 - [chubin/wttr.in #1279](https://github.com/chubin/wttr.in/pull/1279) and [#1278](https://github.com/chubin/wttr.in/pull/1278): RTL mark and corrupted Persian/Hebrew/Arabic captions
 - [tolgee/tolgee-platform #3789](https://github.com/tolgee/tolgee-platform/pull/3789): keep the zero plural form in Apple XLIFF export
-- [jsverse/transloco #940](https://github.com/jsverse/transloco/pull/940): respect currency in `numberFormatOptions`
+
+**Directory listings** (not fixes, just getting the tools indexed)
+- [yigitkonur/awesome-webmcp #10](https://github.com/yigitkonur/awesome-webmcp/pull/10) and [#9](https://github.com/yigitkonur/awesome-webmcp/pull/9): add webmcp-devtools and webmcp-lint
 
 </details>
 
