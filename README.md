@@ -46,7 +46,7 @@ They're all open to contributors, several with issues tagged **good first issue*
 
 ## Upstream
 
-Forty-six have landed upstream and another thirty-seven are open, forty projects in all: correctness, security, RF/SDR, hardware docs, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
+Forty-six have landed upstream and another forty-two are open, forty-three projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
 
 ### Merged
 
@@ -99,7 +99,7 @@ Forty-six have landed upstream and another thirty-seven are open, forty projects
 </details>
 
 <details>
-<summary><b>Open / in review</b> — 37 PRs across 24 repos</summary>
+<summary><b>Open / in review</b> — 42 PRs across 27 repos</summary>
 
 **Security and detection**
 - [projectdiscovery/nuclei-templates #16579](https://github.com/projectdiscovery/nuclei-templates/pull/16579): detect exposed ZooKeeper even when 4lw commands are blocked, the default since 3.5.3
@@ -121,6 +121,13 @@ Forty-six have landed upstream and another thirty-seven are open, forty projects
 **RF / SDR**
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
+
+**Firmware / embedded**
+- [flipperdevices/flipperone-mcu-firmware #212](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/212): hard fault when USB drops mid-`screen` — make the CLI pipe hand-off clear its callbacks and refuse a silent clobber
+- [flipperdevices/flipperone-mcu-firmware #211](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/211): a missing comma and a wrong argument count fed a wild pointer to the device-info callback, in code merged the day before
+- [flipperdevices/fbtng-corelibs #40](https://github.com/flipperdevices/fbtng-corelibs/pull/40): use-after-free in the event loop when a run-once subscription fires
+- [flipperdevices/fbtng-corelibs #39](https://github.com/flipperdevices/fbtng-corelibs/pull/39): out-of-bounds read in `bit_lib` when the requested bits already fit the current byte
+- [flipperdevices/flipperone-debug-probe #12](https://github.com/flipperdevices/flipperone-debug-probe/pull/12): DAP ring-buffer backpressure stopped working after the pointers wrapped, letting the host overwrite an unread SWD command
 
 **Hardware docs**
 - [flipperdevices/flipperone-docs #423](https://github.com/flipperdevices/flipperone-docs/pull/423): a docs validator for fragment anchors, broken paths, and part-number consistency
