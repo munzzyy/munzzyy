@@ -46,7 +46,7 @@ They're all open to contributors, several with issues tagged **good first issue*
 
 ## Upstream
 
-Forty-six have landed upstream and another forty-two are open, forty-three projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
+Fifty have landed upstream and another forty are open, forty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
 
 ### Merged
 
@@ -95,19 +95,22 @@ Forty-six have landed upstream and another forty-two are open, forty-three proje
 | [mdn/translated-content](https://github.com/mdn/translated-content/pull/36835) | Correct the Japanese `Reflect.deleteProperty()` docs |
 | [openfoodfacts/open-prices](https://github.com/openfoodfacts/open-prices/pull/1376) | Remove an unreachable branch in the barcode short-code fixups |
 | [openfoodfacts/robotoff](https://github.com/openfoodfacts/robotoff/pull/1909) | Replace obsolete facet URLs with the `/facets/` prefix |
+| [VirusTotal/yara](https://github.com/VirusTotal/yara/pull/2224) | Bound the tilde-stream row count in `dotnet_parse_tilde_2` |
+| [projectdiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates/pull/16579) | Detect exposed ZooKeeper even when the 4lw commands are blocked |
+| [splunk/security_content](https://github.com/splunk/security_content/pull/4147) | Add a computer-account filter to the service-ticket detection |
+| [flipperdevices/flipperone-docs](https://github.com/flipperdevices/flipperone-docs/pull/419) | Fix broken section anchors and an image path, add a missing eSIM mention |
+| [flipperdevices/flipperone-docs](https://github.com/flipperdevices/flipperone-docs/pull/417) | Fix a mismatched M.2 thickness spec on the M.2 port page |
 
 </details>
 
 <details>
-<summary><b>Open / in review</b> — 42 PRs across 27 repos</summary>
+<summary><b>Open / in review</b> — 40 PRs across 27 repos</summary>
 
 **Security and detection**
-- [projectdiscovery/nuclei-templates #16579](https://github.com/projectdiscovery/nuclei-templates/pull/16579): detect exposed ZooKeeper even when 4lw commands are blocked, the default since 3.5.3
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
-- [splunk/security_content #4147](https://github.com/splunk/security_content/pull/4147): computer-account filter in the service-ticket detection
 - [openemr/openemr #12768](https://github.com/openemr/openemr/pull/12768): validate `post_logout_redirect_uri` before redirecting (open-redirect)
 - [chimera-nas/libevpl #114](https://github.com/chimera-nas/libevpl/pull/114): fixed-size HTTP header buffer overflow on emit
-- [VirusTotal/yara #2224](https://github.com/VirusTotal/yara/pull/2224): bound the tilde-stream row count in `dotnet_parse_tilde_2`
+- [ffuf/ffuf #924](https://github.com/ffuf/ffuf/pull/924): keyword and value columns scrambled in CSV/HTML/Markdown output when more than one wordlist is used
 - [YARAHQ/yara-forge #89](https://github.com/YARAHQ/yara-forge/pull/89): match author/reference/description meta keys case-insensitively
 - [semgrep/semgrep-rules #3999](https://github.com/semgrep/semgrep-rules/pull/3999): stop flagging Renovate `packageRules` already covered by `minimumReleaseAge`
 - [semgrep/semgrep-rules #3998](https://github.com/semgrep/semgrep-rules/pull/3998): remove the obsolete `no-replaceall` rule
@@ -120,6 +123,7 @@ Forty-six have landed upstream and another forty-two are open, forty-three proje
 
 **RF / SDR**
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
+- [merbanan/rtl_433 #3632](https://github.com/merbanan/rtl_433/pull/3632): reject out-of-range GT-WT03 temperature and humidity readings instead of decoding noise
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
 
 **Firmware / embedded**
@@ -133,8 +137,6 @@ Forty-six have landed upstream and another forty-two are open, forty-three proje
 - [flipperdevices/flipperone-docs #423](https://github.com/flipperdevices/flipperone-docs/pull/423): a docs validator for fragment anchors, broken paths, and part-number consistency
 - [flipperdevices/flipperone-docs #422](https://github.com/flipperdevices/flipperone-docs/pull/422): charger and fuel-gauge part numbers that didn't match the shipped hardware
 - [flipperdevices/flipperone-docs #421](https://github.com/flipperdevices/flipperone-docs/pull/421): ESP32-E22 review and sSDR compatibility notes on the M.2 modules page
-- [flipperdevices/flipperone-docs #419](https://github.com/flipperdevices/flipperone-docs/pull/419): broken section anchors, an image path, and a missing eSIM mention
-- [flipperdevices/flipperone-docs #417](https://github.com/flipperdevices/flipperone-docs/pull/417): mismatched M.2 thickness spec on the M.2 port page
 
 **Accessibility**
 - [ClickHouse/click-ui #1140](https://github.com/ClickHouse/click-ui/pull/1140): respect a consumer-supplied `aria-label` instead of overwriting it with the icon name
@@ -156,6 +158,7 @@ Forty-six have landed upstream and another forty-two are open, forty-three proje
 
 **Localization**
 - [TheIllusiveC4/Curios #622](https://github.com/TheIllusiveC4/Curios/pull/622) and [#621](https://github.com/TheIllusiveC4/Curios/pull/621): Turkish placeholder and locale-casing bugs
+- [drewnoakes/metadata-extractor #741](https://github.com/drewnoakes/metadata-extractor/pull/741): lowercase hardcoded description strings with `Locale.ROOT` so the Turkish locale doesn't corrupt them
 - [chubin/wttr.in #1279](https://github.com/chubin/wttr.in/pull/1279) and [#1278](https://github.com/chubin/wttr.in/pull/1278): RTL mark and corrupted Persian/Hebrew/Arabic captions
 - [tolgee/tolgee-platform #3789](https://github.com/tolgee/tolgee-platform/pull/3789): keep the zero plural form in Apple XLIFF export
 
