@@ -46,7 +46,7 @@ They're all open to contributors, several with issues tagged **good first issue*
 
 ## Upstream
 
-Fifty have landed upstream and another forty are open, forty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, an OAuth open-redirect in a medical-records system, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
+Fifty-one have landed upstream and another thirty-eight are open, forty-three projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
 
 ### Merged
 
@@ -100,15 +100,15 @@ Fifty have landed upstream and another forty are open, forty-four projects in al
 | [splunk/security_content](https://github.com/splunk/security_content/pull/4147) | Add a computer-account filter to the service-ticket detection |
 | [flipperdevices/flipperone-docs](https://github.com/flipperdevices/flipperone-docs/pull/419) | Fix broken section anchors and an image path, add a missing eSIM mention |
 | [flipperdevices/flipperone-docs](https://github.com/flipperdevices/flipperone-docs/pull/417) | Fix a mismatched M.2 thickness spec on the M.2 port page |
+| [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3632) | Reject out-of-range temperature and humidity in the GT-WT03 decoder |
 
 </details>
 
 <details>
-<summary><b>Open / in review</b> — 40 PRs across 27 repos</summary>
+<summary><b>Open / in review</b> — 38 PRs across 25 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
-- [openemr/openemr #12768](https://github.com/openemr/openemr/pull/12768): validate `post_logout_redirect_uri` before redirecting (open-redirect)
 - [chimera-nas/libevpl #114](https://github.com/chimera-nas/libevpl/pull/114): fixed-size HTTP header buffer overflow on emit
 - [ffuf/ffuf #924](https://github.com/ffuf/ffuf/pull/924): keyword and value columns scrambled in CSV/HTML/Markdown output when more than one wordlist is used
 - [YARAHQ/yara-forge #89](https://github.com/YARAHQ/yara-forge/pull/89): match author/reference/description meta keys case-insensitively
@@ -123,7 +123,6 @@ Fifty have landed upstream and another forty are open, forty-four projects in al
 
 **RF / SDR**
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
-- [merbanan/rtl_433 #3632](https://github.com/merbanan/rtl_433/pull/3632): reject out-of-range GT-WT03 temperature and humidity readings instead of decoding noise
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
 
 **Firmware / embedded**
