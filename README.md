@@ -46,12 +46,16 @@ They're all open to contributors, several with issues tagged **good first issue*
 
 ## Upstream
 
-Fifty-one have landed upstream and another thirty-eight are open, forty-three projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, and a fixed-size HTTP header buffer that overflowed on emit.
+Fifty-five have landed upstream and another thirty-four are open, forty-three projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### Merged
 
 | Repo | Change |
 |------|--------|
+| [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/212) | Fix a hard fault in the Flipper One CLI when USB disconnects mid-`screen` |
+| [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/211) | Stop a wild pointer reaching the Flipper One's device-info callback |
+| [flipperdevices/fbtng-corelibs](https://github.com/flipperdevices/fbtng-corelibs/pull/40) | Fix a use-after-free in the event loop when a run-once subscription fires |
+| [flipperdevices/fbtng-corelibs](https://github.com/flipperdevices/fbtng-corelibs/pull/39) | Fix an out-of-bounds read in `bit_lib` when the requested bits fit one byte |
 | [VirusTotal/yara](https://github.com/VirusTotal/yara/pull/2221) | Null-terminate authenticode digest/thumbprint hex buffers |
 | [VirusTotal/yara](https://github.com/VirusTotal/yara/pull/2220) | Fix a string leak in CLI `args_free` |
 | [VirusTotal/yara](https://github.com/VirusTotal/yara/pull/2219) | Honor `-w`/`--no-warnings` for the file-too-large skip message |
@@ -105,7 +109,7 @@ Fifty-one have landed upstream and another thirty-eight are open, forty-three pr
 </details>
 
 <details>
-<summary><b>Open / in review</b> — 38 PRs across 25 repos</summary>
+<summary><b>Open / in review</b> — 34 PRs across 23 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -126,10 +130,6 @@ Fifty-one have landed upstream and another thirty-eight are open, forty-three pr
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
 
 **Firmware / embedded**
-- [flipperdevices/flipperone-mcu-firmware #212](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/212): hard fault when USB drops mid-`screen` — make the CLI pipe hand-off clear its callbacks and refuse a silent clobber
-- [flipperdevices/flipperone-mcu-firmware #211](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/211): a missing comma and a wrong argument count fed a wild pointer to the device-info callback, in code merged the day before
-- [flipperdevices/fbtng-corelibs #40](https://github.com/flipperdevices/fbtng-corelibs/pull/40): use-after-free in the event loop when a run-once subscription fires
-- [flipperdevices/fbtng-corelibs #39](https://github.com/flipperdevices/fbtng-corelibs/pull/39): out-of-bounds read in `bit_lib` when the requested bits already fit the current byte
 - [flipperdevices/flipperone-debug-probe #12](https://github.com/flipperdevices/flipperone-debug-probe/pull/12): DAP ring-buffer backpressure stopped working after the pointers wrapped, letting the host overwrite an unread SWD command
 
 **Hardware docs**
