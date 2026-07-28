@@ -7,7 +7,7 @@
 
 I'm Cole. I build open-source tools and contribute upstream where correctness matters — security, RF/SDR, accessibility, health tech.
 
-Most of these are MIT; the three big apps are free for noncommercial use. Almost everything runs with zero dependencies, and most come with a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
+Most of these are MIT; the two big apps are free for noncommercial use. Almost everything runs with zero dependencies, and most come with a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
 
 ## Which one do I need?
 
@@ -18,7 +18,6 @@ Most of these are MIT; the three big apps are free for noncommercial use. Almost
 - Shipping a translated app → [translint](https://github.com/munzzyy/translint)
 - GitHub Actions → [wouldrun](https://github.com/munzzyy/wouldrun) for what fires, [actbreak](https://github.com/munzzyy/actbreak) to break into a step, [ci-safety-gate](https://github.com/munzzyy/ci-safety-gate) to gate the repo
 - Checking a research-peptide COA → [coacheck](https://github.com/munzzyy/coacheck)
-- Writing that shouldn't read like AI → [noslop](https://github.com/munzzyy/noslop)
 - Cheapest way to travel → [hopandhaul](https://github.com/munzzyy/hopandhaul)
 - Strength-training math → [liftmath](https://github.com/munzzyy/liftmath)
 
@@ -26,7 +25,6 @@ Most of these are MIT; the three big apps are free for noncommercial use. Almost
 
 | Project | What it does |
 |---------|--------------|
-| [noslop](https://github.com/munzzyy/noslop) | Catches the AI tells in your writing — buzzwords, filler, flat rhythm — and points you at what to fix before you hit send. Since v0.10.0 it reads source code too: narrated comments, chat residue, stock error handling, each flagged with the exact line. Sixteen languages, each with its own researched tell lists. Runs in your [browser](https://munzzyy.github.io/noslop/) (UI in 32 languages), your terminal, CI, or as an agent skill. |
 | [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner that runs in your [browser](https://munzzyy.github.io/hopandhaul/) with no install, 4,175 airports, UI in 46 languages. |
 | [liftmath](https://github.com/munzzyy/liftmath) | Strength-training math with receipts — consensus 1RM, load charts, volume landmarks, macros, plate loading, program templates. A [web app](https://munzzyy.github.io/liftmath/) plus a CLI, 32 languages. |
 | [translint](https://github.com/munzzyy/translint) | A linter for your translation files — catches missing keys, placeholder mismatches, and untranslated values before they ship. CLI, CI gate, pre-commit, or agent skill. Its [site](https://munzzyy.github.io/translint/) practices what it lints: 32 languages, RTL included. |
@@ -39,7 +37,7 @@ Most of these are MIT; the three big apps are free for noncommercial use. Almost
 | [sessionxray](https://github.com/munzzyy/sessionxray) | Audits a Claude Code session transcript after the fact and tells you what the agent actually touched — files outside the project, unexpected outbound hosts, secret reads, destructive commands. A security lens on your own agent's run, all local. Python, zero dependencies. |
 | [toolsmell](https://github.com/munzzyy/toolsmell) | Finds the smells in an MCP server's tool descriptions and schemas — the vague verbs, undocumented parameters, and missing return docs that quietly make agents worse at using your tools. For authors, before you publish. Python, zero dependencies. |
 | [wouldrun](https://github.com/munzzyy/wouldrun) | Answers which GitHub Actions workflows would fire for a given diff or event, statically, without pushing or running `act`. Resolves triggers, branch and path filters, and reusable-workflow calls, and says why each one runs or doesn't. Python, zero dependencies. |
-| [ci-safety-gate](https://github.com/munzzyy/ci-safety-gate) | One GitHub Action that runs the checks an AI-era repo wants — noslop for slop, zizmor for workflow security, skillxray for agent skills, and a secrets scan — as a single pass-or-fail gate with one combined report. |
+| [ci-safety-gate](https://github.com/munzzyy/ci-safety-gate) | One GitHub Action that runs the checks an AI-era repo wants — zizmor for workflow security, skillxray for agent skills, and a secrets scan — as a single pass-or-fail gate with one combined report. |
 | [coacheck](https://github.com/munzzyy/coacheck) | Reads a research-peptide Certificate of Analysis and does the math — real deliverable purity from the labeled amount, a red-flag checklist for thin or faked COAs, and reconstitution down to syringe units. A calculator, not advice. Python, zero dependencies. |
 
 They're all open to contributors, several with issues tagged **good first issue** if you want a place to start. Stars genuinely help other people find them.
