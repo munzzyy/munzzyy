@@ -44,12 +44,18 @@ They're all open to contributors, several with issues tagged **good first issue*
 
 ## Upstream
 
-Fifty-five have landed upstream and another thirty-four are open, forty-three projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+Sixty-five have landed upstream and another seventy-three are open, fifty-nine projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, and its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### Merged
 
 | Repo | Change |
 |------|--------|
+| [flipperdevices/flipper-linux-kernel](https://github.com/flipperdevices/flipper-linux-kernel/pull/18) | Add the missing cache hierarchy to the RK3576 CPU nodes, so Linux stops reporting the Flipper One with no caches |
+| [flipperdevices/flipper-linux-kernel](https://github.com/flipperdevices/flipper-linux-kernel/pull/17) | Register the Flipper One's side-button interrupt in the MCU MFD driver |
+| [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4429) | Initialize `timings_cnt` on infrared decoder alloc and fix its bounds check |
+| [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4428) | Check the NFC poller error before reading a FeliCa system-code response |
+| [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4427) | NUL-terminate the PAC/Stanley card id before parsing it |
+| [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4426) | Fix the trailing Wiegand parity bit on Pyramid LFRFID cards |
 | [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/212) | Fix a hard fault in the Flipper One CLI when USB disconnects mid-`screen` |
 | [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/211) | Stop a wild pointer reaching the Flipper One's device-info callback |
 | [flipperdevices/fbtng-corelibs](https://github.com/flipperdevices/fbtng-corelibs/pull/40) | Fix a use-after-free in the event loop when a run-once subscription fires |
@@ -103,11 +109,15 @@ Fifty-five have landed upstream and another thirty-four are open, forty-three pr
 | [flipperdevices/flipperone-docs](https://github.com/flipperdevices/flipperone-docs/pull/419) | Fix broken section anchors and an image path, add a missing eSIM mention |
 | [flipperdevices/flipperone-docs](https://github.com/flipperdevices/flipperone-docs/pull/417) | Fix a mismatched M.2 thickness spec on the M.2 port page |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3632) | Reject out-of-range temperature and humidity in the GT-WT03 decoder |
+| [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3635) | Reject implausible temperature and humidity in the WT450 decoder |
+| [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4425) | Reject a zero or negative timer interval in `js_event_loop` |
+| [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4424) | Don't read past the buffer in `bit_lib` when the requested bits fit one byte |
+| [flipperdevices/flipper-application-catalog](https://github.com/flipperdevices/flipper-application-catalog/pull/1154) | Log the folder being skipped, not a leftover filename |
 
 </details>
 
 <details>
-<summary><b>Open / in review</b> — 34 PRs across 23 repos</summary>
+<summary><b>Open / in review</b> — 73 PRs across 41 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -118,6 +128,13 @@ Fifty-five have landed upstream and another thirty-four are open, forty-three pr
 - [semgrep/semgrep-rules #3998](https://github.com/semgrep/semgrep-rules/pull/3998): remove the obsolete `no-replaceall` rule
 - [osquery/osquery #8989](https://github.com/osquery/osquery/pull/8989): fix the wrong `key_strength` for Windows certificates
 - [evilsocket/opensnitch #1634](https://github.com/evilsocket/opensnitch/pull/1634): fix a duplicated `a-z` class in auto-generated rule names
+- [elastic/detection-rules #6501](https://github.com/elastic/detection-rules/pull/6501): KQL-to-EQL conversion treats an escaped or quoted asterisk as a wildcard
+- [elastic/detection-rules #6502](https://github.com/elastic/detection-rules/pull/6502): validate the field against the schema in KQL range expressions
+- [SigmaHQ/sigma #6180](https://github.com/SigmaHQ/sigma/pull/6180): the macOS network-service-scanning filter matches any `l`, not netcat's listen flag
+- [semgrep/semgrep-rules #4020](https://github.com/semgrep/semgrep-rules/pull/4020): `run-shell-injection` flags the truthiness-check shape on bare inputs
+- [projectdiscovery/nuclei-templates #16672](https://github.com/projectdiscovery/nuclei-templates/pull/16672): `nfs-v3-exposed` counts a `PROG_UNAVAIL` reply as a hit
+- [osquery/osquery #9010](https://github.com/osquery/osquery/pull/9010): key the recursive-glob visited set on (device, inode)
+- [ffuf/ffuf #925](https://github.com/ffuf/ffuf/pull/925): strip wordlist comments before the `%ext%` branch, not only after it
 
 **OSINT**
 - [mxrch/GHunt #601](https://github.com/mxrch/GHunt/pull/601): read `isDefault` from the API for profile photos instead of hashing the image
@@ -126,14 +143,37 @@ Fifty-five have landed upstream and another thirty-four are open, forty-three pr
 **RF / SDR**
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
+- [RfidResearchGroup/proxmark3 #3433](https://github.com/RfidResearchGroup/proxmark3/pull/3433): more heap out-of-bounds reads on short iCLASS dump files
 
-**Firmware / embedded**
+**Flipper One** — the device isn't out yet, so this is kernel, bootloader, MCU firmware, build system and docs
+- [flipperdevices/u-boot #38](https://github.com/flipperdevices/u-boot/pull/38): btrfs zstd decompression fails with error 70 on sector-padded extents
+- [flipperdevices/fbtng-corelibs #43](https://github.com/flipperdevices/fbtng-corelibs/pull/43): a record-destroy race where a late opener can hang forever
+- [flipperdevices/fbtng #25](https://github.com/flipperdevices/fbtng/pull/25): flashing reports 0% on an exact page multiple instead of a full last page
+- [flipperdevices/fbtng-bootstrap #1](https://github.com/flipperdevices/fbtng-bootstrap/pull/1): run fbtng with bash so `set -o pipefail` actually works
+- [flipperdevices/flipperone-mcu-firmware #221](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/221): the haptic driver reports a successful auto-calibration when its status reads failed
+- [flipperdevices/flipperone-mcu-firmware #220](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/220): the USB-C PD controller checks `rx_empty` against the wrong register
+- [flipperdevices/flipperone-mcu-firmware #219](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/219): an I2C slave early return leaves the critical section held
+- [flipperdevices/flipperone-mcu-firmware #218](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/218): the touch controller uses I2C registers before they're initialized
+- [flipperdevices/flipperone-mcu-firmware #216](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/216) and [#215](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/215): a NULL deref in serial deinit, and a double `pipe_free` in the CLI UART disable handler
 - [flipperdevices/flipperone-debug-probe #12](https://github.com/flipperdevices/flipperone-debug-probe/pull/12): DAP ring-buffer backpressure stopped working after the pointers wrapped, letting the host overwrite an unread SWD command
-
-**Hardware docs**
+- [flipperdevices/flipperone-debug-probe #16](https://github.com/flipperdevices/flipperone-debug-probe/pull/16), [#15](https://github.com/flipperdevices/flipperone-debug-probe/pull/15) and [#14](https://github.com/flipperdevices/flipperone-debug-probe/pull/14): NULL handle derefs, and a CDC receive error read as a huge length
+- [flipperdevices/flipperone-testing #8](https://github.com/flipperdevices/flipperone-testing/pull/8), [#7](https://github.com/flipperdevices/flipperone-testing/pull/7) and [#6](https://github.com/flipperdevices/flipperone-testing/pull/6): the test suite passed a failed CPU/GPU stress run, cut the stress test short, and reported a PipeWire restart that never happened
+- [flipperdevices/flipperos-installer #2](https://github.com/flipperdevices/flipperos-installer/pull/2) and [#1](https://github.com/flipperdevices/flipperos-installer/pull/1): profile names that collide with reserved subvolumes, and an unreadable `/proc` source treated as a free disk
+- [flipperdevices/flipperone-docs #427](https://github.com/flipperdevices/flipperone-docs/pull/427): a self-contradicting microSD spec and a dead Rockchip wiki link
 - [flipperdevices/flipperone-docs #423](https://github.com/flipperdevices/flipperone-docs/pull/423): a docs validator for fragment anchors, broken paths, and part-number consistency
 - [flipperdevices/flipperone-docs #422](https://github.com/flipperdevices/flipperone-docs/pull/422): charger and fuel-gauge part numbers that didn't match the shipped hardware
 - [flipperdevices/flipperone-docs #421](https://github.com/flipperdevices/flipperone-docs/pull/421): ESP32-E22 review and sSDR compatibility notes on the M.2 modules page
+
+**Flipper Zero** — apps, host tooling, and the RPC libraries
+- [flipperdevices/qFlipper #255](https://github.com/flipperdevices/qFlipper/pull/255): crash when a log message arrives with no category
+- [flipperdevices/flipperzero-good-faps #308](https://github.com/flipperdevices/flipperzero-good-faps/pull/308): mfkey redoes recovery for nonces it already solved
+- [flipperdevices/flipperzero-good-faps #307](https://github.com/flipperdevices/flipperzero-good-faps/pull/307): a missing terminator in the SPI-mem chip table
+- [flipperdevices/flipperzero-game-engine #3](https://github.com/flipperdevices/flipperzero-game-engine/pull/3): sprite loading trusts the file is big enough for its header
+- [flipperdevices/video-game-module #16](https://github.com/flipperdevices/video-game-module/pull/16): check the screen frame size before copying it
+- [flipperdevices/flipperzero-ufbt #68](https://github.com/flipperdevices/flipperzero-ufbt/pull/68): a build killed by a signal is reported as a success
+- [flipperdevices/flipperzero-nfc-rpc #5](https://github.com/flipperdevices/flipperzero-nfc-rpc/pull/5): skip malformed reader-log lines instead of crashing
+- [flipperdevices/map-gcc-parser-python #3](https://github.com/flipperdevices/map-gcc-parser-python/pull/3): crash on non-UTF-8 bytes in the map file
+- [flipperdevices/flipperzero_protobuf_py #32](https://github.com/flipperdevices/flipperzero_protobuf_py/pull/32), [#31](https://github.com/flipperdevices/flipperzero_protobuf_py/pull/31), [#30](https://github.com/flipperdevices/flipperzero_protobuf_py/pull/30) and [#29](https://github.com/flipperdevices/flipperzero_protobuf_py/pull/29): wrong field indices in `datetime2dict`, a dropped return value, a zero-length file write that hangs, and an int pin rejected by `rpc_gpio_get_pin_mode`
 
 **Accessibility**
 - [ClickHouse/click-ui #1140](https://github.com/ClickHouse/click-ui/pull/1140): respect a consumer-supplied `aria-label` instead of overwriting it with the icon name
