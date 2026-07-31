@@ -44,7 +44,19 @@ They're all open to contributors, several with issues tagged **good first issue*
 
 ## Upstream
 
-Sixty-five have landed upstream and another seventy-three are open, fifty-nine projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, and its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+Sixty-eight have landed upstream and another seventy-one are open, fifty-nine projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, and its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+
+### BUSY Bar
+
+The BUSY Bar shipped in July 2026, so the firmware is young and the bugs are still live. Three I found went upstream together in [busy-app/busybar-firmware #905](https://github.com/busy-app/busybar-firmware/pull/905), which the team wrote themselves from my reports and patches:
+
+| Change | How it got there |
+|--------|------------------|
+| A zero-size allocation in the JS runner, where `furi_check` turns `malloc(0)` into a reboot — so `console.log("")` restarts the device | reported and patched in [#903](https://github.com/busy-app/busybar-firmware/pull/903), reimplemented by the team |
+| An error string in the HTTP display API leaked on the success path | reported and patched in [#904](https://github.com/busy-app/busybar-firmware/pull/904), reimplemented by the team |
+| A missing union tag in the draw API | reported privately to their security address, fixed in the same PR |
+
+Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/issues/43) hands you a version that refuses to talk to current firmware: 1.1.0 and 1.2.0 are tagged on GitHub but were never published to PyPI, so pip can only ever reach 1.0.0.
 
 ### Merged
 
@@ -99,6 +111,9 @@ Sixty-five have landed upstream and another seventy-three are open, fifty-nine p
 | [jsverse/transloco](https://github.com/jsverse/transloco/pull/940) | Respect currency in `numberFormatOptions` |
 | [simonoppowa/OpenNutriTracker](https://github.com/simonoppowa/OpenNutriTracker/pull/513) | Catch silent zero-byte export writes |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8990) | Fix a one-past-end iterator deref in `vscode_extensions` |
+| [osquery/osquery](https://github.com/osquery/osquery/pull/8989) | Fix the wrong `key_strength` reported for Windows certificates |
+| [osquery/osquery](https://github.com/osquery/osquery/pull/9010) | Key the recursive-glob visited set on (device, inode) so symlinked trees stop being rescanned |
+| [projectdiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates/pull/16672) | Stop `nfs-v3-exposed` counting a `PROG_UNAVAIL` reply as a hit |
 | [monero-project/monero-gui](https://github.com/monero-project/monero-gui/pull/4652) | Fix a stale subaddress selection on the Receive page after switching accounts |
 | [mdn/translated-content](https://github.com/mdn/translated-content/pull/36835) | Correct the Japanese `Reflect.deleteProperty()` docs |
 | [openfoodfacts/open-prices](https://github.com/openfoodfacts/open-prices/pull/1376) | Remove an unreachable branch in the barcode short-code fixups |
@@ -117,7 +132,7 @@ Sixty-five have landed upstream and another seventy-three are open, fifty-nine p
 </details>
 
 <details>
-<summary><b>Open / in review</b> — 73 PRs across 41 repos</summary>
+<summary><b>Open / in review</b> — 71 PRs across 40 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -126,14 +141,11 @@ Sixty-five have landed upstream and another seventy-three are open, fifty-nine p
 - [YARAHQ/yara-forge #89](https://github.com/YARAHQ/yara-forge/pull/89): match author/reference/description meta keys case-insensitively
 - [semgrep/semgrep-rules #3999](https://github.com/semgrep/semgrep-rules/pull/3999): stop flagging Renovate `packageRules` already covered by `minimumReleaseAge`
 - [semgrep/semgrep-rules #3998](https://github.com/semgrep/semgrep-rules/pull/3998): remove the obsolete `no-replaceall` rule
-- [osquery/osquery #8989](https://github.com/osquery/osquery/pull/8989): fix the wrong `key_strength` for Windows certificates
 - [evilsocket/opensnitch #1634](https://github.com/evilsocket/opensnitch/pull/1634): fix a duplicated `a-z` class in auto-generated rule names
 - [elastic/detection-rules #6501](https://github.com/elastic/detection-rules/pull/6501): KQL-to-EQL conversion treats an escaped or quoted asterisk as a wildcard
 - [elastic/detection-rules #6502](https://github.com/elastic/detection-rules/pull/6502): validate the field against the schema in KQL range expressions
 - [SigmaHQ/sigma #6180](https://github.com/SigmaHQ/sigma/pull/6180): the macOS network-service-scanning filter matches any `l`, not netcat's listen flag
 - [semgrep/semgrep-rules #4020](https://github.com/semgrep/semgrep-rules/pull/4020): `run-shell-injection` flags the truthiness-check shape on bare inputs
-- [projectdiscovery/nuclei-templates #16672](https://github.com/projectdiscovery/nuclei-templates/pull/16672): `nfs-v3-exposed` counts a `PROG_UNAVAIL` reply as a hit
-- [osquery/osquery #9010](https://github.com/osquery/osquery/pull/9010): key the recursive-glob visited set on (device, inode)
 - [ffuf/ffuf #925](https://github.com/ffuf/ffuf/pull/925): strip wordlist comments before the `%ext%` branch, not only after it
 
 **OSINT**
@@ -146,6 +158,7 @@ Sixty-five have landed upstream and another seventy-three are open, fifty-nine p
 - [RfidResearchGroup/proxmark3 #3433](https://github.com/RfidResearchGroup/proxmark3/pull/3433): more heap out-of-bounds reads on short iCLASS dump files
 
 **Flipper One** — the device isn't out yet, so this is kernel, bootloader, MCU firmware, build system and docs
+- [flipperdevices/flipper-linux-kernel #21](https://github.com/flipperdevices/flipper-linux-kernel/pull/21): wire the Type-C up port's VBUS supply to the connector so the mux can actually switch it
 - [flipperdevices/u-boot #38](https://github.com/flipperdevices/u-boot/pull/38): btrfs zstd decompression fails with error 70 on sector-padded extents
 - [flipperdevices/fbtng-corelibs #43](https://github.com/flipperdevices/fbtng-corelibs/pull/43): a record-destroy race where a late opener can hang forever
 - [flipperdevices/fbtng #25](https://github.com/flipperdevices/fbtng/pull/25): flashing reports 0% on an exact page multiple instead of a full last page
