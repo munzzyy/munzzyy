@@ -44,7 +44,7 @@ They're all open to contributors. Each one ships a CONTRIBUTING file with the se
 
 ## Upstream
 
-Sixty-eight have landed upstream and another seventy-one are open, fifty-nine projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, and its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+Sixty-nine have landed upstream and another eighty-two are open, sixty-two projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, and its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### BUSY Bar
 
@@ -102,6 +102,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [jcsteh/osara](https://github.com/jcsteh/osara/pull/1416) | Make paste/duplicate screen-reader messages translatable |
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1748) | Request `ACCESS_LOCAL_NETWORK` before opening the proxy on all interfaces |
 | [ooni/probe-cli](https://github.com/ooni/probe-cli/pull/1786) | Remove a stray debug print in the feature-flag cache |
+| [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/49) | Strip APEv2 and ID3v1 tags that sit after the audio in mp3, ogg and flac |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64796) | Fix the Finnish BIC/IBAN mismatch translation |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64815) | Drop an always-true `method_exists` check |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64811) | Fix broken placeholder translations across [Armenian](https://github.com/symfony/symfony/pull/64811), [Arabic](https://github.com/symfony/symfony/pull/64810), [Basque](https://github.com/symfony/symfony/pull/64809), [Turkish](https://github.com/symfony/symfony/pull/64808), [Galician](https://github.com/symfony/symfony/pull/64807), [Azerbaijani](https://github.com/symfony/symfony/pull/64806), [Traditional Chinese](https://github.com/symfony/symfony/pull/64805), [Finnish](https://github.com/symfony/symfony/pull/64804), and [Welsh](https://github.com/symfony/symfony/pull/64803) |
@@ -132,7 +133,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b> — 71 PRs across 40 repos</summary>
+<summary><b>Open / in review</b>: 82 PRs across 47 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -142,11 +143,13 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [semgrep/semgrep-rules #3999](https://github.com/semgrep/semgrep-rules/pull/3999): stop flagging Renovate `packageRules` already covered by `minimumReleaseAge`
 - [semgrep/semgrep-rules #3998](https://github.com/semgrep/semgrep-rules/pull/3998): remove the obsolete `no-replaceall` rule
 - [evilsocket/opensnitch #1634](https://github.com/evilsocket/opensnitch/pull/1634): fix a duplicated `a-z` class in auto-generated rule names
+- [evilsocket/opensnitch #1641](https://github.com/evilsocket/opensnitch/pull/1641): an empty `list` operator matches every connection, so one rule with no sub-operators swallows the whole ruleset
 - [elastic/detection-rules #6501](https://github.com/elastic/detection-rules/pull/6501): KQL-to-EQL conversion treats an escaped or quoted asterisk as a wildcard
 - [elastic/detection-rules #6502](https://github.com/elastic/detection-rules/pull/6502): validate the field against the schema in KQL range expressions
 - [SigmaHQ/sigma #6180](https://github.com/SigmaHQ/sigma/pull/6180): the macOS network-service-scanning filter matches any `l`, not netcat's listen flag
 - [semgrep/semgrep-rules #4020](https://github.com/semgrep/semgrep-rules/pull/4020): `run-shell-injection` flags the truthiness-check shape on bare inputs
 - [ffuf/ffuf #925](https://github.com/ffuf/ffuf/pull/925): strip wordlist comments before the `%ext%` branch, not only after it
+- [splunk/security_content #4196](https://github.com/splunk/security_content/pull/4196): the malware user-agent lookup declares WILDCARD on a column name that doesn't exist, so every `*` pattern misses silently
 
 **OSINT**
 - [mxrch/GHunt #601](https://github.com/mxrch/GHunt/pull/601): read `isDefault` from the API for profile photos instead of hashing the image
@@ -156,9 +159,12 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
 - [RfidResearchGroup/proxmark3 #3433](https://github.com/RfidResearchGroup/proxmark3/pull/3433): more heap out-of-bounds reads on short iCLASS dump files
+- [f4exb/sdrangel #2870](https://github.com/f4exb/sdrangel/pull/2870): a missing comma in the AIS aids-to-navigation table glues two labels into one and shifts every type above 19
+- [merbanan/rtl_433 #3645](https://github.com/merbanan/rtl_433/pull/3645): an all-zero Truck TPMS payload passes the XOR check, so preamble fill decodes as a real report
 
 **Flipper One**: the device isn't out yet, so this is kernel, bootloader, MCU firmware, build system and docs
 - [flipperdevices/flipper-linux-kernel #21](https://github.com/flipperdevices/flipper-linux-kernel/pull/21): wire the Type-C up port's VBUS supply to the connector so the mux can actually switch it
+- [flipperdevices/flipper-linux-kernel #22](https://github.com/flipperdevices/flipper-linux-kernel/pull/22): dwc3 returns an error when a gadget dequeues a request that already completed, reshaped so it can go to linux-usb as-is
 - [flipperdevices/u-boot #38](https://github.com/flipperdevices/u-boot/pull/38): btrfs zstd decompression fails with error 70 on sector-padded extents
 - [flipperdevices/fbtng-corelibs #43](https://github.com/flipperdevices/fbtng-corelibs/pull/43): a record-destroy race where a late opener can hang forever
 - [flipperdevices/fbtng #25](https://github.com/flipperdevices/fbtng/pull/25): flashing reports 0% on an exact page multiple instead of a full last page
@@ -195,6 +201,14 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [FoggedLens/deflock #133](https://github.com/FoggedLens/deflock/pull/133): tell people they need an OpenStreetMap account before they pick a way to report a camera
 - [guardianproject/proofmode-android #136](https://github.com/guardianproject/proofmode-android/pull/136): correct the QR bitmap stride
 - [guardianproject/proofmode-android #135](https://github.com/guardianproject/proofmode-android/pull/135): correct the C2PA GPS hemisphere
+- [jvoisin/mat2 #50](https://github.com/jvoisin/mat2/pull/50): the OOXML attribute-sort pass reorders elements instead, which moves `sectPr` and `extLst` out of schema order
+- [guardianproject/orbot-android #1780](https://github.com/guardianproject/orbot-android/pull/1780): `Bridge.doh` reads the `dot` parameter, so a `doh=` line parses to null and a rebuilt line grows a duplicate
+
+**Cryptography and wallets**
+- [monero-project/monero #11018](https://github.com/monero-project/monero/pull/11018): `export_outputs` underflows its reserve when the pagination start runs past the transfer list
+- [monero-project/monero #11019](https://github.com/monero-project/monero/pull/11019): a failed derivation shifts the additional-derivations list down a slot, so later outputs stop being seen as yours
+- [monero-project/monero #11020](https://github.com/monero-project/monero/pull/11020): `sweep_account` expands `index=all` against the current account instead of the one being swept
+- [openmls/openmls #2143](https://github.com/openmls/openmls/pull/2143): a commit that rotates the signature key still signs the GroupInfo with the old one, so the joiner can't verify it
 
 **Systems / web**
 - [ClickHouse/click-ui #1141](https://github.com/ClickHouse/click-ui/pull/1141): default Button `htmlType` to button
