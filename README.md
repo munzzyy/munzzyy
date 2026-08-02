@@ -5,9 +5,9 @@
 
 [![Sponsor](https://img.shields.io/badge/GitHub%20Sponsors-support%20this%20work-db61a2?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/munzzyy)
 
-I'm Cole. I build open-source tools and contribute upstream where correctness matters — security, RF/SDR, accessibility, health tech.
+I'm Cole. I build open-source tools and contribute upstream where correctness matters: security, RF/SDR, accessibility, health tech.
 
-Most of these are MIT; the two big apps are free for noncommercial use. Almost everything runs with zero dependencies, and most come with a live demo you can try in your browser right now — no install, no account. Pick whichever fits; each repo has the full story.
+Most of these are MIT; the two big apps are free for noncommercial use. Almost everything runs with zero dependencies, and most come with a live demo you can try in your browser right now, no install and no account. Pick whichever fits; each repo has the full story.
 
 ## Which one do I need?
 
@@ -27,18 +27,18 @@ Most of these are MIT; the two big apps are free for noncommercial use. Almost e
 |---------|--------------|
 | [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner that runs in your [browser](https://munzzyy.github.io/hopandhaul/) with no install, 4,175 airports, UI in 46 languages. |
 | [liftmath](https://github.com/munzzyy/liftmath) | Gym math with receipts: a 1RM estimate from any set you just did, plate loading with a barbell that loads itself as you type, and Wilks/DOTS/IPF strength scores, plus a searchable record book for powerlifting, strongman, grip sport, and track and field. A [web app](https://munzzyy.github.io/liftmath/) plus a CLI. |
-| [translint](https://github.com/munzzyy/translint) | A linter for your translation files — catches missing keys, placeholder mismatches, and untranslated values before they ship. CLI, CI gate, pre-commit, or agent skill. Its [site](https://munzzyy.github.io/translint/) practices what it lints: 32 languages, RTL included. |
-| [skillxray](https://github.com/munzzyy/skillxray) | Reads an AI agent skill before you install it and flags what's hiding — prompt injection, invisible Unicode, curl-pipe-sh and reverse shells, credential theft, leaked keys — then grades it A–F. SARIF for the GitHub Security tab, exit codes for CI. Python, zero dependencies. |
+| [translint](https://github.com/munzzyy/translint) | A linter for your translation files. Catches missing keys, placeholder mismatches, and untranslated values before they ship. CLI, CI gate, pre-commit, or agent skill. Its [site](https://munzzyy.github.io/translint/) practices what it lints: 32 languages, RTL included. |
+| [skillxray](https://github.com/munzzyy/skillxray) | Reads an AI agent skill before you install it and flags what's hiding: prompt injection, invisible Unicode, curl-pipe-sh and reverse shells, credential theft, leaked keys. Then grades it A to F. SARIF for the GitHub Security tab, exit codes for CI. Python, zero dependencies. |
 | [actbreak](https://github.com/munzzyy/actbreak) | A breakpoint debugger for GitHub Actions. Wraps `act` to pause a workflow mid-step, drop you into a live shell inside the job container, and resume when you're done. Python, zero dependencies. |
-| [webmcp-devtools](https://github.com/munzzyy/webmcp-devtools) | A Chrome DevTools panel that inspects and security-lints the WebMCP tools a web page hands to AI agents — a live tool table, a call-history timeline, and per-tool tool-poisoning checks. Plain JavaScript, no build step. |
-| [webmcp-lint](https://github.com/munzzyy/webmcp-lint) | The same idea as a CI gate: lints a WebMCP tool manifest against Chrome's own security guidance before you ship it — read-only hints, untrusted-content flags, injection in tool descriptions, unconstrained parameters. Human, JSON, or SARIF out. Python, zero dependencies. |
-| [framewall](https://github.com/munzzyy/framewall) | Scans a screenshot for prompt injection a person would miss but a vision model reads — hidden low-contrast text, fake system-message overlays, instructions buried in image metadata — before your agent acts on it. Reads the text with OCR when tesseract is around and falls back to image heuristics when it isn't. Python, Pillow only. |
+| [webmcp-devtools](https://github.com/munzzyy/webmcp-devtools) | A Chrome DevTools panel that inspects and security-lints the WebMCP tools a web page hands to AI agents: a live tool table, a call-history timeline, and per-tool tool-poisoning checks. Plain JavaScript, no build step. |
+| [webmcp-lint](https://github.com/munzzyy/webmcp-lint) | The same idea as a CI gate: lints a WebMCP tool manifest against Chrome's own security guidance before you ship it. Read-only hints, untrusted-content flags, injection in tool descriptions, unconstrained parameters. Human, JSON, or SARIF out. Python, zero dependencies. |
+| [framewall](https://github.com/munzzyy/framewall) | Scans a screenshot for prompt injection a person would miss but a vision model reads: hidden low-contrast text, fake system-message overlays, instructions buried in image metadata, all before your agent acts on it. Reads the text with OCR when tesseract is around and falls back to image heuristics when it isn't. Python, Pillow only. |
 | [injection-fixtures](https://github.com/munzzyy/injection-fixtures) | Known visual prompt-injection payloads packaged as pytest fixtures, so anyone building a screenshot or computer-use agent can test their defenses against poisoned images right in CI. Installs straight from the repo with `pip install git+https://github.com/munzzyy/injection-fixtures`, Pillow only. |
-| [sessionxray](https://github.com/munzzyy/sessionxray) | Audits a Claude Code session transcript after the fact and tells you what the agent actually touched — files outside the project, unexpected outbound hosts, secret reads, destructive commands. A security lens on your own agent's run, all local. Python, zero dependencies. |
-| [toolsmell](https://github.com/munzzyy/toolsmell) | Finds the smells in an MCP server's tool descriptions and schemas — the vague verbs, undocumented parameters, and missing return docs that quietly make agents worse at using your tools. For authors, before you publish. Python, zero dependencies. |
+| [sessionxray](https://github.com/munzzyy/sessionxray) | Audits a Claude Code session transcript after the fact and tells you what the agent actually touched: files outside the project, unexpected outbound hosts, secret reads, destructive commands. A security lens on your own agent's run, all local. Python, zero dependencies. |
+| [toolsmell](https://github.com/munzzyy/toolsmell) | Finds the smells in an MCP server's tool descriptions and schemas: the vague verbs, undocumented parameters, and missing return docs that quietly make agents worse at using your tools. For authors, before you publish. Python, zero dependencies. |
 | [wouldrun](https://github.com/munzzyy/wouldrun) | Answers which GitHub Actions workflows would fire for a given diff or event, statically, without pushing or running `act`. Resolves triggers, branch and path filters, and reusable-workflow calls, and says why each one runs or doesn't. Python, zero dependencies. |
-| [ci-safety-gate](https://github.com/munzzyy/ci-safety-gate) | One GitHub Action that runs the checks an AI-era repo wants — zizmor for workflow security, skillxray for agent skills, and a secrets scan — as a single pass-or-fail gate with one combined report. |
-| [coacheck](https://github.com/munzzyy/coacheck) | Reads a research-peptide Certificate of Analysis and does the math — real deliverable purity from the labeled amount, a red-flag checklist for thin or faked COAs, and reconstitution down to syringe units. A calculator, not advice. Python, zero dependencies. |
+| [ci-safety-gate](https://github.com/munzzyy/ci-safety-gate) | One GitHub Action that runs the checks an AI-era repo wants: zizmor for workflow security, skillxray for agent skills, and a secrets scan, all as a single pass-or-fail gate with one combined report. |
+| [coacheck](https://github.com/munzzyy/coacheck) | Reads a research-peptide Certificate of Analysis and does the math: real deliverable purity from the labeled amount, a red-flag checklist for thin or faked COAs, and reconstitution down to syringe units. A calculator, not advice. Python, zero dependencies. |
 
 They're all open to contributors. Each one ships a CONTRIBUTING file with the setup and the house rules, and the issue trackers are open, so if something is broken or missing, file it and I'll pick it up. Stars genuinely help other people find them.
 
@@ -52,7 +52,7 @@ The BUSY Bar shipped in July 2026, so the firmware is young and the bugs are sti
 
 | Change | How it got there |
 |--------|------------------|
-| A zero-size allocation in the JS runner, where `furi_check` turns `malloc(0)` into a reboot — so `console.log("")` restarts the device | reported and patched in [#903](https://github.com/busy-app/busybar-firmware/pull/903), reimplemented by the team |
+| A zero-size allocation in the JS runner, where `furi_check` turns `malloc(0)` into a reboot, so `console.log("")` restarts the device | reported and patched in [#903](https://github.com/busy-app/busybar-firmware/pull/903), reimplemented by the team |
 | An error string in the HTTP display API leaked on the success path | reported and patched in [#904](https://github.com/busy-app/busybar-firmware/pull/904), reimplemented by the team |
 | A missing union tag in the draw API | reported privately to their security address, fixed in the same PR |
 
@@ -91,7 +91,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3574) | Fix swapped order/inversion nibbles in the secplus_v2 docs |
 
 <details>
-<summary><b>The rest of the merged list</b> — RF/SDR, privacy, accessibility, localization, health</summary>
+<summary><b>The rest of the merged list</b>: RF/SDR, privacy, accessibility, localization, health</summary>
 
 | Repo | Change |
 |------|--------|
@@ -157,7 +157,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
 - [RfidResearchGroup/proxmark3 #3433](https://github.com/RfidResearchGroup/proxmark3/pull/3433): more heap out-of-bounds reads on short iCLASS dump files
 
-**Flipper One** — the device isn't out yet, so this is kernel, bootloader, MCU firmware, build system and docs
+**Flipper One**: the device isn't out yet, so this is kernel, bootloader, MCU firmware, build system and docs
 - [flipperdevices/flipper-linux-kernel #21](https://github.com/flipperdevices/flipper-linux-kernel/pull/21): wire the Type-C up port's VBUS supply to the connector so the mux can actually switch it
 - [flipperdevices/u-boot #38](https://github.com/flipperdevices/u-boot/pull/38): btrfs zstd decompression fails with error 70 on sector-padded extents
 - [flipperdevices/fbtng-corelibs #43](https://github.com/flipperdevices/fbtng-corelibs/pull/43): a record-destroy race where a late opener can hang forever
@@ -177,7 +177,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [flipperdevices/flipperone-docs #422](https://github.com/flipperdevices/flipperone-docs/pull/422): charger and fuel-gauge part numbers that didn't match the shipped hardware
 - [flipperdevices/flipperone-docs #421](https://github.com/flipperdevices/flipperone-docs/pull/421): ESP32-E22 review and sSDR compatibility notes on the M.2 modules page
 
-**Flipper Zero** — apps, host tooling, and the RPC libraries
+**Flipper Zero**: apps, host tooling, and the RPC libraries
 - [flipperdevices/qFlipper #255](https://github.com/flipperdevices/qFlipper/pull/255): crash when a log message arrives with no category
 - [flipperdevices/flipperzero-good-faps #308](https://github.com/flipperdevices/flipperzero-good-faps/pull/308): mfkey redoes recovery for nonces it already solved
 - [flipperdevices/flipperzero-good-faps #307](https://github.com/flipperdevices/flipperzero-good-faps/pull/307): a missing terminator in the SPI-mem chip table
@@ -219,7 +219,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 
 ## Support
 
-All of this is free and maintained on my own time. If one of these tools saves you a trip, a bad batch, or an afternoon of debugging, [sponsoring](https://github.com/sponsors/munzzyy) is what keeps it that way — every sponsor gets a permanent line in [SUPPORTERS.md](SUPPORTERS.md).
+All of this is free and maintained on my own time. If one of these tools saves you a trip, a bad batch, or an afternoon of debugging, [sponsoring](https://github.com/sponsors/munzzyy) is what keeps it that way. Every sponsor gets a permanent line in [SUPPORTERS.md](SUPPORTERS.md).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/route-dark.svg">
