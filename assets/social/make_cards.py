@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Build 1280x640 social preview cards in the portfolio palette."""
+"""Build 1280x640 social preview cards in the portfolio palette.
+
+Needs Pillow: pip install pillow
+
+Needs the Liberation fonts, which is what the committed cards were rendered with
+(Fedora: liberation-fonts, Debian/Ubuntu: fonts-liberation, Arch: ttf-liberation).
+DejaVu is accepted as a fallback so the script still runs, but its metrics differ,
+so cards rendered with it will not match the committed PNGs byte for byte.
+"""
 import os
 import sys
 
@@ -12,10 +20,57 @@ BG = (13, 17, 23)
 TITLE = (230, 237, 243)
 SUB = (201, 209, 217)
 URLC = (139, 148, 158)
-SANS_BOLD = "/usr/share/fonts/liberation/LiberationSans-Bold.ttf"
-SANS = "/usr/share/fonts/liberation/LiberationSans-Regular.ttf"
-MONO = "/usr/share/fonts/liberation/LiberationMono-Regular.ttf"
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+# First existing path wins. Liberation first, in the layouts the common distros use.
+FONTS = {
+    "sans-bold": (
+        "/usr/share/fonts/liberation/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/liberation-fonts/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/TTF/LiberationSans-Bold.ttf",
+        "/usr/local/share/fonts/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/TTF/DejaVuSans-Bold.ttf",
+    ),
+    "sans": (
+        "/usr/share/fonts/liberation/LiberationSans-Regular.ttf",
+        "/usr/share/fonts/liberation-fonts/LiberationSans-Regular.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        "/usr/share/fonts/TTF/LiberationSans-Regular.ttf",
+        "/usr/local/share/fonts/LiberationSans-Regular.ttf",
+        "/usr/share/fonts/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/TTF/DejaVuSans.ttf",
+    ),
+    "mono": (
+        "/usr/share/fonts/liberation/LiberationMono-Regular.ttf",
+        "/usr/share/fonts/liberation-fonts/LiberationMono-Regular.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf",
+        "/usr/share/fonts/TTF/LiberationMono-Regular.ttf",
+        "/usr/local/share/fonts/LiberationMono-Regular.ttf",
+        "/usr/share/fonts/dejavu/DejaVuSansMono.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
+        "/usr/share/fonts/TTF/DejaVuSansMono.ttf",
+    ),
+}
+_found = {}
+
+
+def font(kind, size):
+    if kind not in _found:
+        for path in FONTS[kind]:
+            if os.path.exists(path):
+                _found[kind] = path
+                break
+        else:
+            sys.exit(
+                "No %s font found. Install the Liberation fonts: liberation-fonts on "
+                "Fedora, fonts-liberation on Debian and Ubuntu, ttf-liberation on Arch."
+                % kind
+            )
+    return ImageFont.truetype(_found[kind], size)
 
 
 def tint(accent, a=0.10):
@@ -54,10 +109,10 @@ CARDS = {
 
 def fit_title(name):
     size = 146
-    f = ImageFont.truetype(SANS_BOLD, size)
+    f = font("sans-bold", size)
     while f.getbbox(name)[2] - f.getbbox(name)[0] > MAXW and size > 80:
         size -= 2
-        f = ImageFont.truetype(SANS_BOLD, size)
+        f = font("sans-bold", size)
     return f
 
 
@@ -82,10 +137,10 @@ def card(name, spec):
     f = fit_title(name)
     d.text((LEFT, 217 - f.getbbox(name)[1]), name, font=f, fill=TITLE)
     d.rectangle((LEFT, 362, 180, 369), fill=spec["accent"])
-    fs = ImageFont.truetype(SANS, 40)
+    fs = font("sans", 40)
     for i, line in enumerate(wrap(spec["pitch"], fs, MAXW)[:2]):
         d.text((LEFT, 416 + 60 * i - fs.getbbox("X")[1]), line, font=fs, fill=SUB)
-    fm = ImageFont.truetype(MONO, 28)
+    fm = font("mono", 28)
     url = f"github.com/munzzyy/{name}"
     d.text((LEFT, 522 - fm.getbbox(url)[1]), url, font=fm, fill=URLC)
     out = os.path.join(HERE, f"{name}.png")
@@ -95,6 +150,12 @@ def card(name, spec):
 
 def main():
     names = sys.argv[1:] or list(CARDS)
+    unknown = [n for n in names if n not in CARDS]
+    if unknown:
+        sys.exit(
+            "No card named %s. Known cards: %s"
+            % (", ".join(unknown), ", ".join(sorted(CARDS)))
+        )
     for name in names:
         card(name, CARDS[name])
 
