@@ -44,7 +44,7 @@ They're all open to contributors. Each one ships a CONTRIBUTING file with the se
 
 ## Upstream
 
-Sixty-nine have landed upstream and another eighty-two are open, sixty-two projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, and its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+Seventy-eight have landed upstream and another ninety are open, sixty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### BUSY Bar
 
@@ -64,10 +64,15 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 |------|--------|
 | [flipperdevices/flipper-linux-kernel](https://github.com/flipperdevices/flipper-linux-kernel/pull/18) | Add the missing cache hierarchy to the RK3576 CPU nodes, so Linux stops reporting the Flipper One with no caches |
 | [flipperdevices/flipper-linux-kernel](https://github.com/flipperdevices/flipper-linux-kernel/pull/17) | Register the Flipper One's side-button interrupt in the MCU MFD driver |
+| [flipperdevices/u-boot](https://github.com/flipperdevices/u-boot/commit/b5b70eeb5a377cf72643255bcc26a5cd88d11199) | Fix btrfs zstd decompression of compressed inline extents, applied from my mainline U-Boot patch |
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4429) | Initialize `timings_cnt` on infrared decoder alloc and fix its bounds check |
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4428) | Check the NFC poller error before reading a FeliCa system-code response |
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4427) | NUL-terminate the PAC/Stanley card id before parsing it |
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4426) | Fix the trailing Wiegand parity bit on Pyramid LFRFID cards |
+| [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/221) | Fail the haptic driver's auto-calibration when its status register says it failed |
+| [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/219) | Leave the I2C slave critical section on the early return |
+| [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/216) | Check for NULL before dereferencing in serial deinit |
+| [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/215) | Remove a double `pipe_free` in the CLI UART disable handler |
 | [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/212) | Fix a hard fault in the Flipper One CLI when USB disconnects mid-`screen` |
 | [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/211) | Stop a wild pointer reaching the Flipper One's device-info callback |
 | [flipperdevices/fbtng-corelibs](https://github.com/flipperdevices/fbtng-corelibs/pull/40) | Fix a use-after-free in the event loop when a run-once subscription fires |
@@ -80,6 +85,8 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [YARAHQ/yara-forge](https://github.com/YARAHQ/yara-forge/pull/88) | Align indexed and patterned hash meta fields |
 | [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma/pull/6114) | Add a vmmemWSL exception to the non-existing-file rule |
 | [splunk/security_content](https://github.com/splunk/security_content/pull/4146) | Add a PreAuthType filter to the PetitPotam Kerberos detection |
+| [splunk/security_content](https://github.com/splunk/security_content/pull/4196) | Fix a wildcard declared on a column that doesn't exist in the malware user-agent lookup |
+| [openmls/openmls](https://github.com/openmls/openmls/pull/2143) | Sign the GroupInfo with the new key when a commit rotates the signature key, so joiners can verify it |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8986) | Scan XDG-base-directory Firefox profiles |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8987) | Add the Windsurf `.devin` path to `vscode_extensions` |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8991) | Add the Microsoft Edge and Flatpak paths to `chrome_extensions` on Linux |
@@ -101,8 +108,10 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [PentHertz/urh-ng](https://github.com/PentHertz/urh-ng/commit/7306cca71ec0) | Decode int8 samples as `signed char` so magnitudes stay correct on ARM |
 | [jcsteh/osara](https://github.com/jcsteh/osara/pull/1416) | Make paste/duplicate screen-reader messages translatable |
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1748) | Request `ACCESS_LOCAL_NETWORK` before opening the proxy on all interfaces |
+| [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1780) | Fix the `Bridge.doh` getter reading the `dot` parameter, so `doh=` lines parse and stop growing duplicates |
 | [ooni/probe-cli](https://github.com/ooni/probe-cli/pull/1786) | Remove a stray debug print in the feature-flag cache |
 | [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/49) | Strip APEv2 and ID3v1 tags that sit after the audio in mp3, ogg and flac |
+| [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/50) | Sort OOXML attributes themselves instead of reordering elements out of schema order |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64796) | Fix the Finnish BIC/IBAN mismatch translation |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64815) | Drop an always-true `method_exists` check |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64811) | Fix broken placeholder translations across [Armenian](https://github.com/symfony/symfony/pull/64811), [Arabic](https://github.com/symfony/symfony/pull/64810), [Basque](https://github.com/symfony/symfony/pull/64809), [Turkish](https://github.com/symfony/symfony/pull/64808), [Galician](https://github.com/symfony/symfony/pull/64807), [Azerbaijani](https://github.com/symfony/symfony/pull/64806), [Traditional Chinese](https://github.com/symfony/symfony/pull/64805), [Finnish](https://github.com/symfony/symfony/pull/64804), and [Welsh](https://github.com/symfony/symfony/pull/64803) |
@@ -126,6 +135,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [flipperdevices/flipperone-docs](https://github.com/flipperdevices/flipperone-docs/pull/417) | Fix a mismatched M.2 thickness spec on the M.2 port page |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3632) | Reject out-of-range temperature and humidity in the GT-WT03 decoder |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3635) | Reject implausible temperature and humidity in the WT450 decoder |
+| [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3645) | Reject an all-zero Truck TPMS payload that passes the XOR check |
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4425) | Reject a zero or negative timer interval in `js_event_loop` |
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4424) | Don't read past the buffer in `bit_lib` when the requested bits fit one byte |
 | [flipperdevices/flipper-application-catalog](https://github.com/flipperdevices/flipper-application-catalog/pull/1154) | Log the folder being skipped, not a leftover filename |
@@ -133,7 +143,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 82 PRs across 47 repos</summary>
+<summary><b>Open / in review</b>: 90 PRs across 55 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -149,7 +159,12 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [SigmaHQ/sigma #6180](https://github.com/SigmaHQ/sigma/pull/6180): the macOS network-service-scanning filter matches any `l`, not netcat's listen flag
 - [semgrep/semgrep-rules #4020](https://github.com/semgrep/semgrep-rules/pull/4020): `run-shell-injection` flags the truthiness-check shape on bare inputs
 - [ffuf/ffuf #925](https://github.com/ffuf/ffuf/pull/925): strip wordlist comments before the `%ext%` branch, not only after it
-- [splunk/security_content #4196](https://github.com/splunk/security_content/pull/4196): the malware user-agent lookup declares WILDCARD on a column name that doesn't exist, so every `*` pattern misses silently
+- [chimera-nas/libevpl #117](https://github.com/chimera-nas/libevpl/pull/117): the HTTP server frees a client's in-flight request twice when the client disconnects mid-request
+- [osquery/osquery #9036](https://github.com/osquery/osquery/pull/9036): split the sudoers header on the first unescaped whitespace, so escaped spaces in a name stop leaking into the rule
+- [VirusTotal/yara #2237](https://github.com/VirusTotal/yara/pull/2237): reject hex jump and repeat lengths that overflow an int
+- [YARAHQ/yara-forge #91](https://github.com/YARAHQ/yara-forge/pull/91): a missing comma in the tag_names list glues two tags into one
+- [projectdiscovery/nuclei-templates #16739](https://github.com/projectdiscovery/nuclei-templates/pull/16739): the nh-c2 DSL matcher can never match
+- [jsverse/transloco #982](https://github.com/jsverse/transloco/pull/982): block prototype pollution in the keys-manager's `mergeDeep`
 
 **OSINT**
 - [mxrch/GHunt #601](https://github.com/mxrch/GHunt/pull/601): read `isDefault` from the API for profile photos instead of hashing the image
@@ -159,21 +174,15 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
 - [RfidResearchGroup/proxmark3 #3433](https://github.com/RfidResearchGroup/proxmark3/pull/3433): more heap out-of-bounds reads on short iCLASS dump files
-- [f4exb/sdrangel #2870](https://github.com/f4exb/sdrangel/pull/2870): a missing comma in the AIS aids-to-navigation table glues two labels into one and shifts every type above 19
-- [merbanan/rtl_433 #3645](https://github.com/merbanan/rtl_433/pull/3645): an all-zero Truck TPMS payload passes the XOR check, so preamble fill decodes as a real report
 
 **Flipper One**: the device isn't out yet, so this is kernel, bootloader, MCU firmware, build system and docs
 - [flipperdevices/flipper-linux-kernel #21](https://github.com/flipperdevices/flipper-linux-kernel/pull/21): wire the Type-C up port's VBUS supply to the connector so the mux can actually switch it
 - [flipperdevices/flipper-linux-kernel #22](https://github.com/flipperdevices/flipper-linux-kernel/pull/22): dwc3 returns an error when a gadget dequeues a request that already completed, reshaped so it can go to linux-usb as-is
-- [flipperdevices/u-boot #38](https://github.com/flipperdevices/u-boot/pull/38): btrfs zstd decompression fails with error 70 on sector-padded extents
 - [flipperdevices/fbtng-corelibs #43](https://github.com/flipperdevices/fbtng-corelibs/pull/43): a record-destroy race where a late opener can hang forever
 - [flipperdevices/fbtng #25](https://github.com/flipperdevices/fbtng/pull/25): flashing reports 0% on an exact page multiple instead of a full last page
 - [flipperdevices/fbtng-bootstrap #1](https://github.com/flipperdevices/fbtng-bootstrap/pull/1): run fbtng with bash so `set -o pipefail` actually works
-- [flipperdevices/flipperone-mcu-firmware #221](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/221): the haptic driver reports a successful auto-calibration when its status reads failed
 - [flipperdevices/flipperone-mcu-firmware #220](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/220): the USB-C PD controller checks `rx_empty` against the wrong register
-- [flipperdevices/flipperone-mcu-firmware #219](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/219): an I2C slave early return leaves the critical section held
 - [flipperdevices/flipperone-mcu-firmware #218](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/218): the touch controller uses I2C registers before they're initialized
-- [flipperdevices/flipperone-mcu-firmware #216](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/216) and [#215](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/215): a NULL deref in serial deinit, and a double `pipe_free` in the CLI UART disable handler
 - [flipperdevices/flipperone-debug-probe #12](https://github.com/flipperdevices/flipperone-debug-probe/pull/12): DAP ring-buffer backpressure stopped working after the pointers wrapped, letting the host overwrite an unread SWD command
 - [flipperdevices/flipperone-debug-probe #16](https://github.com/flipperdevices/flipperone-debug-probe/pull/16), [#15](https://github.com/flipperdevices/flipperone-debug-probe/pull/15) and [#14](https://github.com/flipperdevices/flipperone-debug-probe/pull/14): NULL handle derefs, and a CDC receive error read as a huge length
 - [flipperdevices/flipperone-testing #8](https://github.com/flipperdevices/flipperone-testing/pull/8), [#7](https://github.com/flipperdevices/flipperone-testing/pull/7) and [#6](https://github.com/flipperdevices/flipperone-testing/pull/6): the test suite passed a failed CPU/GPU stress run, cut the stress test short, and reported a PipeWire restart that never happened
@@ -189,6 +198,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [flipperdevices/flipperzero-good-faps #307](https://github.com/flipperdevices/flipperzero-good-faps/pull/307): a missing terminator in the SPI-mem chip table
 - [flipperdevices/flipperzero-game-engine #3](https://github.com/flipperdevices/flipperzero-game-engine/pull/3): sprite loading trusts the file is big enough for its header
 - [flipperdevices/video-game-module #16](https://github.com/flipperdevices/video-game-module/pull/16): check the screen frame size before copying it
+- [flipperdevices/video-game-module #17](https://github.com/flipperdevices/video-game-module/pull/17): reject data frames larger than the receive buffer
 - [flipperdevices/flipperzero-ufbt #68](https://github.com/flipperdevices/flipperzero-ufbt/pull/68): a build killed by a signal is reported as a success
 - [flipperdevices/flipperzero-nfc-rpc #5](https://github.com/flipperdevices/flipperzero-nfc-rpc/pull/5): skip malformed reader-log lines instead of crashing
 - [flipperdevices/map-gcc-parser-python #3](https://github.com/flipperdevices/map-gcc-parser-python/pull/3): crash on non-UTF-8 bytes in the map file
@@ -196,35 +206,44 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 
 **Accessibility**
 - [ClickHouse/click-ui #1140](https://github.com/ClickHouse/click-ui/pull/1140): respect a consumer-supplied `aria-label` instead of overwriting it with the icon name
+- [jcsteh/osara #1434](https://github.com/jcsteh/osara/pull/1434): on the Mac, messages that carry a menu access key never find their translations, so localized menus read out in English
 
 **Privacy / anti-surveillance**
 - [FoggedLens/deflock #133](https://github.com/FoggedLens/deflock/pull/133): tell people they need an OpenStreetMap account before they pick a way to report a camera
+- [FoggedLens/deflock #137](https://github.com/FoggedLens/deflock/pull/137): the geocode cache key ignores the geojson variant, so two different lookups share one cache slot
 - [guardianproject/proofmode-android #136](https://github.com/guardianproject/proofmode-android/pull/136): correct the QR bitmap stride
 - [guardianproject/proofmode-android #135](https://github.com/guardianproject/proofmode-android/pull/135): correct the C2PA GPS hemisphere
-- [jvoisin/mat2 #50](https://github.com/jvoisin/mat2/pull/50): the OOXML attribute-sort pass reorders elements instead, which moves `sectPr` and `extLst` out of schema order
-- [guardianproject/orbot-android #1780](https://github.com/guardianproject/orbot-android/pull/1780): `Bridge.doh` reads the `dot` parameter, so a `doh=` line parses to null and a rebuilt line grows a duplicate
+- [ooni/probe-cli #1811](https://github.com/ooni/probe-cli/pull/1811): make tlsmiddlebox's ClientId settable and validate its value
 
 **Cryptography and wallets**
 - [monero-project/monero #11018](https://github.com/monero-project/monero/pull/11018): `export_outputs` underflows its reserve when the pagination start runs past the transfer list
 - [monero-project/monero #11019](https://github.com/monero-project/monero/pull/11019): a failed derivation shifts the additional-derivations list down a slot, so later outputs stop being seen as yours
 - [monero-project/monero #11020](https://github.com/monero-project/monero/pull/11020): `sweep_account` expands `index=all` against the current account instead of the one being swept
-- [openmls/openmls #2143](https://github.com/openmls/openmls/pull/2143): a commit that rotates the signature key still signs the GroupInfo with the old one, so the joiner can't verify it
+- [monero-project/monero-gui #4672](https://github.com/monero-project/monero-gui/pull/4672): a restore date typed without hyphens is read as a raw block height
+- [openmls/openmls #2151](https://github.com/openmls/openmls/pull/2151): FrankenProposal's length counts the proposal type twice
+- [cake-tech/cupcake #62](https://github.com/cake-tech/cupcake/pull/62): the seed-check quiz can offer the correct word twice among the choices
+- [cake-tech/trezor-flutter #2](https://github.com/cake-tech/trezor-flutter/pull/2): a THP packet that exactly fills the packet size fails to decode
 
 **Systems / web**
 - [ClickHouse/click-ui #1141](https://github.com/ClickHouse/click-ui/pull/1141): default Button `htmlType` to button
 - [openclimatefix/graph_weather #231](https://github.com/openclimatefix/graph_weather/pull/231): division-by-zero on single-axis grids
 - [openclimatefix/graph_weather #230](https://github.com/openclimatefix/graph_weather/pull/230): guard optional data-module imports
 - [hotosm/tasking-manager #7287](https://github.com/hotosm/tasking-manager/pull/7287): replace Nominatim reverse geocoding with pg-nearest-city
+- [symfony/symfony #65128](https://github.com/symfony/symfony/pull/65128): Mime's `Address::getEncodedName()` escapes quotes but not backslashes, so a name ending in one breaks the header quoting
 
 **Health / food**
 - [davidhealey/waistline #961](https://github.com/davidhealey/waistline/pull/961): guard `Meals.init` against overlapping calls
 - [davidhealey/waistline #960](https://github.com/davidhealey/waistline/pull/960): distinguish rate-limit/network errors from bad USDA keys
+- [simonoppowa/OpenNutriTracker #615](https://github.com/simonoppowa/OpenNutriTracker/pull/615): stone body weights can display a full stone worth of pounds
+- [openfoodfacts/open-prices #1414](https://github.com/openfoodfacts/open-prices/pull/1414): the `prediction_count__lte` filter was filtering on `price_count`
+- [openfoodfacts/robotoff #1919](https://github.com/openfoodfacts/robotoff/pull/1919): anchor nutrient-mention regex alternatives on word boundaries
 
 **Localization**
 - [TheIllusiveC4/Curios #622](https://github.com/TheIllusiveC4/Curios/pull/622) and [#621](https://github.com/TheIllusiveC4/Curios/pull/621): Turkish placeholder and locale-casing bugs
 - [drewnoakes/metadata-extractor #741](https://github.com/drewnoakes/metadata-extractor/pull/741): lowercase hardcoded description strings with `Locale.ROOT` so the Turkish locale doesn't corrupt them
 - [chubin/wttr.in #1279](https://github.com/chubin/wttr.in/pull/1279) and [#1278](https://github.com/chubin/wttr.in/pull/1278): RTL mark and corrupted Persian/Hebrew/Arabic captions
 - [tolgee/tolgee-platform #3789](https://github.com/tolgee/tolgee-platform/pull/3789): keep the zero plural form in Apple XLIFF export
+- [mdn/translated-content #37508](https://github.com/mdn/translated-content/pull/37508): use a real minus sign in the BigInt operator example across the Korean, Portuguese and Russian docs
 
 **Directory listings** (not fixes, just getting the tools indexed)
 - [yigitkonur/awesome-webmcp #10](https://github.com/yigitkonur/awesome-webmcp/pull/10) and [#9](https://github.com/yigitkonur/awesome-webmcp/pull/9): add webmcp-devtools and webmcp-lint
