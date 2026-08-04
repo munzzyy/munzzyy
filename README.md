@@ -44,7 +44,7 @@ They're all open to contributors. Each one ships a CONTRIBUTING file with the se
 
 ## Upstream
 
-Seventy-eight have landed upstream and another ninety are open, sixty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+Eighty have landed upstream and another eighty-eight are open, sixty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### BUSY Bar
 
@@ -109,6 +109,8 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [jcsteh/osara](https://github.com/jcsteh/osara/pull/1416) | Make paste/duplicate screen-reader messages translatable |
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1748) | Request `ACCESS_LOCAL_NETWORK` before opening the proxy on all interfaces |
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1780) | Fix the `Bridge.doh` getter reading the `dot` parameter, so `doh=` lines parse and stop growing duplicates |
+| [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/135) | Correct the C2PA GPS hemisphere on longitude and latitude |
+| [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/136) | Correct the bitmap stride in QR code generation |
 | [ooni/probe-cli](https://github.com/ooni/probe-cli/pull/1786) | Remove a stray debug print in the feature-flag cache |
 | [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/49) | Strip APEv2 and ID3v1 tags that sit after the audio in mp3, ogg and flac |
 | [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/50) | Sort OOXML attributes themselves instead of reordering elements out of schema order |
@@ -143,7 +145,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 90 PRs across 55 repos</summary>
+<summary><b>Open / in review</b>: 88 PRs across 54 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -211,8 +213,6 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 **Privacy / anti-surveillance**
 - [FoggedLens/deflock #133](https://github.com/FoggedLens/deflock/pull/133): tell people they need an OpenStreetMap account before they pick a way to report a camera
 - [FoggedLens/deflock #137](https://github.com/FoggedLens/deflock/pull/137): the geocode cache key ignores the geojson variant, so two different lookups share one cache slot
-- [guardianproject/proofmode-android #136](https://github.com/guardianproject/proofmode-android/pull/136): correct the QR bitmap stride
-- [guardianproject/proofmode-android #135](https://github.com/guardianproject/proofmode-android/pull/135): correct the C2PA GPS hemisphere
 - [ooni/probe-cli #1811](https://github.com/ooni/probe-cli/pull/1811): make tlsmiddlebox's ClientId settable and validate its value
 
 **Cryptography and wallets**
