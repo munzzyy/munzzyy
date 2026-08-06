@@ -44,7 +44,7 @@ They're all open to contributors. Each one ships a CONTRIBUTING file with the se
 
 ## Upstream
 
-Eighty-one have landed upstream and another eighty-seven are open, sixty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+Eighty-two have landed upstream and another eighty-six are open, sixty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### BUSY Bar
 
@@ -128,6 +128,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [projectdiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates/pull/16672) | Stop `nfs-v3-exposed` counting a `PROG_UNAVAIL` reply as a hit |
 | [projectdiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates/pull/16739) | Fix the nh-c2 DSL matcher that can never match |
 | [monero-project/monero-gui](https://github.com/monero-project/monero-gui/pull/4652) | Fix a stale subaddress selection on the Receive page after switching accounts |
+| [monero-project/monero-gui](https://github.com/monero-project/monero-gui/pull/4672) | Read a restore date typed without hyphens as a date, not a block height |
 | [mdn/translated-content](https://github.com/mdn/translated-content/pull/36835) | Correct the Japanese `Reflect.deleteProperty()` docs |
 | [openfoodfacts/open-prices](https://github.com/openfoodfacts/open-prices/pull/1376) | Remove an unreachable branch in the barcode short-code fixups |
 | [openfoodfacts/robotoff](https://github.com/openfoodfacts/robotoff/pull/1909) | Replace obsolete facet URLs with the `/facets/` prefix |
@@ -146,7 +147,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 87 PRs across 53 repos</summary>
+<summary><b>Open / in review</b>: 86 PRs across 53 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -219,7 +220,6 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [monero-project/monero #11018](https://github.com/monero-project/monero/pull/11018): `export_outputs` underflows its reserve when the pagination start runs past the transfer list
 - [monero-project/monero #11019](https://github.com/monero-project/monero/pull/11019): a failed derivation shifts the additional-derivations list down a slot, so later outputs stop being seen as yours
 - [monero-project/monero #11020](https://github.com/monero-project/monero/pull/11020): `sweep_account` expands `index=all` against the current account instead of the one being swept
-- [monero-project/monero-gui #4672](https://github.com/monero-project/monero-gui/pull/4672): a restore date typed without hyphens is read as a raw block height
 - [openmls/openmls #2151](https://github.com/openmls/openmls/pull/2151): FrankenProposal's length counts the proposal type twice
 - [cake-tech/cupcake #62](https://github.com/cake-tech/cupcake/pull/62): the seed-check quiz can offer the correct word twice among the choices
 - [cake-tech/trezor-flutter #2](https://github.com/cake-tech/trezor-flutter/pull/2): a THP packet that exactly fills the packet size fails to decode
