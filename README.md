@@ -20,6 +20,7 @@ Most of these are MIT; the two big apps are free for noncommercial use. Almost e
 - Checking a research-peptide COA → [coacheck](https://github.com/munzzyy/coacheck)
 - Cheapest way to travel → [hopandhaul](https://github.com/munzzyy/hopandhaul)
 - Strength-training math → [liftmath](https://github.com/munzzyy/liftmath)
+- A daily puzzle habit → [puzzlepress](https://github.com/munzzyy/puzzlepress)
 
 ## Tools
 
@@ -27,6 +28,7 @@ Most of these are MIT; the two big apps are free for noncommercial use. Almost e
 |---------|--------------|
 | [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner that runs in your [browser](https://munzzyy.github.io/hopandhaul/) with no install, 4,175 airports, UI in 46 languages. |
 | [liftmath](https://github.com/munzzyy/liftmath) | Gym math with receipts: a 1RM estimate from any set you just did, plate loading with a barbell that loads itself as you type, and Wilks/DOTS/IPF strength scores, plus a searchable record book for powerlifting, strongman, grip sport, and track and field. A [web app](https://munzzyy.github.io/liftmath/) plus a CLI. |
+| [puzzlepress](https://github.com/munzzyy/puzzlepress) | Seven daily puzzle games in your [browser](https://munzzyy.github.io/puzzlepress/): a word guesser, group sorting, a pangram hunt, a mini crossword with hand-written clues, a themed word search, letter chains, and sudoku. Installable as an app. No accounts, no ads, no tracking, zero dependencies, and every puzzle bank ships in the repo. |
 | [translint](https://github.com/munzzyy/translint) | A linter for your translation files. Catches missing keys, placeholder mismatches, and untranslated values before they ship. CLI, CI gate, pre-commit, or agent skill. Its [site](https://munzzyy.github.io/translint/) practices what it lints: 32 languages, RTL included. |
 | [skillxray](https://github.com/munzzyy/skillxray) | Reads an AI agent skill before you install it and flags what's hiding: prompt injection, invisible Unicode, curl-pipe-sh and reverse shells, credential theft, leaked keys. Then grades it A to F. SARIF for the GitHub Security tab, exit codes for CI. Python, zero dependencies. |
 | [actbreak](https://github.com/munzzyy/actbreak) | A breakpoint debugger for GitHub Actions. Wraps `act` to pause a workflow mid-step, drop you into a live shell inside the job container, and resume when you're done. Python, zero dependencies. |
