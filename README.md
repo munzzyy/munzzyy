@@ -44,7 +44,7 @@ They're all open to contributors. Each one ships a CONTRIBUTING file with the se
 
 ## Upstream
 
-Eighty-two have landed upstream and another eighty-six are open, sixty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+Eighty-five have landed upstream and another eighty-three are open, sixty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### BUSY Bar
 
@@ -87,6 +87,9 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [splunk/security_content](https://github.com/splunk/security_content/pull/4146) | Add a PreAuthType filter to the PetitPotam Kerberos detection |
 | [splunk/security_content](https://github.com/splunk/security_content/pull/4196) | Fix a wildcard declared on a column that doesn't exist in the malware user-agent lookup |
 | [openmls/openmls](https://github.com/openmls/openmls/pull/2143) | Sign the GroupInfo with the new key when a commit rotates the signature key, so joiners can verify it |
+| [monero-project/monero](https://github.com/monero-project/monero/pull/11019) | Keep the additional-derivations list aligned when one derivation fails, so later outputs are still seen as yours |
+| [monero-project/monero](https://github.com/monero-project/monero/pull/11020) | Make `sweep_account` expand `index=all` against the account being swept, not the current one |
+| [monero-project/monero](https://github.com/monero-project/monero/pull/11018) | Clamp the `export_outputs` start to the transfer count so the reserve stops underflowing |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8986) | Scan XDG-base-directory Firefox profiles |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8987) | Add the Windsurf `.devin` path to `vscode_extensions` |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8991) | Add the Microsoft Edge and Flatpak paths to `chrome_extensions` on Linux |
@@ -147,7 +150,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 86 PRs across 53 repos</summary>
+<summary><b>Open / in review</b>: 83 PRs across 52 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -217,9 +220,6 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [ooni/probe-cli #1811](https://github.com/ooni/probe-cli/pull/1811): make tlsmiddlebox's ClientId settable and validate its value
 
 **Cryptography and wallets**
-- [monero-project/monero #11018](https://github.com/monero-project/monero/pull/11018): `export_outputs` underflows its reserve when the pagination start runs past the transfer list
-- [monero-project/monero #11019](https://github.com/monero-project/monero/pull/11019): a failed derivation shifts the additional-derivations list down a slot, so later outputs stop being seen as yours
-- [monero-project/monero #11020](https://github.com/monero-project/monero/pull/11020): `sweep_account` expands `index=all` against the current account instead of the one being swept
 - [openmls/openmls #2151](https://github.com/openmls/openmls/pull/2151): FrankenProposal's length counts the proposal type twice
 - [cake-tech/cupcake #62](https://github.com/cake-tech/cupcake/pull/62): the seed-check quiz can offer the correct word twice among the choices
 - [cake-tech/trezor-flutter #2](https://github.com/cake-tech/trezor-flutter/pull/2): a THP packet that exactly fills the packet size fails to decode
