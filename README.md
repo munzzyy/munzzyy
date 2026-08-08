@@ -7,7 +7,7 @@
 
 I'm Cole. I build open-source tools and contribute upstream where correctness matters: security, RF/SDR, accessibility, health tech.
 
-Most of these are MIT; the two big apps are free for noncommercial use. Almost everything runs with zero dependencies, and most come with a live demo you can try in your browser right now, no install and no account. Pick whichever fits; each repo has the full story.
+Most of these are MIT; the big apps are free for noncommercial use. Almost everything runs with zero dependencies, and most come with a live demo you can try in your browser right now, no install and no account. Pick whichever fits; each repo has the full story.
 
 ## Which one do I need?
 
