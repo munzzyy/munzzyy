@@ -5,7 +5,7 @@
 
 [![Sponsor](https://img.shields.io/badge/GitHub%20Sponsors-support%20this%20work-db61a2?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/munzzyy)
 
-I'm Cole. I build open-source tools and contribute upstream where correctness matters: security, RF/SDR, accessibility, health tech.
+I'm Cole. I work on embedded and firmware security: kernel drivers, device firmware, and the RF/SDR stack around them. I also build open-source tools and contribute upstream wherever correctness matters, from accessibility to health tech.
 
 Most of these are MIT; the big apps are free for noncommercial use. Almost everything runs with zero dependencies, and most come with a live demo you can try in your browser right now, no install and no account. Pick whichever fits; each repo has the full story.
 
