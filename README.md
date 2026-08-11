@@ -46,7 +46,7 @@ They're all open to contributors. Each one ships a CONTRIBUTING file with the se
 
 ## Upstream
 
-Eighty-five have landed upstream and another eighty-three are open, sixty-four projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. Mainline U-Boot itself now carries three more btrfs patches of mine, reviewed by a btrfs maintainer and applied by the project's lead. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+Ninety-six have landed upstream and another sixty-six are open, seventy-two projects in all: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. Mainline U-Boot itself now carries three more btrfs patches of mine, reviewed by a btrfs maintainer and applied by the project's lead. A few that were fun to track down: a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### BUSY Bar
 
@@ -117,6 +117,10 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1780) | Fix the `Bridge.doh` getter reading the `dot` parameter, so `doh=` lines parse and stop growing duplicates |
 | [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/135) | Correct the C2PA GPS hemisphere on longitude and latitude |
 | [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/136) | Correct the bitmap stride in QR code generation |
+| [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/138) | Write the C2PA `dc:creator` as a JSON array instead of a bracketed string, so the signed CAWG metadata parses |
+| [flipperdevices/flipperone-debug-probe](https://github.com/flipperdevices/flipperone-debug-probe/pull/12) | Keep the DAP ring-buffer backpressure working after the pointers wrap, plus NULL handle derefs and a CDC error read as a huge length ([#16](https://github.com/flipperdevices/flipperone-debug-probe/pull/16), [#15](https://github.com/flipperdevices/flipperone-debug-probe/pull/15), [#14](https://github.com/flipperdevices/flipperone-debug-probe/pull/14)) |
+| [flipperdevices/flipperone-docs](https://github.com/flipperdevices/flipperone-docs/pull/423) | A docs validator for fragment anchors and broken image paths, plus microSD, charger and fuel-gauge part-number fixes ([#427](https://github.com/flipperdevices/flipperone-docs/pull/427), [#422](https://github.com/flipperdevices/flipperone-docs/pull/422), [#421](https://github.com/flipperdevices/flipperone-docs/pull/421)) |
+| [hotosm/tasking-manager](https://github.com/hotosm/tasking-manager/pull/7287) | Replace Nominatim reverse geocoding with an in-database pg-nearest-city lookup |
 | [ooni/probe-cli](https://github.com/ooni/probe-cli/pull/1786) | Remove a stray debug print in the feature-flag cache |
 | [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/49) | Strip APEv2 and ID3v1 tags that sit after the audio in mp3, ogg and flac |
 | [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/50) | Sort OOXML attributes themselves instead of reordering elements out of schema order |
@@ -153,7 +157,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 83 PRs across 52 repos</summary>
+<summary><b>Open / in review</b>: 66 PRs across 44 repos</summary>
 
 **Security and detection**
 - [elastic/detection-rules #6383](https://github.com/elastic/detection-rules/pull/6383): KQL wildcard lexer fails on escaped specials with spaces
@@ -188,30 +192,18 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [flipperdevices/flipper-linux-kernel #21](https://github.com/flipperdevices/flipper-linux-kernel/pull/21): wire the Type-C up port's VBUS supply to the connector so the mux can actually switch it
 - [flipperdevices/flipper-linux-kernel #22](https://github.com/flipperdevices/flipper-linux-kernel/pull/22): dwc3 returns an error when a gadget dequeues a request that already completed, reshaped so it can go to linux-usb as-is
 - [flipperdevices/fbtng-corelibs #43](https://github.com/flipperdevices/fbtng-corelibs/pull/43): a record-destroy race where a late opener can hang forever
-- [flipperdevices/fbtng #25](https://github.com/flipperdevices/fbtng/pull/25): flashing reports 0% on an exact page multiple instead of a full last page
-- [flipperdevices/fbtng-bootstrap #1](https://github.com/flipperdevices/fbtng-bootstrap/pull/1): run fbtng with bash so `set -o pipefail` actually works
 - [flipperdevices/flipperone-mcu-firmware #220](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/220): the USB-C PD controller checks `rx_empty` against the wrong register
 - [flipperdevices/flipperone-mcu-firmware #218](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/218): the touch controller uses I2C registers before they're initialized
-- [flipperdevices/flipperone-debug-probe #12](https://github.com/flipperdevices/flipperone-debug-probe/pull/12): DAP ring-buffer backpressure stopped working after the pointers wrapped, letting the host overwrite an unread SWD command
-- [flipperdevices/flipperone-debug-probe #16](https://github.com/flipperdevices/flipperone-debug-probe/pull/16), [#15](https://github.com/flipperdevices/flipperone-debug-probe/pull/15) and [#14](https://github.com/flipperdevices/flipperone-debug-probe/pull/14): NULL handle derefs, and a CDC receive error read as a huge length
 - [flipperdevices/flipperone-testing #8](https://github.com/flipperdevices/flipperone-testing/pull/8), [#7](https://github.com/flipperdevices/flipperone-testing/pull/7) and [#6](https://github.com/flipperdevices/flipperone-testing/pull/6): the test suite passed a failed CPU/GPU stress run, cut the stress test short, and reported a PipeWire restart that never happened
 - [flipperdevices/flipperos-installer #2](https://github.com/flipperdevices/flipperos-installer/pull/2) and [#1](https://github.com/flipperdevices/flipperos-installer/pull/1): profile names that collide with reserved subvolumes, and an unreadable `/proc` source treated as a free disk
-- [flipperdevices/flipperone-docs #427](https://github.com/flipperdevices/flipperone-docs/pull/427): a self-contradicting microSD spec and a dead Rockchip wiki link
-- [flipperdevices/flipperone-docs #423](https://github.com/flipperdevices/flipperone-docs/pull/423): a docs validator for fragment anchors, broken paths, and part-number consistency
-- [flipperdevices/flipperone-docs #422](https://github.com/flipperdevices/flipperone-docs/pull/422): charger and fuel-gauge part numbers that didn't match the shipped hardware
-- [flipperdevices/flipperone-docs #421](https://github.com/flipperdevices/flipperone-docs/pull/421): ESP32-E22 review and sSDR compatibility notes on the M.2 modules page
 
 **Flipper Zero**: apps, host tooling, and the RPC libraries
 - [flipperdevices/qFlipper #255](https://github.com/flipperdevices/qFlipper/pull/255): crash when a log message arrives with no category
 - [flipperdevices/flipperzero-good-faps #308](https://github.com/flipperdevices/flipperzero-good-faps/pull/308): mfkey redoes recovery for nonces it already solved
 - [flipperdevices/flipperzero-good-faps #307](https://github.com/flipperdevices/flipperzero-good-faps/pull/307): a missing terminator in the SPI-mem chip table
-- [flipperdevices/flipperzero-game-engine #3](https://github.com/flipperdevices/flipperzero-game-engine/pull/3): sprite loading trusts the file is big enough for its header
 - [flipperdevices/video-game-module #16](https://github.com/flipperdevices/video-game-module/pull/16): check the screen frame size before copying it
 - [flipperdevices/video-game-module #17](https://github.com/flipperdevices/video-game-module/pull/17): reject data frames larger than the receive buffer
 - [flipperdevices/flipperzero-ufbt #68](https://github.com/flipperdevices/flipperzero-ufbt/pull/68): a build killed by a signal is reported as a success
-- [flipperdevices/flipperzero-nfc-rpc #5](https://github.com/flipperdevices/flipperzero-nfc-rpc/pull/5): skip malformed reader-log lines instead of crashing
-- [flipperdevices/map-gcc-parser-python #3](https://github.com/flipperdevices/map-gcc-parser-python/pull/3): crash on non-UTF-8 bytes in the map file
-- [flipperdevices/flipperzero_protobuf_py #32](https://github.com/flipperdevices/flipperzero_protobuf_py/pull/32), [#31](https://github.com/flipperdevices/flipperzero_protobuf_py/pull/31), [#30](https://github.com/flipperdevices/flipperzero_protobuf_py/pull/30) and [#29](https://github.com/flipperdevices/flipperzero_protobuf_py/pull/29): wrong field indices in `datetime2dict`, a dropped return value, a zero-length file write that hangs, and an int pin rejected by `rpc_gpio_get_pin_mode`
 
 **Accessibility**
 - [ClickHouse/click-ui #1140](https://github.com/ClickHouse/click-ui/pull/1140): respect a consumer-supplied `aria-label` instead of overwriting it with the icon name
@@ -231,7 +223,6 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [ClickHouse/click-ui #1141](https://github.com/ClickHouse/click-ui/pull/1141): default Button `htmlType` to button
 - [openclimatefix/graph_weather #231](https://github.com/openclimatefix/graph_weather/pull/231): division-by-zero on single-axis grids
 - [openclimatefix/graph_weather #230](https://github.com/openclimatefix/graph_weather/pull/230): guard optional data-module imports
-- [hotosm/tasking-manager #7287](https://github.com/hotosm/tasking-manager/pull/7287): replace Nominatim reverse geocoding with pg-nearest-city
 - [symfony/symfony #65128](https://github.com/symfony/symfony/pull/65128): Mime's `Address::getEncodedName()` escapes quotes but not backslashes, so a name ending in one breaks the header quoting
 
 **Health / food**
