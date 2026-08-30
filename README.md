@@ -46,7 +46,7 @@ They're all open to contributors. Each one ships a CONTRIBUTING file with the se
 
 ## Upstream
 
-More than 125 have landed upstream and nearly sixty more are open, across nearly seventy projects: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. Mainline U-Boot itself now carries three more btrfs patches of mine, reviewed by a btrfs maintainer and applied by the project's lead, and the Rockchip custodian tree just took a two-patch SPI series of mine for devices with no wire in one direction, written for the Flipper One's display bus. The two Flipper devices are different machines, so I count them separately: the Flipper One side is 22 merged and 11 open across its kernel, MCU firmware, debug probe, corelibs and docs, and the Flipper Zero side is 8 merged and 5 open across the firmware, apps and catalog. A few that were fun to track down: a stack overread in GNU cpio's tar parser you could hit with a plain `cpio -itv`, a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+More than 125 have landed upstream and over sixty more are open, across nearly seventy projects: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. Mainline U-Boot itself now carries three more btrfs patches of mine, reviewed by a btrfs maintainer and applied by the project's lead, and the Rockchip custodian tree just took a two-patch SPI series of mine for devices with no wire in one direction, written for the Flipper One's display bus. The two Flipper devices are different machines, so I count them separately: the Flipper One side is 22 merged and 11 open across its kernel, MCU firmware, debug probe, corelibs and docs, and the Flipper Zero side is 8 merged and 5 open across the firmware, apps and catalog. A few that were fun to track down: a stack overread in GNU cpio's tar parser you could hit with a plain `cpio -itv`, a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### BUSY Bar
 
@@ -145,6 +145,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/49) | Strip APEv2 and ID3v1 tags that sit after the audio in mp3, ogg and flac |
 | [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/50) | Sort OOXML attributes themselves instead of reordering elements out of schema order |
 | [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/55) | Clean tracked moves out of docx files, which Word records as `moveFrom`/`moveTo`, not `del`/`ins` |
+| [jvoisin/mat2](https://github.com/jvoisin/mat2/pull/58) | Stop a bare HTML5 void element like `<meta charset="utf-8">` making mat2 refuse to clean the file |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64796) | Fix the Finnish BIC/IBAN mismatch translation |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/64815) | Drop an always-true `method_exists` check |
 | [symfony/symfony](https://github.com/symfony/symfony/pull/65128) | Escape backslashes in Mime's `Address::getEncodedName()`, so a name ending in one can't break the header quoting |
@@ -184,7 +185,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 67 PRs across 46 repos</summary>
+<summary><b>Open / in review</b>: 66 PRs across 45 repos</summary>
 
 **Security and detection**
 - [assimp/assimp #6800](https://github.com/assimp/assimp/pull/6800): out-of-bounds access on short uv source and mapping mode properties
@@ -243,7 +244,6 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [guardianproject/tor-android #197](https://github.com/guardianproject/tor-android/pull/197): NullPointerException in `getPortFromGetInfo` when `getInfo()` fails
 - [guardianproject/tor-android #198](https://github.com/guardianproject/tor-android/pull/198): pin jar timestamps so builds of the same commit come out byte-identical
 - [guardianproject/proofmode-android #143](https://github.com/guardianproject/proofmode-android/pull/143): the share screen crashes when a shared media URI's read grant has expired
-- [jvoisin/mat2 #58](https://github.com/jvoisin/mat2/pull/58): a bare HTML5 void element like `<meta charset="utf-8">` makes mat2 refuse to clean the whole file
 
 **Cryptography and wallets**
 - [cake-tech/cupcake #62](https://github.com/cake-tech/cupcake/pull/62): the seed-check quiz can offer the correct word twice among the choices
