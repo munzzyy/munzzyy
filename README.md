@@ -184,7 +184,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 64 PRs across 43 repos</summary>
+<summary><b>Open / in review</b>: 65 PRs across 44 repos</summary>
 
 **Security and detection**
 - [assimp/assimp #6800](https://github.com/assimp/assimp/pull/6800): out-of-bounds access on short uv source and mapping mode properties
@@ -202,6 +202,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [YARAHQ/yara-forge #91](https://github.com/YARAHQ/yara-forge/pull/91): a missing comma in the tag_names list glues two tags into one
 - [projectdiscovery/nuclei-templates #17032](https://github.com/projectdiscovery/nuclei-templates/pull/17032): the HP printer default-login template matches on a bare 200, so it flags every HP printer as passwordless
 - [osquery/osquery #9068](https://github.com/osquery/osquery/pull/9068): the `mounts` table truncates statfs block and inode counts to 32 bits, wrapping any filesystem over 2^32 blocks
+- [splunk/security_content #4245](https://github.com/splunk/security_content/pull/4245): two LOLBin detections reference a CIM field that doesn't exist, so renaming whoami/arp slips right past them
 - [jsverse/transloco #982](https://github.com/jsverse/transloco/pull/982): block prototype pollution in the keys-manager's `mergeDeep`
 
 **OSINT**
