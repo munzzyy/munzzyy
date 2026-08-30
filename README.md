@@ -184,7 +184,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 66 PRs across 45 repos</summary>
+<summary><b>Open / in review</b>: 67 PRs across 46 repos</summary>
 
 **Security and detection**
 - [assimp/assimp #6800](https://github.com/assimp/assimp/pull/6800): out-of-bounds access on short uv source and mapping mode properties
@@ -243,6 +243,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [guardianproject/tor-android #197](https://github.com/guardianproject/tor-android/pull/197): NullPointerException in `getPortFromGetInfo` when `getInfo()` fails
 - [guardianproject/tor-android #198](https://github.com/guardianproject/tor-android/pull/198): pin jar timestamps so builds of the same commit come out byte-identical
 - [guardianproject/proofmode-android #143](https://github.com/guardianproject/proofmode-android/pull/143): the share screen crashes when a shared media URI's read grant has expired
+- [jvoisin/mat2 #58](https://github.com/jvoisin/mat2/pull/58): a bare HTML5 void element like `<meta charset="utf-8">` makes mat2 refuse to clean the whole file
 
 **Cryptography and wallets**
 - [cake-tech/cupcake #62](https://github.com/cake-tech/cupcake/pull/62): the seed-check quiz can offer the correct word twice among the choices
