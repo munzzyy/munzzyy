@@ -184,7 +184,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 65 PRs across 44 repos</summary>
+<summary><b>Open / in review</b>: 66 PRs across 45 repos</summary>
 
 **Security and detection**
 - [assimp/assimp #6800](https://github.com/assimp/assimp/pull/6800): out-of-bounds access on short uv source and mapping mode properties
@@ -248,6 +248,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [cake-tech/cupcake #62](https://github.com/cake-tech/cupcake/pull/62): the seed-check quiz can offer the correct word twice among the choices
 - [monero-project/monero-gui #4685](https://github.com/monero-project/monero-gui/pull/4685): a self-shadowing `const` throws before the amount field can strip a leading zero, on four wallet pages
 - [openmls/openmls #2203](https://github.com/openmls/openmls/pull/2203): `clear_proposal_queue` built the delete key by hand so it never matched the stored one, leaking every queued proposal body
+- [monero-project/monero #11213](https://github.com/monero-project/monero/pull/11213): a reserve proof counts outputs already spent by a broadcast-but-unconfirmed send, so it proves reserve the wallet no longer has
 
 **Systems / web**
 - [ClickHouse/click-ui #1141](https://github.com/ClickHouse/click-ui/pull/1141): default Button `htmlType` to button
