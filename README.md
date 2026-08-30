@@ -184,7 +184,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 59 PRs across 38 repos</summary>
+<summary><b>Open / in review</b>: 62 PRs across 41 repos</summary>
 
 **Security and detection**
 - [assimp/assimp #6800](https://github.com/assimp/assimp/pull/6800): out-of-bounds access on short uv source and mapping mode properties
@@ -200,6 +200,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [semgrep/semgrep-rules #4020](https://github.com/semgrep/semgrep-rules/pull/4020): `run-shell-injection` flags the truthiness-check shape on bare inputs
 - [ffuf/ffuf #925](https://github.com/ffuf/ffuf/pull/925): strip wordlist comments before the `%ext%` branch, not only after it
 - [YARAHQ/yara-forge #91](https://github.com/YARAHQ/yara-forge/pull/91): a missing comma in the tag_names list glues two tags into one
+- [projectdiscovery/nuclei-templates #17032](https://github.com/projectdiscovery/nuclei-templates/pull/17032): the HP printer default-login template matches on a bare 200, so it flags every HP printer as passwordless
 - [jsverse/transloco #982](https://github.com/jsverse/transloco/pull/982): block prototype pollution in the keys-manager's `mergeDeep`
 
 **OSINT**
@@ -209,6 +210,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 **RF / SDR**
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
+- [RfidResearchGroup/proxmark3 #3555](https://github.com/RfidResearchGroup/proxmark3/pull/3555): heap out-of-bounds read in `hf xerox view` on a truncated dump file
 
 **Flipper One** (11 open): the device isn't out yet, so this is kernel, bootloader, MCU firmware, build system and docs
 - [flipperdevices/flipper-linux-kernel #22](https://github.com/flipperdevices/flipper-linux-kernel/pull/22): dwc3 returns an error when a gadget dequeues a request that already completed, reshaped so it can go to linux-usb as-is
@@ -242,6 +244,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 
 **Cryptography and wallets**
 - [cake-tech/cupcake #62](https://github.com/cake-tech/cupcake/pull/62): the seed-check quiz can offer the correct word twice among the choices
+- [monero-project/monero-gui #4685](https://github.com/monero-project/monero-gui/pull/4685): a self-shadowing `const` throws before the amount field can strip a leading zero, on four wallet pages
 
 **Systems / web**
 - [ClickHouse/click-ui #1141](https://github.com/ClickHouse/click-ui/pull/1141): default Button `htmlType` to button
