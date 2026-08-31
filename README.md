@@ -114,6 +114,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3409) | Fix byte-swapped, corrupted EM 4x05 dump files |
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3433) | More heap out-of-bounds reads on short iCLASS dump files |
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3471) | Set the `stringop-overflow` guard before the bundled deps are added, so the flag actually reaches them |
+| [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3555) | Reject an undersized `hf xerox view` dump file instead of reading past the buffer |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3597) | Fix a `uint8_t` offset wraparound in the m-bus payload parser |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3572) | Restore a missing `bitbuffer_clear` in `pulse_slicer_dmc` |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3574) | Fix swapped order/inversion nibbles in the secplus_v2 docs |
@@ -185,7 +186,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 66 PRs across 45 repos</summary>
+<summary><b>Open / in review</b>: 65 PRs across 44 repos</summary>
 
 **Security and detection**
 - [assimp/assimp #6800](https://github.com/assimp/assimp/pull/6800): out-of-bounds access on short uv source and mapping mode properties
@@ -213,7 +214,6 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 **RF / SDR**
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
-- [RfidResearchGroup/proxmark3 #3555](https://github.com/RfidResearchGroup/proxmark3/pull/3555): heap out-of-bounds read in `hf xerox view` on a truncated dump file
 
 **Flipper One** (11 open): the device isn't out yet, so this is kernel, bootloader, MCU firmware, build system and docs
 - [flipperdevices/flipper-linux-kernel #22](https://github.com/flipperdevices/flipper-linux-kernel/pull/22): dwc3 returns an error when a gadget dequeues a request that already completed, reshaped so it can go to linux-usb as-is
