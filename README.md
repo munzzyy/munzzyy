@@ -12,6 +12,7 @@ Most of these are MIT; the big apps are free for noncommercial use. Almost every
 ## Which one do I need?
 
 - Friends and family on your map, nobody else → [starling](https://github.com/munzzyy/starling)
+- Screening AI-generated pull requests on a repo you maintain → [tellcheck-github](https://github.com/munzzyy/tellcheck-github)
 - Vetting an AI agent skill before you install it → [skillxray](https://github.com/munzzyy/skillxray)
 - Writing an MCP server → [toolsmell](https://github.com/munzzyy/toolsmell) for the tool descriptions, [webmcp-lint](https://github.com/munzzyy/webmcp-lint) if it's WebMCP in a page
 - Seeing what your agent actually touched on a run → [sessionxray](https://github.com/munzzyy/sessionxray)
@@ -28,6 +29,7 @@ Most of these are MIT; the big apps are free for noncommercial use. Almost every
 | Project | What it does |
 |---------|--------------|
 | [starling](https://github.com/munzzyy/starling) | Private location sharing for friends and family, like Life360 without the company in the middle. Positions are encrypted on your device with AES-256-GCM under keys derived from an invite link that never reaches a server; the relay stores ciphertext and deletes it after 24 hours. An [Android app](https://starlingmap.app) with background sharing, fingerprint app lock, panic wipe, and Orbot support. The relay is small and self-hostable, and release builds are reproducible. |
+| [tellcheck-github](https://github.com/munzzyy/tellcheck-github) | Flags likely AI-generated pull requests and issues on GitHub, and opens every badge to show the signals behind it rather than a bare score. Scans a repo's open PR list 25 at a time. A [Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/tellcheck-for-github/), free, no account. It publishes the number that goes against it: 7.8% of real non-native-English writing comes back flagged, which is why every result says signal, not proof. |
 | [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner that runs in your [browser](https://munzzyy.github.io/hopandhaul/) with no install, 4,175 airports, UI in 46 languages. |
 | [liftmath](https://github.com/munzzyy/liftmath) | Gym math with receipts: a 1RM estimate from any set you just did, plate loading with a barbell that loads itself as you type, and Wilks/DOTS/IPF strength scores, plus a searchable record book for powerlifting, strongman, grip sport, and track and field. A [web app](https://munzzyy.github.io/liftmath/) plus a CLI. |
 | [puzzlepress](https://github.com/munzzyy/puzzlepress) | Seven daily puzzle games in your [browser](https://munzzyy.github.io/puzzlepress/): a word guesser, group sorting, a pangram hunt, a mini crossword with hand-written clues, a themed word search, letter chains, and sudoku. Installable as an app. No accounts, no ads, no tracking, zero dependencies, and every puzzle bank ships in the repo. |
