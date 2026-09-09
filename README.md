@@ -36,7 +36,7 @@ Most of these are MIT; the big apps are free for noncommercial use. Almost every
 | [sepia](https://github.com/munzzyy/sepia) | Shows you everything a photo or screenshot says about you before you share it: GPS in plain words, camera serial numbers, the hidden preview image, the video clip motion-photo mode glues on. Black out or pixelate what you choose, burned into the pixels, then it re-opens its own output and re-scans it in front of you. The [Android app](https://github.com/munzzyy/sepia/releases/latest/download/sepia.apk) requests zero permissions, so the OS refuses every connection it could ever try. |
 | [magpie](https://github.com/munzzyy/magpie) | An incident journal with receipts, for the landlord who never fixed it and the messages that keep coming. Every entry is encrypted on your device and hash-chained to the one before it, so the record can't be quietly rewritten, you included. Exports are plain zips with a stdlib python script anyone can run to verify the whole record without Magpie, and one head hash pins the journal to a moment. [Android app](https://github.com/munzzyy/magpie/releases/latest/download/magpie.apk), zero permissions. |
 | [blot](https://github.com/munzzyy/blot) | A PDF redactor that can't make the famous mistake, because it doesn't keep the text: pages become pixels, ink becomes part of the page, and a new image-only PDF comes out of a writer with no code paths for text, forms, or metadata. The finished file is re-opened and re-counted in front of you, and poppler agrees in the test suite. Refuses what it can't flatten honestly. [Android app](https://github.com/munzzyy/blot/releases/latest/download/blot.apk), zero permissions. |
-| [sweep](https://github.com/munzzyy/sweep) | A plain-language stalkerware checkup, in beta. It checks installed apps against Echap's public indicator list (matched by package name and signing certificate, so renamed copies still match), plus device admins, accessibility services, hidden apps, and sideloads, each explained in sentences. Never says "you are safe", never stores results, and a Leave fast button sits on every screen. One permission, no internet. [Android app](https://github.com/munzzyy/sweep/releases/latest/download/sweep.apk). |
+| [sweep](https://github.com/munzzyy/sweep) | A plain-language stalkerware checkup, in beta. It checks installed apps against Echap's public indicator list (matched by package name and signing certificate, so renamed copies still match), then reads every surface Android shows an unprivileged app: which permissions each app actually holds, what each accessibility service can see and do, device admins and their powers, notification listeners, keyboards, user-installed certificates, who owns the SMS and dialer roles, and where each app was installed from. Every report opens with what it could not check. Never says "you are safe", never stores results, and a Leave fast button sits on every screen. One permission, no internet. [Android app](https://github.com/munzzyy/sweep/releases/latest/download/sweep.apk). |
 | [tellcheck-github](https://github.com/munzzyy/tellcheck-github) | Flags likely AI-generated pull requests and issues on GitHub, and opens every badge to show the signals behind it rather than a bare score. Scans a repo's open PR list 25 at a time. A [Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/tellcheck-for-github/), free, no account. It publishes the number that goes against it: 7.8% of real non-native-English writing comes back flagged, which is why every result says signal, not proof. |
 | [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner that runs in your [browser](https://munzzyy.github.io/hopandhaul/) with no install, 4,175 airports, UI in 46 languages. |
 | [liftmath](https://github.com/munzzyy/liftmath) | Gym math you can check: a 1RM estimate from any set you just did, plate loading with a barbell that loads itself as you type, and Wilks/DOTS/IPF strength scores, plus a searchable record book for powerlifting, strongman, grip sport, and track and field. A [web app](https://munzzyy.github.io/liftmath/) plus a CLI. |
@@ -58,7 +58,7 @@ They're all open to contributors. Each one ships a CONTRIBUTING file with the se
 
 ## Upstream
 
-More than 125 patches have landed upstream and over sixty more are open, across nearly seventy projects: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix of mine is merged and now sitting on the mainline list, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. Mainline U-Boot itself now carries three more btrfs patches of mine, reviewed by a btrfs maintainer and applied by the project's lead, and the Rockchip custodian tree just took a two-patch SPI series of mine for devices with no wire in one direction, written for the Flipper One's display bus. The two Flipper devices are different machines, so I count them separately: the Flipper One side is 22 merged and 11 open across its kernel, MCU firmware, debug probe, corelibs and docs, and the Flipper Zero side is 8 merged and 5 open across the firmware, apps and catalog. A few that were fun to track down: a stack overread in GNU cpio's tar parser you could hit with a plain `cpio -itv`, a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+More than 130 patches have landed upstream and more than sixty are open, across more than seventy projects: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix and a USB gadget fix of mine are merged and both are sitting on mainline lists now, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. Mainline U-Boot itself now carries three more btrfs patches of mine, reviewed by a btrfs maintainer and applied by the project's lead, and the Rockchip custodian tree just took a two-patch SPI series of mine for devices with no wire in one direction, written for the Flipper One's display bus. The two Flipper devices are different machines, so I count them separately: the Flipper One side is 23 merged and 10 open across its kernel, MCU firmware, debug probe, corelibs and docs, and the Flipper Zero side is 8 merged and 5 open across the firmware, apps and catalog. A few that were fun to track down: a stack overread in GNU cpio's tar parser you could hit with a plain `cpio -itv`, a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### BUSY Bar
 
@@ -81,6 +81,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [flipperdevices/flipper-linux-kernel](https://github.com/flipperdevices/flipper-linux-kernel/pull/18) | Add the missing cache hierarchy to the RK3576 CPU nodes, so Linux stops reporting the Flipper One with no caches |
 | [flipperdevices/flipper-linux-kernel](https://github.com/flipperdevices/flipper-linux-kernel/pull/17) | Register the Flipper One's side-button interrupt in the MCU MFD driver |
 | [flipperdevices/flipper-linux-kernel](https://github.com/flipperdevices/flipper-linux-kernel/pull/21) | Wire the Type-C up port's VBUS supply to the connector so the USB mux can actually switch it |
+| [flipperdevices/flipper-linux-kernel](https://github.com/flipperdevices/flipper-linux-kernel/pull/22) | Stop dwc3 returning an error when a gadget dequeues a request that already completed; the same patch is on the linux-usb list for mainline |
 | [u-boot/u-boot](https://github.com/u-boot/u-boot/commit/1cf825afd0d7ebb4857002833658574efbef6626) | Report file sizes from btrfs readdir, with a path-release fix and a shared size helper: three patches in mainline U-Boot, reviewed by a btrfs maintainer |
 | [flipperdevices/u-boot](https://github.com/flipperdevices/u-boot/commit/b5b70eeb5a377cf72643255bcc26a5cd88d11199) | Fix btrfs zstd decompression of compressed inline extents, applied from my mainline U-Boot patch |
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4429) | Initialize `timings_cnt` on infrared decoder alloc and fix its bounds check |
@@ -116,6 +117,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [monero-project/monero](https://github.com/monero-project/monero/pull/11019) | Keep the additional-derivations list aligned when one derivation fails, so later outputs are still seen as yours |
 | [monero-project/monero](https://github.com/monero-project/monero/pull/11020) | Make `sweep_account` expand `index=all` against the account being swept, not the current one |
 | [monero-project/monero](https://github.com/monero-project/monero/pull/11018) | Clamp the `export_outputs` start to the transfer count so the reserve stops underflowing |
+| [monero-project/monero](https://github.com/monero-project/monero/pull/11213) | Stop reserve proofs counting outputs already spent by a broadcast-but-unconfirmed send, which proved reserve the wallet no longer had |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8986) | Scan XDG-base-directory Firefox profiles |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8987) | Add the Windsurf `.devin` path to `vscode_extensions` |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8991) | Add the Microsoft Edge and Flatpak paths to `chrome_extensions` on Linux |
@@ -194,11 +196,15 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4425) | Reject a zero or negative timer interval in `js_event_loop` |
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4424) | Don't read past the buffer in `bit_lib` when the requested bits fit one byte |
 | [flipperdevices/flipper-application-catalog](https://github.com/flipperdevices/flipper-application-catalog/pull/1154) | Log the folder being skipped, not a leftover filename |
+| [splunk/security_content](https://github.com/splunk/security_content/pull/4245) | Point two LOLBin detections at a CIM field that exists, so a renamed whoami or arp stops slipping past them |
+| [ClickHouse/click-ui](https://github.com/ClickHouse/click-ui/pull/1140) | Respect a consumer-supplied `aria-label` instead of overwriting it with the icon name |
+| [FoggedLens/deflock](https://github.com/FoggedLens/deflock/pull/133) | Tell people they need an OpenStreetMap account before they pick a way to report a camera |
+| [mdn/translated-content](https://github.com/mdn/translated-content/pull/37508) | Use a real minus sign in the BigInt operator example across the Korean, Portuguese and Russian docs |
 
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 65 PRs across 44 repos</summary>
+<summary><b>Open / in review</b>: 66 PRs across 44 repos</summary>
 
 **Security and detection**
 - [assimp/assimp #6800](https://github.com/assimp/assimp/pull/6800): out-of-bounds access on short uv source and mapping mode properties
@@ -216,8 +222,8 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [YARAHQ/yara-forge #91](https://github.com/YARAHQ/yara-forge/pull/91): a missing comma in the tag_names list glues two tags into one
 - [projectdiscovery/nuclei-templates #17032](https://github.com/projectdiscovery/nuclei-templates/pull/17032): the HP printer default-login template matches on a bare 200, so it flags every HP printer as passwordless
 - [osquery/osquery #9068](https://github.com/osquery/osquery/pull/9068): the `mounts` table truncates statfs block and inode counts to 32 bits, wrapping any filesystem over 2^32 blocks
-- [splunk/security_content #4245](https://github.com/splunk/security_content/pull/4245): two LOLBin detections reference a CIM field that doesn't exist, so renaming whoami/arp slips right past them
 - [jsverse/transloco #982](https://github.com/jsverse/transloco/pull/982): block prototype pollution in the keys-manager's `mergeDeep`
+- [semgrep/semgrep-rules #4051](https://github.com/semgrep/semgrep-rules/pull/4051): two Python security-hooks rules treat `realpath()`/`abspath()` as complete path sanitization, hiding real findings
 
 **OSINT**
 - [mxrch/GHunt #601](https://github.com/mxrch/GHunt/pull/601): read `isDefault` from the API for profile photos instead of hashing the image
@@ -227,8 +233,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
 
-**Flipper One** (11 open): the device isn't out yet, so this is kernel, bootloader, MCU firmware, build system and docs
-- [flipperdevices/flipper-linux-kernel #22](https://github.com/flipperdevices/flipper-linux-kernel/pull/22): dwc3 returns an error when a gadget dequeues a request that already completed, reshaped so it can go to linux-usb as-is
+**Flipper One** (10 open): the device isn't out yet, so this is bootloader, MCU firmware, build system and docs
 - [flipperdevices/fbtng-corelibs #43](https://github.com/flipperdevices/fbtng-corelibs/pull/43): a record-destroy race where a late opener can hang forever
 - [flipperdevices/fbtng-corelibs #44](https://github.com/flipperdevices/fbtng-corelibs/pull/44): an int overflow in the datetime timestamp calculation
 - [flipperdevices/flipperone-debug-probe #17](https://github.com/flipperdevices/flipperone-debug-probe/pull/17): the CLI accepts `clock_out 14`, which reads past the clock source table
@@ -244,13 +249,20 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [flipperdevices/video-game-module #17](https://github.com/flipperdevices/video-game-module/pull/17): reject data frames larger than the receive buffer
 - [flipperdevices/flipperzero-ufbt #68](https://github.com/flipperdevices/flipperzero-ufbt/pull/68): a build killed by a signal is reported as a success
 
+**GrapheneOS** (4 open): a first wave across their app and allocator repos, every fix reproduced before it was written
+- [GrapheneOS/PdfViewer #736](https://github.com/GrapheneOS/PdfViewer/pull/736): the zoom out button stopped at 25% while pinch to zoom reached the real 20% minimum
+- [GrapheneOS/hardened_malloc #374](https://github.com/GrapheneOS/hardened_malloc/pull/374): get `make tidy` back to green by restructuring the two remaining analyzer complaints instead of suppressing them
+- [GrapheneOS/Auditor #370](https://github.com/GrapheneOS/Auditor/pull/370): backing out of the QR scanner left a stale UI stage, so the next rotation blanked everything but the toolbar
+- [GrapheneOS/Info #132](https://github.com/GrapheneOS/Info/pull/132): show a translated offline message with a Retry action instead of a raw `UnknownHostException` toast
+
 **Accessibility**
-- [ClickHouse/click-ui #1140](https://github.com/ClickHouse/click-ui/pull/1140): respect a consumer-supplied `aria-label` instead of overwriting it with the icon name
 - [jcsteh/osara #1434](https://github.com/jcsteh/osara/pull/1434): on the Mac, messages that carry a menu access key never find their translations, so localized menus read out in English
 
 **Privacy / anti-surveillance**
-- [FoggedLens/deflock #133](https://github.com/FoggedLens/deflock/pull/133): tell people they need an OpenStreetMap account before they pick a way to report a camera
 - [FoggedLens/deflock #137](https://github.com/FoggedLens/deflock/pull/137): the geocode cache key ignores the geojson variant, so two different lookups share one cache slot
+- [guardianproject/orbot-android #1805](https://github.com/guardianproject/orbot-android/pull/1805): register the Kindness network callback according to the Wi-Fi-only preference, so cellular users aren't stranded
+- [guardianproject/orbot-android #1807](https://github.com/guardianproject/orbot-android/pull/1807): Kindness mode stops the proxy it already stopped, dies with the process, and leaves stale UPnP mappings behind
+- [guardianproject/orbot-android #1809](https://github.com/guardianproject/orbot-android/pull/1809): every log line stored twice, because two start requests in the bind window each register their own event listener
 - [ooni/probe-cli #1811](https://github.com/ooni/probe-cli/pull/1811): make tlsmiddlebox's ClientId settable and validate its value
 - [guardianproject/ripple #45](https://github.com/guardianproject/ripple/pull/45): integer division collapses the panic-swipe ripple to zero on odd screen heights
 - [guardianproject/tor-android #197](https://github.com/guardianproject/tor-android/pull/197): NullPointerException in `getPortFromGetInfo` when `getInfo()` fails
@@ -260,8 +272,6 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 **Cryptography and wallets**
 - [cake-tech/cupcake #62](https://github.com/cake-tech/cupcake/pull/62): the seed-check quiz can offer the correct word twice among the choices
 - [monero-project/monero-gui #4685](https://github.com/monero-project/monero-gui/pull/4685): a self-shadowing `const` throws before the amount field can strip a leading zero, on four wallet pages
-- [openmls/openmls #2203](https://github.com/openmls/openmls/pull/2203): `clear_proposal_queue` built the delete key by hand so it never matched the stored one, leaking every queued proposal body
-- [monero-project/monero #11213](https://github.com/monero-project/monero/pull/11213): a reserve proof counts outputs already spent by a broadcast-but-unconfirmed send, so it proves reserve the wallet no longer has
 
 **Systems / web**
 - [ClickHouse/click-ui #1141](https://github.com/ClickHouse/click-ui/pull/1141): default Button `htmlType` to button
@@ -278,7 +288,6 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [drewnoakes/metadata-extractor #741](https://github.com/drewnoakes/metadata-extractor/pull/741): lowercase hardcoded description strings with `Locale.ROOT` so the Turkish locale doesn't corrupt them
 - [chubin/wttr.in #1279](https://github.com/chubin/wttr.in/pull/1279) and [#1278](https://github.com/chubin/wttr.in/pull/1278): RTL mark and corrupted Persian/Hebrew/Arabic captions
 - [tolgee/tolgee-platform #3789](https://github.com/tolgee/tolgee-platform/pull/3789): keep the zero plural form in Apple XLIFF export
-- [mdn/translated-content #37508](https://github.com/mdn/translated-content/pull/37508): use a real minus sign in the BigInt operator example across the Korean, Portuguese and Russian docs
 
 **Directory listings** (not fixes, just getting the tools indexed)
 - [yigitkonur/awesome-webmcp #10](https://github.com/yigitkonur/awesome-webmcp/pull/10) and [#9](https://github.com/yigitkonur/awesome-webmcp/pull/9): add webmcp-devtools and webmcp-lint
