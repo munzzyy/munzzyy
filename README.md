@@ -7,7 +7,7 @@
 
 I'm Cole. I work on embedded and firmware security: kernel drivers, device firmware, and the RF/SDR stack around them. I also build open-source tools and contribute upstream wherever correctness matters, from accessibility to health tech. I write up the interesting bugs on my [build log](https://munzzyy.github.io/).
 
-Most of these are MIT; the big apps are free for noncommercial use. Almost everything runs with zero dependencies, and the planners, games, and linters run live in your browser, no install and no account. Pick whichever fits; each repo has the full story.
+Most of these are MIT; the big apps are free for noncommercial use. Almost everything runs with zero dependencies, and the planners and games run live in your browser, no install and no account. Pick whichever fits; each repo has the full story.
 
 ## Which one do I need?
 
@@ -18,12 +18,6 @@ Most of these are MIT; the big apps are free for noncommercial use. Almost every
 - Wondering whether a phone has stalkerware on it → [sweep](https://github.com/munzzyy/sweep)
 - Running recon or an authorized pentest from one local console → [nucleus](https://github.com/munzzyy/nucleus)
 - Screening AI-generated pull requests on a repo you maintain → [tellcheck-github](https://github.com/munzzyy/tellcheck-github)
-- Vetting an AI agent skill before you install it → [skillxray](https://github.com/munzzyy/skillxray)
-- Writing an MCP server → [toolsmell](https://github.com/munzzyy/toolsmell) for the tool descriptions, [webmcp-lint](https://github.com/munzzyy/webmcp-lint) if it's WebMCP in a page
-- Seeing what your agent actually touched on a run → [sessionxray](https://github.com/munzzyy/sessionxray)
-- Screenshots feeding a vision agent → [framewall](https://github.com/munzzyy/framewall) to scan them, [injection-fixtures](https://github.com/munzzyy/injection-fixtures) to test your defense
-- Shipping a translated app → [translint](https://github.com/munzzyy/translint)
-- GitHub Actions → [wouldrun](https://github.com/munzzyy/wouldrun) for what fires, [actbreak](https://github.com/munzzyy/actbreak) to break into a step, [ci-safety-gate](https://github.com/munzzyy/ci-safety-gate) to gate the repo
 - Checking a research-peptide COA → [coacheck](https://github.com/munzzyy/coacheck)
 - Cheapest way to travel → [hopandhaul](https://github.com/munzzyy/hopandhaul)
 - Strength-training math → [liftmath](https://github.com/munzzyy/liftmath)
@@ -43,17 +37,6 @@ Most of these are MIT; the big apps are free for noncommercial use. Almost every
 | [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner that runs in your [browser](https://munzzyy.github.io/hopandhaul/) with no install, 4,175 airports, UI in 46 languages. |
 | [liftmath](https://github.com/munzzyy/liftmath) | Gym math you can check: a 1RM estimate from any set you just did, plate loading with a barbell that loads itself as you type, and Wilks/DOTS/IPF strength scores, plus a searchable record book for powerlifting, strongman, grip sport, and track and field. A [web app](https://munzzyy.github.io/liftmath/) plus a CLI. |
 | [puzzlepress](https://github.com/munzzyy/puzzlepress) | Seven daily puzzle games in your [browser](https://munzzyy.github.io/puzzlepress/): a word guesser, group sorting, a pangram hunt, a mini crossword with hand-written clues, a themed word search, letter chains, and sudoku. Installable as an app. No accounts, no ads, no tracking, zero dependencies, and every puzzle bank ships in the repo. |
-| [translint](https://github.com/munzzyy/translint) | A linter for your translation files. Catches missing keys, placeholder mismatches, and untranslated values before they ship. CLI, CI gate, pre-commit, or agent skill. Its [site](https://munzzyy.github.io/translint/) practices what it lints: 32 languages, RTL included. |
-| [skillxray](https://github.com/munzzyy/skillxray) | Reads an AI agent skill before you install it and flags what's hiding: prompt injection, invisible Unicode, curl-pipe-sh and reverse shells, credential theft, leaked keys. Then grades it A to F. SARIF for the GitHub Security tab, exit codes for CI. Python, zero dependencies. |
-| [actbreak](https://github.com/munzzyy/actbreak) | A breakpoint debugger for GitHub Actions. Wraps `act` to pause a workflow mid-step, drop you into a live shell inside the job container, and resume when you're done. Python, zero dependencies. |
-| [webmcp-devtools](https://github.com/munzzyy/webmcp-devtools) | A Chrome DevTools panel that inspects and security-lints the WebMCP tools a web page hands to AI agents: a live tool table, a call-history timeline, and per-tool tool-poisoning checks. Plain JavaScript, no build step. |
-| [webmcp-lint](https://github.com/munzzyy/webmcp-lint) | The same idea as a CI gate: lints a WebMCP tool manifest against Chrome's own security guidance before you ship it. Read-only hints, untrusted-content flags, injection in tool descriptions, unconstrained parameters. Human, JSON, or SARIF out. Python, zero dependencies. |
-| [framewall](https://github.com/munzzyy/framewall) | Scans a screenshot for prompt injection a person would miss but a vision model reads: hidden low-contrast text, fake system-message overlays, instructions buried in image metadata, all before your agent acts on it. Reads the text with OCR when tesseract is around and falls back to image heuristics when it isn't. Python, Pillow only. |
-| [injection-fixtures](https://github.com/munzzyy/injection-fixtures) | Known visual prompt-injection payloads packaged as pytest fixtures, so anyone building a screenshot or computer-use agent can test their defenses against poisoned images right in CI. Installs straight from the repo with `pip install git+https://github.com/munzzyy/injection-fixtures`, Pillow only. |
-| [sessionxray](https://github.com/munzzyy/sessionxray) | Audits a Claude Code session transcript after the fact and tells you what the agent actually touched: files outside the project, unexpected outbound hosts, secret reads, destructive commands. A security lens on your own agent's run, all local. Python, zero dependencies. |
-| [toolsmell](https://github.com/munzzyy/toolsmell) | Finds the smells in an MCP server's tool descriptions and schemas: the vague verbs, undocumented parameters, and missing return docs that quietly make agents worse at using your tools. For authors, before you publish. Python, zero dependencies. |
-| [wouldrun](https://github.com/munzzyy/wouldrun) | Answers which GitHub Actions workflows would fire for a given diff or event, statically, without pushing or running `act`. Resolves triggers, branch and path filters, and reusable-workflow calls, and says why each one runs or doesn't. Python, zero dependencies. |
-| [ci-safety-gate](https://github.com/munzzyy/ci-safety-gate) | One GitHub Action that runs the checks an AI-era repo wants: zizmor for workflow security, skillxray for agent skills, and a secrets scan, all as a single pass-or-fail gate with one combined report. |
 | [coacheck](https://github.com/munzzyy/coacheck) | Reads a research-peptide Certificate of Analysis and does the math: real deliverable purity from the labeled amount, a red-flag checklist for thin or faked COAs, and reconstitution down to syringe units. A calculator, not advice. Python, zero dependencies. |
 
 They're all open to contributors. Each one ships a CONTRIBUTING file with the setup and the house rules, and the issue trackers are open, so if something is broken or missing, file it and I'll pick it up. Stars genuinely help other people find them.
