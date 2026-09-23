@@ -7,7 +7,7 @@
 
 I'm Cole. I work on embedded and firmware security: kernel drivers, device firmware, and the RF/SDR stack around them. I also build open-source tools and contribute upstream wherever correctness matters, from accessibility to health tech. I write up the interesting bugs on my [build log](https://munzzyy.github.io/).
 
-Most of these are MIT; the big apps are free for noncommercial use. Almost everything runs with zero dependencies, and the planners and games run live in your browser, no install and no account. Pick whichever fits; each repo has the full story.
+Most of these are MIT; the big apps are free for noncommercial use. Almost everything runs with zero dependencies, and the planners and games run live in your browser, no install and no account. Pick whichever fits; each repo has the full story. The Android apps are going into F-Droid: Magpie is listed, Starling is merged, and Sepia and Sweep are in review.
 
 ## Which one do I need?
 
@@ -27,9 +27,9 @@ Most of these are MIT; the big apps are free for noncommercial use. Almost every
 
 | Project | What it does |
 |---------|--------------|
-| [starling](https://github.com/munzzyy/starling) | Private location sharing for friends and family, like Life360 without the company in the middle. Positions are encrypted on your device with AES-256-GCM under keys derived from an invite link that never reaches a server; the relay stores ciphertext and deletes it after 24 hours. An [Android app](https://starlingmap.app) with background sharing, fingerprint app lock, panic wipe, and Orbot support. The relay is small and self-hostable, and release builds are reproducible. |
+| [starling](https://github.com/munzzyy/starling) | Private location sharing for friends and family, like Life360 without the company in the middle. Positions are encrypted on your device with AES-256-GCM under keys derived from an invite link that never reaches a server; the relay stores ciphertext and deletes it after 24 hours. An [Android app](https://starlingmap.app) with background sharing, fingerprint app lock, panic wipe, and Orbot support. The relay is small and self-hostable, and release builds are reproducible. Merged into F-Droid. |
 | [sepia](https://github.com/munzzyy/sepia) | Shows you everything a photo or screenshot says about you before you share it: GPS in plain words, camera serial numbers, the hidden preview image, the video clip motion-photo mode glues on. Black out or pixelate what you choose, burned into the pixels, then it re-opens its own output and re-scans it in front of you. The [Android app](https://github.com/munzzyy/sepia/releases/latest/download/sepia.apk) requests zero permissions, so the OS refuses every connection it could ever try. |
-| [magpie](https://github.com/munzzyy/magpie) | An incident journal with receipts, for the landlord who never fixed it and the messages that keep coming. Every entry is encrypted on your device and hash-chained to the one before it, so the record can't be quietly rewritten, you included. Exports are plain zips with a stdlib python script anyone can run to verify the whole record without Magpie, and one head hash pins the journal to a moment. [Android app](https://github.com/munzzyy/magpie/releases/latest/download/magpie.apk), zero permissions. |
+| [magpie](https://github.com/munzzyy/magpie) | An incident journal with receipts, for the landlord who never fixed it and the messages that keep coming. Every entry is encrypted on your device and hash-chained to the one before it, so the record can't be quietly rewritten, you included. Exports are plain zips with a stdlib python script anyone can run to verify the whole record without Magpie, and one head hash pins the journal to a moment. [Android app](https://github.com/munzzyy/magpie/releases/latest/download/magpie.apk), zero permissions, on [F-Droid](https://f-droid.org/packages/io.github.munzzyy.magpie/). |
 | [blot](https://github.com/munzzyy/blot) | A PDF redactor that can't make the famous mistake, because it doesn't keep the text: pages become pixels, ink becomes part of the page, and a new image-only PDF comes out of a writer with no code paths for text, forms, or metadata. The finished file is re-opened and re-counted in front of you, and poppler agrees in the test suite. Refuses what it can't flatten honestly. [Android app](https://github.com/munzzyy/blot/releases/latest/download/blot.apk), zero permissions. |
 | [sweep](https://github.com/munzzyy/sweep) | A plain-language stalkerware checkup, in beta. It checks installed apps against Echap's public indicator list (matched by package name and signing certificate, so renamed copies still match), then reads every surface Android shows an unprivileged app: which permissions each app actually holds, what each accessibility service can see and do, device admins and their powers, notification listeners, keyboards, user-installed certificates, who owns the SMS and dialer roles, and where each app was installed from. Every report opens with what it could not check. Never says "you are safe", never stores results, and a Leave fast button sits on every screen. One permission, no internet. [Android app](https://github.com/munzzyy/sweep/releases/latest/download/sweep.apk). |
 | [nucleus](https://github.com/munzzyy/nucleus) | A local security command center that binds to loopback and nothing else. Paste a username, email, domain, IP, or crypto address and get live passive recon; run an authorized pentest kit with safe runners and a graded web analyzer; check this box's opsec, strip the metadata off a file before you share it, and generate a graded A-F domain report. Six consoles in one app, plus a developer toolbelt and a live system monitor. Pure stdlib Python, zero dependencies, and nothing phones home. |
@@ -43,7 +43,7 @@ They're all open to contributors. Each one ships a CONTRIBUTING file with the se
 
 ## Upstream
 
-More than 130 patches have landed upstream and more than sixty are open, across more than seventy projects: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix and a USB gadget fix of mine are merged and both are sitting on mainline lists now, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. Mainline U-Boot itself now carries three more btrfs patches of mine, reviewed by a btrfs maintainer and applied by the project's lead, and the Rockchip custodian tree just took a two-patch SPI series of mine for devices with no wire in one direction, written for the Flipper One's display bus. The two Flipper devices are different machines, so I count them separately: the Flipper One side is 23 merged and 10 open across its kernel, MCU firmware, debug probe, corelibs and docs, and the Flipper Zero side is 8 merged and 5 open across the firmware, apps and catalog. A few that were fun to track down: a stack overread in GNU cpio's tar parser you could hit with a plain `cpio -itv`, a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+More than 140 patches have landed upstream and more than sixty are open, across more than seventy projects: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix and a USB gadget fix of mine are merged and both are sitting on mainline lists now, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. Mainline U-Boot itself now carries three more btrfs patches of mine, reviewed by a btrfs maintainer and applied by the project's lead, and the Rockchip custodian tree just took a two-patch SPI series of mine for devices with no wire in one direction, written for the Flipper One's display bus. The two Flipper devices are different machines, so I count them separately: the Flipper One side is 24 merged and 9 open across its kernel, MCU firmware, debug probe, corelibs and docs, and the Flipper Zero side is 8 merged and 5 open across the firmware, apps and catalog. A few that were fun to track down: a stack overread in GNU cpio's tar parser you could hit with a plain `cpio -itv`, a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
 
 ### BUSY Bar
 
@@ -74,6 +74,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4427) | NUL-terminate the PAC/Stanley card id before parsing it |
 | [flipperdevices/flipperzero-firmware](https://github.com/flipperdevices/flipperzero-firmware/pull/4426) | Fix the trailing Wiegand parity bit on Pyramid LFRFID cards |
 | [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/232) | Stop the main GPIO expander's reset path using a freed handle when re-initialization fails |
+| [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/220) | Read `Status1`, not `Control0`, when the USB-C PD controller checks `rx_empty` |
 | [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/221) | Fail the haptic driver's auto-calibration when its status register says it failed |
 | [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/219) | Leave the I2C slave critical section on the early return |
 | [flipperdevices/flipperone-mcu-firmware](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/216) | Check for NULL before dereferencing in serial deinit |
@@ -108,6 +109,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [osquery/osquery](https://github.com/osquery/osquery/pull/8991) | Add the Microsoft Edge and Flatpak paths to `chrome_extensions` on Linux |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/9036) | Split the sudoers header on the first unescaped whitespace, so escaped spaces in a name stop leaking into the rule |
 | [osquery/osquery](https://github.com/osquery/osquery/pull/9051) | Fix an off-by-one bounds check in the `platform_info` BIOS parser |
+| [osquery/osquery](https://github.com/osquery/osquery/pull/9068) | Widen the `mounts` table's statfs block and inode counts to 64 bits, so a filesystem over 2^32 blocks stops wrapping |
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3412) | Fix a heap out-of-bounds read in `hf iclass view` on short dumps |
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3411) | Stop the IR56 wiegand decode leaking the header sentinel bit into the facility code |
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3/pull/3409) | Fix byte-swapped, corrupted EM 4x05 dump files |
@@ -135,6 +137,9 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1789) | Unit tests for the bridge line parser, one case per transport the app ships |
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1791) | Normalize unicode spaces in custom bridge input |
 | [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1792) | Add an IPv6 preference to `HTTPTunnelPort` |
+| [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1807) | Kindness mode stopped a proxy it had already stopped, died with the process, and left stale UPnP mappings behind; closed a two-year-old battery-drain issue |
+| [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1805) | Register the Kindness network callback according to the Wi-Fi-only preference, so cellular users aren't stranded |
+| [guardianproject/orbot-android](https://github.com/guardianproject/orbot-android/pull/1809) | Stop every log line being stored twice when two start requests land in the bind window |
 | [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/135) | Correct the C2PA GPS hemisphere on longitude and latitude |
 | [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/136) | Correct the bitmap stride in QR code generation |
 | [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/138) | Write the C2PA `dc:creator` as a JSON array instead of a bracketed string, so the signed CAWG metadata parses |
@@ -164,6 +169,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [projectdiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates/pull/16672) | Stop `nfs-v3-exposed` counting a `PROG_UNAVAIL` reply as a hit |
 | [projectdiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates/pull/16739) | Fix the nh-c2 DSL matcher that can never match |
 | [projectdiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates/pull/16912) | Stop two WordPress VR XSS templates firing on any HTML page that escapes the payload |
+| [projectdiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates/pull/17032) | Stop the HP printer default-login template matching any 200 response as a hit |
 | [monero-project/monero-gui](https://github.com/monero-project/monero-gui/pull/4652) | Fix a stale subaddress selection on the Receive page after switching accounts |
 | [monero-project/monero-gui](https://github.com/monero-project/monero-gui/pull/4672) | Read a restore date typed without hyphens as a date, not a block height |
 | [mdn/translated-content](https://github.com/mdn/translated-content/pull/36835) | Correct the Japanese `Reflect.deleteProperty()` docs |
@@ -189,7 +195,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 66 PRs across 44 repos</summary>
+<summary><b>Open / in review</b>: 63 PRs across 44 repos</summary>
 
 **Security and detection**
 - [assimp/assimp #6800](https://github.com/assimp/assimp/pull/6800): out-of-bounds access on short uv source and mapping mode properties
@@ -205,10 +211,9 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [semgrep/semgrep-rules #4020](https://github.com/semgrep/semgrep-rules/pull/4020): `run-shell-injection` flags the truthiness-check shape on bare inputs
 - [ffuf/ffuf #925](https://github.com/ffuf/ffuf/pull/925): strip wordlist comments before the `%ext%` branch, not only after it
 - [YARAHQ/yara-forge #91](https://github.com/YARAHQ/yara-forge/pull/91): a missing comma in the tag_names list glues two tags into one
-- [projectdiscovery/nuclei-templates #17032](https://github.com/projectdiscovery/nuclei-templates/pull/17032): the HP printer default-login template matches on a bare 200, so it flags every HP printer as passwordless
-- [osquery/osquery #9068](https://github.com/osquery/osquery/pull/9068): the `mounts` table truncates statfs block and inode counts to 32 bits, wrapping any filesystem over 2^32 blocks
 - [jsverse/transloco #982](https://github.com/jsverse/transloco/pull/982): block prototype pollution in the keys-manager's `mergeDeep`
 - [semgrep/semgrep-rules #4051](https://github.com/semgrep/semgrep-rules/pull/4051): two Python security-hooks rules treat `realpath()`/`abspath()` as complete path sanitization, hiding real findings
+- [libtiff/libtiff !945](https://gitlab.com/libtiff/libtiff/-/merge_requests/945): `LZWDecodeCompat` returns a failure without zeroing the output buffer, unlike `LZWDecode`, so a truncated strip leaks whatever was in memory
 
 **OSINT**
 - [mxrch/GHunt #601](https://github.com/mxrch/GHunt/pull/601): read `isDefault` from the API for profile photos instead of hashing the image
@@ -218,14 +223,16 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [PentHertz/urh-ng #4](https://github.com/PentHertz/urh-ng/pull/4): fix CRC data-range detection for reflected (`ref_out`) CRCs
 - [UberGuidoZ/Flipper #687](https://github.com/UberGuidoZ/Flipper/pull/687): flippercheck, a validator for `.sub` / `.ir` / RTTTL / playlist files
 
-**Flipper One** (10 open): the device isn't out yet, so this is bootloader, MCU firmware, build system and docs
+**Flipper One** (9 open): the device isn't out yet, so this is bootloader, MCU firmware, build system and docs
 - [flipperdevices/fbtng-corelibs #43](https://github.com/flipperdevices/fbtng-corelibs/pull/43): a record-destroy race where a late opener can hang forever
 - [flipperdevices/fbtng-corelibs #44](https://github.com/flipperdevices/fbtng-corelibs/pull/44): an int overflow in the datetime timestamp calculation
 - [flipperdevices/flipperone-debug-probe #17](https://github.com/flipperdevices/flipperone-debug-probe/pull/17): the CLI accepts `clock_out 14`, which reads past the clock source table
-- [flipperdevices/flipperone-mcu-firmware #220](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/220): the USB-C PD controller checks `rx_empty` against the wrong register
 - [flipperdevices/flipperone-mcu-firmware #218](https://github.com/flipperdevices/flipperone-mcu-firmware/pull/218): the touch controller uses I2C registers before they're initialized
 - [flipperdevices/flipperone-testing #8](https://github.com/flipperdevices/flipperone-testing/pull/8), [#7](https://github.com/flipperdevices/flipperone-testing/pull/7) and [#6](https://github.com/flipperdevices/flipperone-testing/pull/6): the test suite passed a failed CPU/GPU stress run, cut the stress test short, and reported a PipeWire restart that never happened
 - [flipperdevices/flipperos-installer #2](https://github.com/flipperdevices/flipperos-installer/pull/2) and [#1](https://github.com/flipperdevices/flipperos-installer/pull/1): profile names that collide with reserved subvolumes, and an unreadable `/proc` source treated as a free disk
+
+**FreeWili 2** (1 open): the RP2350B handheld, before it ships
+- [freewili/wilibsp #28](https://github.com/freewili/wilibsp/pull/28): a USB `wMaxPacketSize` copied unbounded into a 64-byte DPRAM window, four IR decoders accepting over-long frames, a UF2 check that ignored the family ID, and signed CIC accumulators; each fix with a test that fails without it, plus the repo's first CI
 
 **Flipper Zero** (5 open): apps, host tooling, and the RPC libraries
 - [flipperdevices/qFlipper #255](https://github.com/flipperdevices/qFlipper/pull/255): crash when a log message arrives with no category
@@ -245,14 +252,12 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 
 **Privacy / anti-surveillance**
 - [FoggedLens/deflock #137](https://github.com/FoggedLens/deflock/pull/137): the geocode cache key ignores the geojson variant, so two different lookups share one cache slot
-- [guardianproject/orbot-android #1805](https://github.com/guardianproject/orbot-android/pull/1805): register the Kindness network callback according to the Wi-Fi-only preference, so cellular users aren't stranded
-- [guardianproject/orbot-android #1807](https://github.com/guardianproject/orbot-android/pull/1807): Kindness mode stops the proxy it already stopped, dies with the process, and leaves stale UPnP mappings behind
-- [guardianproject/orbot-android #1809](https://github.com/guardianproject/orbot-android/pull/1809): every log line stored twice, because two start requests in the bind window each register their own event listener
 - [ooni/probe-cli #1811](https://github.com/ooni/probe-cli/pull/1811): make tlsmiddlebox's ClientId settable and validate its value
 - [guardianproject/ripple #45](https://github.com/guardianproject/ripple/pull/45): integer division collapses the panic-swipe ripple to zero on odd screen heights
 - [guardianproject/tor-android #197](https://github.com/guardianproject/tor-android/pull/197): NullPointerException in `getPortFromGetInfo` when `getInfo()` fails
 - [guardianproject/tor-android #198](https://github.com/guardianproject/tor-android/pull/198): pin jar timestamps so builds of the same commit come out byte-identical
 - [guardianproject/proofmode-android #143](https://github.com/guardianproject/proofmode-android/pull/143): the share screen crashes when a shared media URI's read grant has expired
+- [guardianproject/info !114](https://gitlab.com/guardianproject/info/-/merge_requests/114): remove the tutorials archive page
 
 **Cryptography and wallets**
 - [cake-tech/cupcake #62](https://github.com/cake-tech/cupcake/pull/62): the seed-check quiz can offer the correct word twice among the choices
