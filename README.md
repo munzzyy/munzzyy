@@ -7,7 +7,7 @@
 
 I'm Cole. I work on embedded and firmware security: kernel drivers, device firmware, and the RF/SDR stack around them. I also build open-source tools and contribute upstream wherever correctness matters, from accessibility to health tech. I write up the interesting bugs on my [build log](https://munzzyy.github.io/).
 
-Most of these are MIT; the big apps are free for noncommercial use. Almost everything runs with zero dependencies, and the planners and games run live in your browser, no install and no account. Pick whichever fits; each repo has the full story. The Android apps are going into F-Droid: Magpie and Starling are listed, Sepia and Sweep are in review.
+My own projects are all GPL-3.0-or-later: free to use, change and share, as long as copies and changed versions stay open too. Almost everything runs with zero dependencies, and the planners and games run live in your browser, no install and no account. Pick whichever fits; each repo has the full story. The Android apps are going into F-Droid: Magpie and Starling are listed, Sepia and Sweep are in review.
 
 ## Which one do I need?
 
