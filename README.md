@@ -3,68 +3,66 @@
   <img alt="Cole Munz" src="assets/banner-light.svg" width="100%">
 </picture>
 
-[![Sponsor](https://img.shields.io/badge/GitHub%20Sponsors-support%20this%20work-db61a2?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/munzzyy)
+<p align="center">
+  <a href="https://munzzyy.dev"><b>munzzyy.dev</b></a> ·
+  <a href="https://log.munzzyy.dev/">build log</a> ·
+  <a href="https://github.com/sponsors/munzzyy">sponsor</a> ·
+  <a href="mailto:Munzzyy1@proton.me">Munzzyy1@proton.me</a>
+</p>
 
-Monero: `8BApLkfsBS39oNXz4L1qCmZ7f5zKVRr1qLJgrHddRZb4JRcnjDkcKdk7wW7uThCeV9CuLn8o7gAn8d6vFeWNiyeXSmrRUSq`
+I'm Cole. I work on embedded and firmware security: kernel drivers, device firmware, and the RF/SDR stack around them. I also build privacy apps, and I send fixes upstream wherever correctness matters. The interesting bugs get written up on my [build log](https://log.munzzyy.dev/).
 
-I'm Cole. I work on embedded and firmware security: kernel drivers, device firmware, and the RF/SDR stack around them. I also build open-source tools and contribute upstream wherever correctness matters, from accessibility to health tech. I write up the interesting bugs on my [build log](https://log.munzzyy.dev/).
+**140+ patches merged upstream · 60+ open · 70+ projects**
 
-My own projects are all GPL-3.0-or-later: free to use, change and share, as long as copies and changed versions stay open too. Almost everything runs with zero dependencies, and the planners and games run live in your browser, no install and no account. Pick whichever fits; each repo has the full story, and [munzzyy.dev](https://munzzyy.dev) has all of them on one page. The Android apps are going into F-Droid: Magpie and Starling are listed, Sepia and Sweep are in review. [Tern](https://github.com/munzzyy/tern) keeps all of them up to date straight from their releases.
+## Android apps
 
-## Which one do I need?
+No accounts and no tracking. Starling and Magpie are on F-Droid, and the rest are in review there. [Tern](https://github.com/munzzyy/tern) keeps all of them up to date straight from their releases.
 
-- Friends and family on your map, nobody else → [starling](https://github.com/munzzyy/starling)
-- Apps straight from their developers, checked before they install, on a phone or a TV → [tern](https://github.com/munzzyy/tern)
-- Sharing a photo without handing out your address → [sepia](https://github.com/munzzyy/sepia)
-- Documenting a dispute so it still proves something months later → [magpie](https://github.com/munzzyy/magpie)
-- Redacting a PDF so the text is actually gone → [blot](https://github.com/munzzyy/blot)
-- Wondering whether a phone has stalkerware on it → [sweep](https://github.com/munzzyy/sweep)
-- Running recon or an authorized pentest from one local console → [nucleus](https://github.com/munzzyy/nucleus)
-- Screening AI-generated pull requests on a repo you maintain → [tellcheck-github](https://github.com/munzzyy/tellcheck-github)
-- Checking a research-peptide COA → [coacheck](https://github.com/munzzyy/coacheck)
-- Cheapest way to travel → [hopandhaul](https://github.com/munzzyy/hopandhaul)
-- Strength-training math → [liftmath](https://github.com/munzzyy/liftmath)
-- A daily puzzle habit → [puzzlepress](https://github.com/munzzyy/puzzlepress)
+| App | What it does |
+|:----|:-------------|
+| [Starling](https://github.com/munzzyy/starling) | Location sharing for family and friends. Positions are encrypted on your phone, so the relay only ever holds ciphertext, and it deletes that after 24 hours. On [F-Droid](https://f-droid.org/packages/app.starlingmap/). |
+| [Tern](https://github.com/munzzyy/tern) | Installs and updates apps straight from GitHub, GitLab, Codeberg and F-Droid repos, and checks who signed every file before Android sees it. Works on Android TV too. |
+| [Sepia](https://github.com/munzzyy/sepia) | Shows everything a photo says about you, blacks out what you choose, then re-opens its own output and checks it again. |
+| [Magpie](https://github.com/munzzyy/magpie) | An incident journal that still proves something months later: encrypted, hash-chained, and checkable without the app. On [F-Droid](https://f-droid.org/packages/io.github.munzzyy.magpie/). |
+| [Blot](https://github.com/munzzyy/blot) | A PDF redactor that can't leave the text behind, because it never keeps the text in the first place. |
+| [Sweep](https://github.com/munzzyy/sweep) | A plain-language stalkerware checkup. It never says "you are safe", and a Leave fast button sits on every screen. |
 
-## Tools
+## Tools and web apps
 
 | Project | What it does |
-|---------|--------------|
-| [starling](https://github.com/munzzyy/starling) | Private location sharing for friends and family, like Life360 without the company in the middle. Positions are encrypted on your device with AES-256-GCM under keys derived from an invite link that never reaches a server; the relay stores ciphertext and deletes it after 24 hours. An [Android app](https://starlingmap.app) with background sharing, fingerprint app lock, panic wipe, and Orbot support. The relay is small and self-hostable, and release builds are reproducible. On [F-Droid](https://f-droid.org/packages/app.starlingmap/), built from source and reproduced against the release APK. |
-| [tern](https://github.com/munzzyy/tern) | Installs and updates Android apps straight from where their developers publish them: GitHub, GitLab, Codeberg, SourceForge, F-Droid repositories and plain links. Before Android sees a file it checks who signed it with its own verifier and Android's, holds every update to the certificate of the first install, and compares the publisher's checksum; for 15 well-known apps it carries the developer's certificate, so even the first install is checked. Works by remote on Android TV, where a phone sends links over sealed with a code the TV shows. Tor through Orbot, and it never goes round the proxy. Reads an Obtainium export. About 5 MB, 29 languages, reproducible builds, [one tap from a README](https://tern.munzzyy.dev/). |
-| [sepia](https://github.com/munzzyy/sepia) | Shows you everything a photo or screenshot says about you before you share it: GPS in plain words, camera serial numbers, the hidden preview image, the video clip motion-photo mode glues on. Black out or pixelate what you choose, burned into the pixels, then it re-opens its own output and re-scans it in front of you. The [Android app](https://github.com/munzzyy/sepia/releases/latest/download/sepia.apk) requests zero permissions, so the OS refuses every connection it could ever try. |
-| [magpie](https://github.com/munzzyy/magpie) | An incident journal with receipts, for the landlord who never fixed it and the messages that keep coming. Every entry is encrypted on your device and hash-chained to the one before it, so the record can't be quietly rewritten, you included. Exports are plain zips with a stdlib python script anyone can run to verify the whole record without Magpie, and one head hash pins the journal to a moment. [Android app](https://github.com/munzzyy/magpie/releases/latest/download/magpie.apk), zero permissions, on [F-Droid](https://f-droid.org/packages/io.github.munzzyy.magpie/). |
-| [blot](https://github.com/munzzyy/blot) | A PDF redactor that can't make the famous mistake, because it doesn't keep the text: pages become pixels, ink becomes part of the page, and a new image-only PDF comes out of a writer with no code paths for text, forms, or metadata. The finished file is re-opened and re-counted in front of you, and poppler agrees in the test suite. Refuses what it can't flatten honestly. [Android app](https://github.com/munzzyy/blot/releases/latest/download/blot.apk), zero permissions. |
-| [sweep](https://github.com/munzzyy/sweep) | A plain-language stalkerware checkup, in beta. It checks installed apps against Echap's public indicator list (matched by package name and signing certificate, so renamed copies still match), then reads every surface Android shows an unprivileged app: which permissions each app actually holds, what each accessibility service can see and do, device admins and their powers, notification listeners, keyboards, user-installed certificates, who owns the SMS and dialer roles, and where each app was installed from. Every report opens with what it could not check. Never says "you are safe", never stores results, and a Leave fast button sits on every screen. One permission, no internet. [Android app](https://github.com/munzzyy/sweep/releases/latest/download/sweep.apk). |
-| [nucleus](https://github.com/munzzyy/nucleus) | A local security command center that binds to loopback and nothing else. Paste a username, email, domain, IP, or crypto address and get live passive recon; run an authorized pentest kit with safe runners and a graded web analyzer; check this box's opsec, strip the metadata off a file before you share it, and generate a graded A-F domain report. Six consoles in one app, plus a developer toolbelt and a live system monitor. Pure stdlib Python, zero dependencies, and nothing phones home. |
-| [tellcheck-github](https://github.com/munzzyy/tellcheck-github) | Flags likely AI-generated pull requests and issues on GitHub, and opens every badge to show the signals behind it rather than a bare score. Scans a repo's open PR list 25 at a time. A [Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/tellcheck-for-github/), free, no account. It publishes the number that goes against it: 7.8% of real non-native-English writing comes back flagged, which is why every result says signal, not proof. |
-| [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train the rest of the way beats flying direct. Click-the-map planner that runs in your [browser](https://hopandhaul.munzzyy.dev/) with no install, 4,175 airports, UI in 46 languages. |
-| [liftmath](https://github.com/munzzyy/liftmath) | Gym math you can check: a 1RM estimate from any set you just did, plate loading with a barbell that loads itself as you type, and Wilks/DOTS/IPF strength scores, plus a searchable record book for powerlifting, strongman, grip sport, and track and field. A [web app](https://liftmath.munzzyy.dev/) plus a CLI. |
-| [puzzlepress](https://github.com/munzzyy/puzzlepress) | Seven daily puzzle games in your [browser](https://puzzlepress.munzzyy.dev/): a word guesser, group sorting, a pangram hunt, a mini crossword with hand-written clues, a themed word search, letter chains, and sudoku. Installable as an app. No accounts, no ads, no tracking, zero dependencies, and every puzzle bank ships in the repo. |
-| [coacheck](https://github.com/munzzyy/coacheck) | Reads a research-peptide Certificate of Analysis and does the math: real deliverable purity from the labeled amount, a red-flag checklist for thin or faked COAs, and reconstitution down to syringe units. A calculator, not advice. Python, zero dependencies. |
+|:--------|:-------------|
+| [nucleus](https://github.com/munzzyy/nucleus) | A local security console: passive recon, an authorized pentest kit, opsec checks and file scrubbing. It binds to loopback and nothing else. |
+| [tellcheck-github](https://github.com/munzzyy/tellcheck-github) | Flags pull requests that look AI-written and shows the signals behind every flag. A [Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/tellcheck-for-github/). |
+| [hopandhaul](https://github.com/munzzyy/hopandhaul) | Finds when flying into a cheaper hub and taking the train beats flying direct. [Open it](https://hopandhaul.munzzyy.dev/). |
+| [liftmath](https://github.com/munzzyy/liftmath) | Gym math you can check: 1RM from any set, plate loading, Wilks, DOTS and IPF scores. [Open it](https://liftmath.munzzyy.dev/). |
+| [puzzlepress](https://github.com/munzzyy/puzzlepress) | Seven daily puzzle games with no accounts and no ads. [Play](https://puzzlepress.munzzyy.dev/). |
+| [coacheck](https://github.com/munzzyy/coacheck) | Reads a research-peptide certificate of analysis and does the math. A calculator, not advice. |
 
-They're all open to contributors. Each one ships a CONTRIBUTING file with the setup and the house rules, and the issue trackers are open, so if something is broken or missing, file it and I'll pick it up. Stars genuinely help other people find them.
+All of it is GPL-3.0-or-later, and almost all of it runs with zero dependencies. Every repo has a CONTRIBUTING file and an open issue tracker, and [munzzyy.dev](https://munzzyy.dev) has the whole set on one page.
 
 ## Upstream
 
-More than 140 patches have landed upstream and more than sixty are open, across more than seventy projects: correctness, security, RF/SDR, firmware, hardware docs, accessibility, and translation. That includes the Flipper One's MCU firmware, where I'm one of the ten people with code in the tree before the device ships, its Linux kernel, where a device-tree fix and a USB gadget fix of mine are merged and both are sitting on mainline lists now, and its U-Boot, which applied my btrfs zstd fix from the mainline U-Boot list. Mainline U-Boot itself now carries three more btrfs patches of mine, reviewed by a btrfs maintainer and applied by the project's lead, and the Rockchip custodian tree just took a two-patch SPI series of mine for devices with no wire in one direction, written for the Flipper One's display bus. The two Flipper devices are different machines, so I count them separately: the Flipper One side is 24 merged and 9 open across its kernel, MCU firmware, debug probe, corelibs and docs, and the Flipper Zero side is 8 merged and 5 open across the firmware, apps and catalog. A few that were fun to track down: a stack overread in GNU cpio's tar parser you could hit with a plain `cpio -itv`, a heap out-of-bounds read parsing short iCLASS dumps, byte-order corruption in RFID dump files, authenticode digest buffers that were never null-terminated in YARA, a flipped GPS hemisphere in a photo-evidence app, a use-after-free that fired the moment a run-once event subscription cleaned itself up, and a hard fault you could trigger by unplugging USB mid-command.
+I'm one of the ten people with code in the Flipper One's MCU firmware before the device ships, with more fixes in its Linux kernel, U-Boot, debug probe, corelibs and docs. Mainline U-Boot carries three btrfs patches of mine, reviewed by a btrfs maintainer, and the Rockchip tree took a two-patch SPI series for devices with no wire in one direction. GNU cpio fixed a stack overread in its tar parser that I reported with a repro and a patch; a plain `cpio -itv` could hit it. The rest is memory-safety and correctness work in YARA, osquery, proxmark3, rtl_433, gpac, libevpl and Monero, and fixes in privacy tools like Orbot, ProofMode, mat2 and OONI Probe.
+
+<details>
+<summary><b>Everything merged</b></summary>
 
 ### BUSY Bar
 
 The BUSY Bar shipped in July 2026, so the firmware is young and the bugs are still live. Three I found went upstream together in [busy-app/busybar-firmware #905](https://github.com/busy-app/busybar-firmware/pull/905), which the team wrote themselves from my reports and patches:
 
 | Change | How it got there |
-|--------|------------------|
+|:-------|:-----------------|
 | A zero-size allocation in the JS runner, where `furi_check` turns `malloc(0)` into a reboot, so `console.log("")` restarts the device | reported and patched in [#903](https://github.com/busy-app/busybar-firmware/pull/903), reimplemented by the team |
 | An error string in the HTTP display API leaked on the success path | reported and patched in [#904](https://github.com/busy-app/busybar-firmware/pull/904), reimplemented by the team |
 | A missing union tag in the draw API | reported privately to their security address, fixed in the same PR |
 
 Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/issues/43) used to hand you a version that refused to talk to current firmware: 1.1.0 and 1.2.0 were tagged on GitHub but never published to PyPI, so pip could only reach 1.0.0. Fixed upstream since; current releases publish cleanly.
 
-### Merged
+### Security, firmware and RF
 
 | Repo | Change |
-|------|--------|
+|:-----|:-------|
 | [u-boot/custodians/u-boot-rockchip](https://source.denx.de/u-boot/custodians/u-boot-rockchip) | Support SPI devices with no wire in one direction: a two-patch series applied for the 2027.01 cycle, written for the Flipper One's display bus, where the missing MISO pin doubles as the end-of-frame GPIO |
 | [GNU cpio](https://git.savannah.gnu.org/cgit/cpio.git/commit/?id=e5bb73f8c2f3) | Stack out-of-bounds read parsing unterminated tar uname/gname fields, reachable from `cpio -itv`; reported with a repro and patch, fixed upstream by the maintainer |
 | [flipperdevices/flipper-linux-kernel](https://github.com/flipperdevices/flipper-linux-kernel/pull/18) | Add the missing cache hierarchy to the RK3576 CPU nodes, so Linux stops reporting the Flipper One with no caches |
@@ -125,11 +123,10 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3574) | Fix swapped order/inversion nibbles in the secplus_v2 docs |
 | [merbanan/rtl_433](https://github.com/merbanan/rtl_433/pull/3657) | Widen the m-bus payload offset so the AFL sub-header recursion can't wrap it |
 
-<details>
-<summary><b>The rest of the merged list</b>: RF/SDR, privacy, accessibility, localization, health</summary>
+### RF/SDR, privacy, accessibility, localization and health
 
 | Repo | Change |
-|------|--------|
+|:-----|:-------|
 | [f4exb/sdrangel](https://github.com/f4exb/sdrangel/pull/2795) | Bump bundled faad2 to 2.10.1 to fix a heap overflow |
 | [f4exb/sdrangel](https://github.com/f4exb/sdrangel/pull/2797) | Fix a crash adding a LocalSink channel with no Local Input device |
 | [UberGuidoZ/Flipper](https://github.com/UberGuidoZ/Flipper/pull/684) | Fix dead links in the Sub-GHz docs |
@@ -147,6 +144,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 | [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/135) | Correct the C2PA GPS hemisphere on longitude and latitude |
 | [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/136) | Correct the bitmap stride in QR code generation |
 | [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/138) | Write the C2PA `dc:creator` as a JSON array instead of a bracketed string, so the signed CAWG metadata parses |
+| [guardianproject/proofmode-android](https://github.com/guardianproject/proofmode-android/pull/143) | Stop the share screen crashing when a shared media URI's read grant has expired |
 | [flipperdevices/flipperone-debug-probe](https://github.com/flipperdevices/flipperone-debug-probe/pull/12) | Keep the DAP ring-buffer backpressure working after the pointers wrap, plus NULL handle derefs and a CDC error read as a huge length ([#16](https://github.com/flipperdevices/flipperone-debug-probe/pull/16), [#15](https://github.com/flipperdevices/flipperone-debug-probe/pull/15), [#14](https://github.com/flipperdevices/flipperone-debug-probe/pull/14)) |
 | [flipperdevices/flipperone-docs](https://github.com/flipperdevices/flipperone-docs/pull/423) | A docs validator for fragment anchors and broken image paths, plus microSD, charger and fuel-gauge part-number fixes ([#427](https://github.com/flipperdevices/flipperone-docs/pull/427), [#422](https://github.com/flipperdevices/flipperone-docs/pull/422), [#421](https://github.com/flipperdevices/flipperone-docs/pull/421)) |
 | [hotosm/tasking-manager](https://github.com/hotosm/tasking-manager/pull/7287) | Replace Nominatim reverse geocoding with an in-database pg-nearest-city lookup |
@@ -199,7 +197,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 </details>
 
 <details>
-<summary><b>Open / in review</b>: 63 PRs across 44 repos</summary>
+<summary><b>Open and in review</b>: 66 across 45 projects</summary>
 
 **Security and detection**
 - [assimp/assimp #6800](https://github.com/assimp/assimp/pull/6800): out-of-bounds access on short uv source and mapping mode properties
@@ -238,18 +236,26 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 **FreeWili 2** (1 open): the RP2350B handheld, before it ships
 - [freewili/wilibsp #28](https://github.com/freewili/wilibsp/pull/28): a USB `wMaxPacketSize` copied unbounded into a 64-byte DPRAM window, four IR decoders accepting over-long frames, a UF2 check that ignored the family ID, and signed CIC accumulators; each fix with a test that fails without it, plus the repo's first CI
 
-**Flipper Zero** (5 open): apps, host tooling, and the RPC libraries
+**Flipper Zero** (6 open): firmware, apps, host tooling, and the RPC libraries
+- [flipperdevices/flipperzero-firmware #4452](https://github.com/flipperdevices/flipperzero-firmware/pull/4452): passing the same RX callback to both UARTs trips a `furi_check` and kills the firmware
 - [flipperdevices/qFlipper #255](https://github.com/flipperdevices/qFlipper/pull/255): crash when a log message arrives with no category
 - [flipperdevices/flipperzero-good-faps #308](https://github.com/flipperdevices/flipperzero-good-faps/pull/308): mfkey redoes recovery for nonces it already solved
 - [flipperdevices/video-game-module #16](https://github.com/flipperdevices/video-game-module/pull/16): check the screen frame size before copying it
 - [flipperdevices/video-game-module #17](https://github.com/flipperdevices/video-game-module/pull/17): reject data frames larger than the receive buffer
 - [flipperdevices/flipperzero-ufbt #68](https://github.com/flipperdevices/flipperzero-ufbt/pull/68): a build killed by a signal is reported as a success
 
-**GrapheneOS** (4 open): a first wave across their app and allocator repos, every fix reproduced before it was written
-- [GrapheneOS/PdfViewer #736](https://github.com/GrapheneOS/PdfViewer/pull/736): the zoom out button stopped at 25% while pinch to zoom reached the real 20% minimum
+**TentacleOS** (4 open): firmware for the ESP32-P4 High Boy handheld
+- [HighCodeh/TentacleOS #159](https://github.com/HighCodeh/TentacleOS/pull/159): the firmware didn't build from a clean checkout (an lvgl 9.6 break and a missing mbedtls DES option)
+- [HighCodeh/TentacleOS #160](https://github.com/HighCodeh/TentacleOS/pull/160): the host emulator's tests stopped building after the SPI frame CRC change
+- [HighCodeh/TentacleOS #161](https://github.com/HighCodeh/TentacleOS/pull/161): bring the interactive SDL simulator back to life on current dev
+- [HighCodeh/TentacleOS #162](https://github.com/HighCodeh/TentacleOS/pull/162): bounds-check the ELF sections of a sideloaded app before the loader copies them
+
+**GrapheneOS** (2 open): fixes in their allocator and Info app, every one reproduced before it was written
 - [GrapheneOS/hardened_malloc #374](https://github.com/GrapheneOS/hardened_malloc/pull/374): get `make tidy` back to green by restructuring the two remaining analyzer complaints instead of suppressing them
-- [GrapheneOS/Auditor #370](https://github.com/GrapheneOS/Auditor/pull/370): backing out of the QR scanner left a stale UI stage, so the next rotation blanked everything but the toolbar
 - [GrapheneOS/Info #132](https://github.com/GrapheneOS/Info/pull/132): show a translated offline message with a Retry action instead of a raw `UnknownHostException` toast
+
+**F-Droid**
+- [fdroid/fdroidserver !1863](https://gitlab.com/fdroid/fdroidserver/-/merge_requests/1863): list every certificate in a rotated app's signing lineage, so a client can match a copy signed with the old key
 
 **Accessibility**
 - [jcsteh/osara #1434](https://github.com/jcsteh/osara/pull/1434): on the Mac, messages that carry a menu access key never find their translations, so localized menus read out in English
@@ -260,7 +266,7 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [guardianproject/ripple #45](https://github.com/guardianproject/ripple/pull/45): integer division collapses the panic-swipe ripple to zero on odd screen heights
 - [guardianproject/tor-android #197](https://github.com/guardianproject/tor-android/pull/197): NullPointerException in `getPortFromGetInfo` when `getInfo()` fails
 - [guardianproject/tor-android #198](https://github.com/guardianproject/tor-android/pull/198): pin jar timestamps so builds of the same commit come out byte-identical
-- [guardianproject/proofmode-android #143](https://github.com/guardianproject/proofmode-android/pull/143): the share screen crashes when a shared media URI's read grant has expired
+- [guardianproject/wind/fdroid-metadata !27](https://gitlab.com/guardianproject/wind/fdroid-metadata/-/merge_requests/27): a browse link beside the repo mirrors a browser can't list
 - [guardianproject/info !114](https://gitlab.com/guardianproject/info/-/merge_requests/114): remove the tutorials archive page
 
 **Cryptography and wallets**
@@ -272,7 +278,6 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 - [openclimatefix/graph_weather #231](https://github.com/openclimatefix/graph_weather/pull/231): division-by-zero on single-axis grids
 - [openclimatefix/graph_weather #230](https://github.com/openclimatefix/graph_weather/pull/230): guard optional data-module imports
 - [omacom/omarchy #8076](https://github.com/omacom/omarchy/pull/8076): stop the hybrid GPU test failing on a machine without Omarchy installed
-- [omacom/omarchy #8088](https://github.com/omacom/omarchy/pull/8088): keep the migration list off each migration's stdin
 
 **Health / food**
 - [openfoodfacts/robotoff #1919](https://github.com/openfoodfacts/robotoff/pull/1919): anchor nutrient-mention regex alternatives on word boundaries
@@ -290,11 +295,13 @@ Also traced why [`pip install busylib`](https://github.com/busy-app/busylib-py/i
 
 ## Support
 
-All of this is free and maintained on my own time. If one of these tools saves you a trip, a bad batch, or an afternoon of debugging, [sponsoring](https://github.com/sponsors/munzzyy) is what keeps it that way. Every sponsor gets a permanent line in [SUPPORTERS.md](SUPPORTERS.md).
+If one of these saves you an afternoon, [sponsoring](https://github.com/sponsors/munzzyy) is what keeps them free, and every sponsor gets a line in [SUPPORTERS.md](SUPPORTERS.md). Monero works too:
+
+```
+8BApLkfsBS39oNXz4L1qCmZ7f5zKVRr1qLJgrHddRZb4JRcnjDkcKdk7wW7uThCeV9CuLn8o7gAn8d6vFeWNiyeXSmrRUSq
+```
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/route-dark.svg">
   <img alt="" src="assets/route-light.svg" width="100%">
 </picture>
-
-<p align="center"><sub>Munzzyy1@proton.me</sub></p>
