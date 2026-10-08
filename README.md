@@ -22,7 +22,7 @@ Signal with the things Molly's users have been asking for and Molly never shippe
 |---|---|
 | [Wren](https://github.com/munzzyy/wren) (Android, built on Molly) | A duress passphrase that erases the app, wipe after N wrong unlocks, a panic button that can erase and asks before a trigger app connects, chat export to HTML, text, JSON or an encrypted file, a device check with one-tap hardened defaults, a pure black theme, and a build with no Firebase or Play Services code, proven by a script. Threat model and audit guide in the repo. |
 | [Wren Desktop](https://github.com/munzzyy/wren-desktop) (Linux, Windows, macOS, built on Signal Desktop) | The app lock Signal refused to add: a passphrase that wraps the database key, a duress passphrase, wipe after wrong tries, auto-lock, a proxy and Tor setting that stays offline when the proxy is down, and chat export. Molly has no desktop app at all. |
-| [Wren iOS](https://github.com/munzzyy/wren-ios) | The rebrand and a CI recipe for an unsigned IPA, not built yet. Honest limit: without an Apple developer account there are no push notifications, so it will only ever be a sideload. |
+| [Wren iOS](https://github.com/munzzyy/wren-ios) | The rebrand plus a CI job that builds an unsigned IPA; nobody has run it on a phone yet. Honest limit: without an Apple developer account there are no push notifications, so it will only ever be a sideload. |
 
 ## Android apps
 
