@@ -42,6 +42,7 @@ No accounts and no tracking. Starling and Magpie are on F-Droid, and the rest ar
 | Project | What it does |
 |:--------|:-------------|
 | [warmap](https://github.com/munzzyy/warmap) | A desktop map for wardriving captures: Marauder and WiGLE CSVs, pcaps, Bluetooth trackers and every Flipper Zero file, placed against your GPS track, with 137,000 ALPR cameras as an overlay and a phone app over your own Wi-Fi. Builds for Linux, Windows and macOS. |
+| [crv2svg](https://github.com/munzzyy/crv2svg) | Opens Vectric CNC project files (VCarve, Aspire, Cut2D) without Vectric and saves the drawing as SVG or DXF. Until now the only way to get a design back out of a `.crv` was a paid licence. Reads releases 6 through 11.5, in the browser with nothing uploaded, or from the command line. [Open it](https://crv2svg.munzzyy.dev/). |
 | [roomgauge](https://github.com/munzzyy/roomgauge) | Tells you whether a Matrix room is actually alive from its last messages, not its member count. One stdlib Python command with live, quiet, dead, unmeasured and space verdicts. |
 | [nucleus](https://github.com/munzzyy/nucleus) | A local security console: passive recon, an authorized pentest kit, opsec checks and file scrubbing. It binds to loopback and nothing else. |
 | [tellcheck-github](https://github.com/munzzyy/tellcheck-github) | Flags pull requests that look AI-written and shows the signals behind every flag. A [Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/tellcheck-for-github/). |
