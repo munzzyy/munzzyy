@@ -53,6 +53,16 @@ No accounts and no tracking. Starling and Magpie are on F-Droid, and the rest ar
 
 All of it is GPL-3.0-or-later, and almost all of it runs with zero dependencies. Every repo has a CONTRIBUTING file and an open issue tracker, and [munzzyy.dev](https://munzzyy.dev) has the whole set on one page.
 
+## Streaming on Linux
+
+My webcam, an EMEET SmartCam C60E 4K Dual, came with Windows-only software and an IR remote whose changes Linux never saw, because the driver served a cache the firmware never told it to drop. [The write-up](https://log.munzzyy.dev/posts/a-remote-the-driver-could-not-see.html) has the details.
+
+| Project | What it does |
+|:--------|:-------------|
+| [uvcvideo-emeet](https://github.com/munzzyy/uvcvideo-emeet) | A one-device quirk for the kernel's uvcvideo driver so control reads come from the camera, not the cache. Out-of-tree build against the v7.2.8 sources, DKMS files and a live check script. GPL-2.0, like the driver it patches. |
+| [cameractrls-emeet](https://github.com/munzzyy/cameractrls-emeet) | A fork of cameractrls with everything this camera has: the remote's buttons and their real zoom steps, the status light over its HID channel, named presets, a live preview, 4K capture modes, a gamepad profile and a dark-picture watchdog. GTK 4, also builds as a Flatpak. LGPL-3.0, as upstream. |
+| [lark](https://github.com/munzzyy/lark) | A control room for OBS Studio: a Go Live button with a pre-flight checklist, scenes, audio, camera framing, overlays, Twitch chat, alerts, a chat bot, a highlight logger and a button deck. Python and PySide6, local only. |
+
 ## Upstream
 
 I'm one of the ten people with code in the Flipper One's MCU firmware before the device ships, with more fixes in its Linux kernel, U-Boot, debug probe, corelibs and docs. Mainline U-Boot carries three btrfs patches of mine, reviewed by a btrfs maintainer, and the Rockchip tree took a two-patch SPI series for devices with no wire in one direction. GNU cpio fixed a stack overread in its tar parser that I reported with a repro and a patch; a plain `cpio -itv` could hit it. The rest is memory-safety and correctness work in YARA, osquery, proxmark3, rtl_433, gpac, libevpl and Monero, and fixes in privacy tools like Orbot, ProofMode, mat2 and OONI Probe.
